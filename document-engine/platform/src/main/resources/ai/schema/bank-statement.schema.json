@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "transactions", "checks"],
+  "properties": {
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bankName",
+        "accountHolderName",
+        "accountHolderAddress",
+        "accountNumber",
+        "statementPeriodStart",
+        "statementPeriodEnd",
+        "beginningBalance",
+        "endingBalance",
+        "totalDeposits",
+        "totalWithdrawals"
+      ],
+      "properties": {
+        "bankName": { "$ref": "#/$defs/textCell" },
+        "accountHolderName": { "$ref": "#/$defs/textCell" },
+        "accountHolderAddress": { "$ref": "#/$defs/textCell" },
+        "accountNumber": { "$ref": "#/$defs/textCell" },
+        "statementPeriodStart": { "$ref": "#/$defs/dateCell" },
+        "statementPeriodEnd": { "$ref": "#/$defs/dateCell" },
+        "beginningBalance": { "$ref": "#/$defs/moneyCell" },
+        "endingBalance": { "$ref": "#/$defs/moneyCell" },
+        "totalDeposits": { "$ref": "#/$defs/moneyCell" },
+        "totalWithdrawals": { "$ref": "#/$defs/moneyCell" }
+      }
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "description", "amount", "direction", "page"],
+        "properties": {
+          "date": { "$ref": "#/$defs/dateCell" },
+          "description": { "$ref": "#/$defs/textCell" },
+          "amount": { "$ref": "#/$defs/moneyCell" },
+          "balance": { "$ref": "#/$defs/moneyCellNullable" },
+          "direction": { "type": "string", "enum": ["DEPOSIT", "WITHDRAWAL"] },
+          "page": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["checkNumber", "datePaid", "amount", "page"],
+        "properties": {
+          "checkNumber": { "$ref": "#/$defs/textCell" },
+          "datePaid": { "$ref": "#/$defs/dateCell" },
+          "amount": { "$ref": "#/$defs/moneyCell" },
+          "page": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+    "textCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": { "type": ["string", "null"] },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "dateCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "ISO-8601 yyyy-MM-dd, or null if not readable"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "moneyCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "decimal string, no currency symbol or commas, for example 1234.56"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "moneyCellNullable": { "$ref": "#/$defs/moneyCell" }
+  }
+}

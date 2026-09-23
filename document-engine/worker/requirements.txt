@@ -1,0 +1,38 @@
+# Parser worker runtime — Phase 2.
+# Every pin must pass the licence gate (licenses/policy.toml). No GPL/AGPL. LGPL only
+# under a package-scoped exemption: opencv-python-headless and pi-heif, both documented.
+#
+# ⚠️ rapidocr-onnxruntime declares a dependency on NON-headless opencv-python.
+# The Docker image must `pip install --no-deps rapidocr-onnxruntime` after this
+# file, so only opencv-python-headless (the LICENSING.md 5.1 exemption) ships.
+# Local venvs may carry both; the image must not.
+fastapi==0.141.1
+# FastAPI Form/File multipart parsing (Apache-2.0). The render/text routes use a
+# stdlib parser; the OCR route uses FastAPI's — both are contract-tested.
+python-multipart==0.0.32
+uvicorn[standard]==0.52.0
+pypdfium2==5.12.1
+pdfplumber==0.11.10
+pypdf==6.14.2
+# rapidocr installed with --no-deps in the image (see Dockerfile) so its declared
+# opencv-python (NON-headless) dependency never ships; its real runtime deps are
+# pinned explicitly here instead.
+rapidocr-onnxruntime==1.4.4
+onnxruntime==1.28.0
+pyclipper==1.4.0
+PyYAML==6.0.3
+shapely==2.1.2
+six==1.17.0
+tqdm==4.70.0
+pytesseract==0.3.13
+opencv-python-headless==5.0.0.93
+pillow==12.3.0
+# HEIC/HEIF decoding — an iPhone's default photo format, which Pillow cannot read on
+# its own. DECODE-ONLY by construction: the wheel bundles libheif and libde265 (both
+# LGPL-3.0, exempted per LICENSING.md 5.4) and no encoder.
+#
+# ⚠️ NOT `pillow-heif`, its encoder-carrying sibling. That wheel bundles x265 and is
+# therefore GPLv2 by its own declaration — a hard blocker, not a trade (LICENSING.md 6).
+# The absent encoder is why no test in this repo can generate a HEIC.
+pi-heif==1.4.0
+numpy==2.5.1

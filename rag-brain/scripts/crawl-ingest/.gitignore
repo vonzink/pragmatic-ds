@@ -1,0 +1,5 @@
+# Staging output + local editable source list + venv. The example + code are tracked.
+out/
+sources.json
+.venv/
+__pycache__/

@@ -1,0 +1,438 @@
+spring:
+  application:
+    name: rag-brain
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:6435/pds_rag_brain}
+    username: ${DB_USERNAME:pds_rag_brain}
+    password: ${DB_PASSWORD:pds_local_dev_only}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate   # schema is owned by Flyway, never by Hibernate
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 26MB
+
+  ai:
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY:}
+      chat:
+        options:
+          model: ${DEFAULT_AI_MODEL:claude-haiku-4-5}
+          temperature: 0.2
+          max-tokens: 1500
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      chat:
+        options:
+          model: ${FALLBACK_AI_MODEL:gpt-4.1-nano}
+          temperature: 0.2
+      embedding:
+        options:
+          model: ${EMBEDDING_MODEL:text-embedding-3-small}
+          dimensions: ${EMBEDDING_DIMENSIONS:1536}
+
+server:
+  port: 8080
+  max-http-request-header-size: 16KB
+
+# Which domain pack this deployment runs (see packs/ and the platform spec).
+brain:
+  pack: ${BRAIN_PACK:packs/generic}
+  slug: ${BRAIN_SLUG:generic}
+  name: ${BRAIN_NAME:Generic Brain}
+  providers:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY:}
+      base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+      model: ${DEEPSEEK_MODEL:deepseek-v4-flash}
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      base-url: ${GEMINI_BASE_URL:https://generativelanguage.googleapis.com/v1beta/openai}
+      model: ${GEMINI_MODEL:gemini-2.5-flash}
+    grok:
+      api-key: ${GROK_API_KEY:}
+      base-url: ${GROK_BASE_URL:https://api.x.ai/v1}
+      model: ${GROK_MODEL:grok-4.3}
+    local:
+      base-url: ${LOCAL_LLM_BASE_URL:}
+      api-key: ${LOCAL_LLM_API_KEY:}
+      model: ${LOCAL_LLM_MODEL:}
+  local-llm:
+    allowed-hosts: ${LOCAL_LLM_ALLOWED_HOSTS:}
+  corpus:
+    bucket: ${S3_BUCKET:}
+    prefix: ${S3_PREFIX:}
+    region: ${AWS_REGION:us-west-1}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+# ------------------------------------------------------------
+# RAG Brain application configuration
+# ------------------------------------------------------------
+ragbrain:
+  # Generalized instance registry administration is a separate deployment switch from the legacy
+  # Income Lab prototype. Off means no generalized controller or service beans are registered.
+  #
+  # Rollout order (docs/runbooks/instance-control-plane-rollout.md): `enabled` first — reads
+  # only — then the dashboard build flag, then `execution.enabled`, then `connector-enabled`,
+  # then `promotion-enabled`, each verified before the next. Every child flag requires `enabled`;
+  # an incoherent combination refuses at startup naming the property keys
+  # (InstanceControlStartupValidator), so a misconfigured deployment never half-starts.
+  instances:
+    enabled: ${RAGBRAIN_INSTANCES_ENABLED:false}
+    # ------------------------------------------------------------
+    # The Document Engine's own bank-statement field names, used by the assets.ledger.v1
+    # tool to build the transaction ledger from parsed facts instead of asking a model to
+    # transcribe it. These are ENGINE field names, not guideline policy — they change when
+    # the engine's extraction schema changes, not when a rule does. Analyzer policy stays in
+    # packs/*/analyzers.yaml; this cannot live there because a tool executor is resolved from
+    # a global registry with no brain in scope.
+    #
+    # Left empty the tool registers (so its digests stay stable) but refuses to run and warns
+    # at boot. It deliberately does NOT fall back to an empty ledger, which would reconcile
+    # trivially and read as a clean review of no statements at all.
+    #
+    # Rows are found by the engine's own groupKey: fields with a null key are the account
+    # header, and each distinct non-null key is one transaction.
+    #
+    # transaction.direction is only for an engine that reports magnitude plus a separate
+    # credit/debit indicator. Leave it unset when amounts already carry their sign — getting
+    # it wrong makes the reconciliation check fail loudly rather than corrupting totals.
+    # ------------------------------------------------------------
+    assets-ledger:
+      document-types: ${RAGBRAIN_ASSETS_LEDGER_DOCUMENT_TYPES:}
+      account:
+        institution: ${RAGBRAIN_ASSETS_LEDGER_INSTITUTION:}
+        masked-number: ${RAGBRAIN_ASSETS_LEDGER_MASKED_NUMBER:}
+        type: ${RAGBRAIN_ASSETS_LEDGER_ACCOUNT_TYPE:}
+        statement-start: ${RAGBRAIN_ASSETS_LEDGER_STATEMENT_START:}
+        statement-end: ${RAGBRAIN_ASSETS_LEDGER_STATEMENT_END:}
+        beginning-balance: ${RAGBRAIN_ASSETS_LEDGER_BEGINNING_BALANCE:}
+        ending-balance: ${RAGBRAIN_ASSETS_LEDGER_ENDING_BALANCE:}
+      transaction:
+        date: ${RAGBRAIN_ASSETS_LEDGER_TXN_DATE:}
+        description: ${RAGBRAIN_ASSETS_LEDGER_TXN_DESCRIPTION:}
+        amount: ${RAGBRAIN_ASSETS_LEDGER_TXN_AMOUNT:}
+        running-balance: ${RAGBRAIN_ASSETS_LEDGER_TXN_RUNNING_BALANCE:}
+        direction: ${RAGBRAIN_ASSETS_LEDGER_TXN_DIRECTION:}
+        credit-values: ${RAGBRAIN_ASSETS_LEDGER_TXN_CREDIT_VALUES:}
+    # Moving an instance's live pointer is a separate switch from hosting the authoring
+    # surface: a deployment can create and evaluate candidates with promotion off, and
+    # promote/rollback then refuse with INSTANCE_PROMOTION_DISABLED while every read and
+    # every gate check stays available. Requires `enabled`.
+    promotion-enabled: ${RAGBRAIN_INSTANCES_PROMOTION_ENABLED:false}
+    # The Document Manager server-to-server surface (docs/integrations/
+    # document-manager-instance-runs.md). Requires `enabled` plus a configured Document Engine
+    # and a non-empty model catalog — startup refuses otherwise, because a connector surface
+    # that authenticates callers only to fail every launch is worse than one that is absent.
+    connector-enabled: ${RAGBRAIN_INSTANCES_CONNECTOR_ENABLED:false}
+    # ------------------------------------------------------------
+    # Retention for terminal instance-run history: groups, members, usage, reservations,
+    # encrypted payloads, and connector contexts, purged oldest-first in FK-safe order once a
+    # group has been terminal this many days. 0 = not decided — and deliberately NOT "keep
+    # forever": enabling execution with retention undecided refuses at startup, because an
+    # indefinite default for encrypted run history is a policy nobody chose. Releases,
+    # snapshots, catalog versions, pointer events, and audit rows are never purged by this.
+    # ------------------------------------------------------------
+    retention:
+      terminal-run-days: ${RAGBRAIN_INSTANCES_RETENTION_TERMINAL_RUN_DAYS:0}
+      batch-size: ${RAGBRAIN_INSTANCES_RETENTION_BATCH_SIZE:500}
+      cron: ${RAGBRAIN_INSTANCES_RETENTION_CRON:0 45 3 * * *}
+    # How often the lease-recovery sweep runs, in milliseconds.
+    #
+    # This sweep SETTLES work rather than dispatching any: it marks a member whose lease
+    # has elapsed INTERRUPTED, gives its spend reservation back and rolls its group up. It
+    # is therefore gated on `enabled` alone, so turning execution off — the documented
+    # rollback — cannot leave a PROCESSING member stranded with its budget encumbered.
+    # While execution is on the poller drives recovery on the poll interval instead, ahead
+    # of each claim, and this sweep stands down.
+    recovery-sweep-ms: ${RAGBRAIN_INSTANCES_RECOVERY_SWEEP_MS:60000}
+    # ------------------------------------------------------------
+    # Bounded concurrent dispatch. Off means no dispatcher and no poller is constructed
+    # at all, so a deployment can create and inspect run groups while nothing executes
+    # them. What is already in flight still settles: see recovery-sweep-ms above.
+    #
+    # Four scopes because they protect four different things: the deployment limit
+    # protects this process, the per-brain limit stops one tenant starving the
+    # others, the per-provider limit keeps a provider's rate limit from being what
+    # discovers the problem, and the per-instance limit stops one comparison group
+    # taking every slot. Defaults are deliberately small: a low limit slows a queue
+    # visibly, while a high one finds a rate limit in production.
+    # ------------------------------------------------------------
+    execution:
+      enabled: ${RAGBRAIN_INSTANCES_EXECUTION_ENABLED:false}
+      max-concurrent-runs: ${RAGBRAIN_INSTANCES_MAX_CONCURRENT_RUNS:4}
+      max-concurrent-runs-per-brain: ${RAGBRAIN_INSTANCES_MAX_RUNS_PER_BRAIN:2}
+      max-concurrent-runs-per-provider: ${RAGBRAIN_INSTANCES_MAX_RUNS_PER_PROVIDER:2}
+      max-concurrent-runs-per-instance: ${RAGBRAIN_INSTANCES_MAX_RUNS_PER_INSTANCE:1}
+      poll-interval: ${RAGBRAIN_INSTANCES_POLL_INTERVAL:PT5S}
+      # Longer than any single run should take. An expired lease is a no-replay
+      # boundary, so setting this too short turns slow runs into INTERRUPTED ones.
+      lease-duration: ${RAGBRAIN_INSTANCES_LEASE_DURATION:PT10M}
+    # ------------------------------------------------------------
+    # Model catalog. Read only while instances are enabled, and canonicalized into
+    # an immutable lab_model_catalog_version on first use: editing anything below
+    # appends a new version rather than restating what past runs cost.
+    #
+    # A model is offerable only if it appears here AND its provider has a
+    # registered bean, which happens only when that provider's API key is set.
+    # Removing a credential therefore removes the model with no code change.
+    # Nothing here is hardcoded in Java or in the dashboard.
+    #
+    # PRICES ARE USD PER MILLION TOKENS AND MUST BE REVIEWED BEFORE ENABLING THIS
+    # FEATURE. Written 2026-08-25 against Anthropic's published first-party rates.
+    # cached-input-usd-per-million is derived from the documented cache-read
+    # multiplier rather than a separately published per-model rate; leave it unset
+    # for a provider that has no distinct cached rate and the full input rate
+    # applies, which over-reserves rather than under-reserves.
+    #
+    # tokenizer: EXACT_PROVIDER or CONSERVATIVE_RANGE. Declaring EXACT_PROVIDER
+    # does not itself produce exact counts - no provider tokenizer ships in this
+    # build, so every measured text is still reported as a labelled range.
+    # ------------------------------------------------------------
+    # Prices and ceilings verified 2026-08-29 against the published rates. Opus was removed
+    # deliberately (owner's call, 2026-08-29: too expensive for this workload) — the catalog is
+    # the ONLY source of offerable models, so a model absent here cannot be selected for a run.
+    #
+    # The ceilings are per-model facts, not a house style: Haiku 4.5 is a 200K-context model with
+    # a 64K output cap, where Sonnet 5 is 1M/128K. Copying Sonnet's numbers onto Haiku would let
+    # a run be sized past what the provider will accept.
+    models:
+      - provider: anthropic
+        model: claude-sonnet-5
+        context-token-ceiling: 1000000
+        output-token-ceiling: 128000
+        tokenizer: CONSERVATIVE_RANGE
+        input-usd-per-million: 2.00
+        cached-input-usd-per-million: 0.20
+        output-usd-per-million: 10.00
+      # Sonnet 4.5 is what the raw income-v2 and assets-v2 analyzers run on (the pack's
+      # model-override). Offering it here lets an instance release run the same model, so a
+      # comparison of the two paths differs in the path and not the model. 200K/64K, $3/$15.
+      - provider: anthropic
+        model: claude-sonnet-4-5
+        context-token-ceiling: 200000
+        output-token-ceiling: 64000
+        tokenizer: CONSERVATIVE_RANGE
+        input-usd-per-million: 3.00
+        cached-input-usd-per-million: 0.30
+        output-usd-per-million: 15.00
+      - provider: anthropic
+        model: claude-haiku-4-5
+        context-token-ceiling: 200000
+        output-token-ceiling: 64000
+        tokenizer: CONSERVATIVE_RANGE
+        input-usd-per-million: 1.00
+        cached-input-usd-per-million: 0.10
+        output-usd-per-million: 5.00
+
+  # ------------------------------------------------------------
+  # Income Lab prototype (feature-flagged, admin-only, default OFF).
+  # With enabled=false nothing below is validated and no Document Engine adapter
+  # bean is created, so every existing route behaves exactly as before.
+  # ------------------------------------------------------------
+  lab:
+    enabled: ${RAGBRAIN_LAB_ENABLED:false}
+    # Lab upload ceiling. MUST stay <= spring.servlet.multipart.max-file-size (25MB)
+    # above; a Lab upload is rejected from MultipartFile.getSize() before any engine
+    # call, so an oversized file never reaches Document Engine.
+    max-upload-bytes: ${LAB_MAX_UPLOAD_BYTES:26214400}   # 25 MiB
+    # AES-256-GCM key for encrypted Lab run payloads and discussion bodies: exactly 32
+    # bytes, Base64-encoded. Required only while the Lab is enabled. Deliberately NOT bound
+    # through LabProperties, whose constructor validates eagerly: a missing or malformed key
+    # must disable Lab requests with a safe 503, never prevent ordinary RAG Brain startup
+    # while the feature is off. Never exposed to a browser or a JavaScript bundle.
+    payload-key: ${LAB_PAYLOAD_KEY:}
+    engine:
+      # Host bootRun talks to the accepted engine directly; a containerized app uses
+      # http://host.docker.internal:9090 with an explicit host-gateway mapping.
+      # Must carry no user info, query, or fragment — the adapter refuses those.
+      base-url: ${LAB_ENGINE_BASE_URL:http://localhost:9090}
+      # Exactly one auth mode; two configured is refused as loudly as none.
+      #
+      # api-key is the deployment mode: the engine's service-to-service protocol for machine
+      # consumers. The key travels in X-DocEngine-Api-Key, and the engine resolves the org and
+      # the granted scopes FROM the key — so this side asserts no role and no tenant. Give the
+      # key the least scope the engine offers for reading engine results; this client only GETs.
+      #
+      # bearer-token is the engine's human-operator OIDC path. It is one static string here with
+      # nothing to refresh it, so a short-lived token expires into 401s on every run — usable
+      # only where the token's lifetime is operated deliberately.
+      #
+      # dev-auth sends the engine's local X-Dev-Org header plus a backend-fixed X-Dev-Role:
+      # ADMIN. Local development only.
+      #
+      # No value here is ever exposed to a browser or a JavaScript bundle.
+      api-key: ${LAB_ENGINE_API_KEY:}
+      dev-auth: ${LAB_ENGINE_DEV_AUTH:false}
+      org-id: ${LAB_ENGINE_ORG_ID:}
+      bearer-token: ${LAB_ENGINE_BEARER_TOKEN:}
+      # Refuse an engine result larger than this before downloading its body.
+      max-envelope-bytes: ${LAB_ENGINE_MAX_ENVELOPE_BYTES:8388608}   # 8 MiB
+      connect-timeout-ms: ${LAB_ENGINE_CONNECT_TIMEOUT_MS:5000}
+      read-timeout-ms: ${LAB_ENGINE_READ_TIMEOUT_MS:30000}
+
+  rag:
+    # HTTP timeouts for outbound AI provider/embedding calls. Without these,
+    # a hung provider blocks the request thread indefinitely. read-timeout-ms
+    # must comfortably exceed normal completion latency.
+    ai:
+      connect-timeout-ms: ${AI_CONNECT_TIMEOUT_MS:10000}
+      read-timeout-ms: ${AI_READ_TIMEOUT_MS:60000}
+      # Caps the source context packed into a prompt (cl100k_base tokens). Guards
+      # against overflowing a model's context window on large retrievals; the
+      # top-ranked chunk is always kept even if it alone exceeds the budget.
+      max-context-tokens: ${AI_MAX_CONTEXT_TOKENS:12000}
+    routing:
+      default-provider: ${DEFAULT_AI_PROVIDER:anthropic}
+      fallback-provider: ${FALLBACK_AI_PROVIDER:openai}
+    retrieval:
+      top-k: ${RETRIEVAL_TOP_K:8}
+      min-results: 3
+      # Calibrated against text-embedding-3-small: good question->passage
+      # matches score ~0.45-0.60 cosine, so 0.35 combined is a real signal.
+      confidence-threshold: ${RETRIEVAL_CONFIDENCE_THRESHOLD:0.35}
+      # weights for hybrid score merge (must sum to 1.0)
+      vector-weight: 0.65
+      keyword-weight: 0.35
+      # LLM reranking: scores the candidate pool for true relevance before
+      # the top-k chunks go to the answer model
+      rerank-enabled: ${RETRIEVAL_RERANK_ENABLED:true}
+      rerank-candidates: 24
+      # Authority tie-break: among chunks the scorer rated EQUALLY, prefer the more
+      # authoritative source (INTERNAL_POLICY > AGENCY_GUIDELINE > INVESTOR_OVERLAY
+      # > EDUCATIONAL). Runs after the reranker, which is what decides relevance —
+      # this only settles ties, and never demotes a higher-scoring chunk.
+      authority-ordering-enabled: ${RETRIEVAL_AUTHORITY_ORDERING_ENABLED:true}
+      # How close two scores must be to count as tied. 0.0 = exact ties only, which
+      # still fires constantly because the reranker quantizes to 0.1 steps. Raise it
+      # to let authority settle near-ties too; every increase lets authority override
+      # a slightly better relevance score, so move it with the eval, not by feel.
+      authority-tie-band: ${RETRIEVAL_AUTHORITY_TIE_BAND:0.0}
+    chunking:
+      target-tokens: 1000      # within the 700–1200 spec range
+      max-tokens: 1200
+      overlap-tokens: 150
+    storage:
+      path: ${DOCUMENT_STORAGE_PATH:./data/documents}
+    packs:
+      # Where dashboard-generated starter packs are written. MUST be persistent
+      # storage (a mounted volume), separate from the read-only bundled packs/
+      # baked into the image — otherwise brains created from the dashboard lose
+      # their pack on redeploy and every request to them 500s.
+      generated-path: ${GENERATED_PACKS_PATH:./data/packs}
+    retention:
+      # Prune append-only ops tables (ai_audit_logs, rag_traces,
+      # brain_connector_events, brain_tool_adapter_runs) older than this many days.
+      # 0 = disabled (keep forever). ai_audit_logs is a compliance trail, so this is
+      # OFF by default — set a window per your retention policy. Pruning runs daily
+      # (cron) in bounded batches.
+      days: ${OPS_RETENTION_DAYS:0}
+      batch-size: ${OPS_RETENTION_BATCH_SIZE:5000}
+      cron: ${OPS_RETENTION_CRON:0 30 3 * * *}
+    learning:
+      # Adaptive-retrieval learning loop (design 2026-07-06). All bounded/revertible;
+      # per-brain switch (brains.learning_enabled) defaults OFF so this is inert
+      # until an operator opts a brain in.
+      weight-min: ${LEARNING_WEIGHT_MIN:0.8}            # hard clamp floor (-20%)
+      weight-max: ${LEARNING_WEIGHT_MAX:1.2}            # hard clamp ceiling (+20%)
+      max-delta-per-run: ${LEARNING_MAX_DELTA_PER_RUN:0.05}  # max weight move per job run (+/-5%)
+      min-evidence: ${LEARNING_MIN_EVIDENCE:5}          # feedback rows needed before any adjust
+      admin-vote-weight: ${LEARNING_ADMIN_VOTE_WEIGHT:3}     # an admin rating counts as N end-user
+      review-threshold: ${LEARNING_REVIEW_THRESHOLD:0.10}    # cumulative shift beyond this -> review queue
+      decay: ${LEARNING_DECAY:0.98}                     # per-run pull of every weight toward 1.0
+      job-cron: ${LEARNING_JOB_CRON:0 15 * * * *}       # hourly aggregation job
+      # App-level backstop: forces the loop off everywhere regardless of per-brain
+      # settings. Read via @Value in the job service, not LearningProperties.
+      globally-disabled: ${LEARNING_GLOBALLY_DISABLED:false}
+    cost:
+      # Per-brain daily LLM spend cap (design: spend-cap circuit breaker). Opt-in
+      # and OFF by default: 0 = unlimited, matching the codebase safety posture.
+      # A brain's brains.daily_cost_budget_usd overrides this when set (non-null).
+      daily-budget-usd: ${COST_DAILY_BUDGET_USD:0}
+      # USD per 1,000,000 tokens, input/output priced separately. Keyed by the
+      # model name as reported by ModelRouterService / AiResponse.
+      model-prices:
+        claude-haiku-4-5:
+          input-per-million: ${COST_PRICE_CLAUDE_HAIKU_INPUT:1.0}
+          output-per-million: ${COST_PRICE_CLAUDE_HAIKU_OUTPUT:5.0}
+        claude-sonnet-4-5:
+          input-per-million: ${COST_PRICE_CLAUDE_SONNET_INPUT:3.0}
+          output-per-million: ${COST_PRICE_CLAUDE_SONNET_OUTPUT:15.0}
+        gpt-4o:
+          input-per-million: ${COST_PRICE_GPT4O_INPUT:2.5}
+          output-per-million: ${COST_PRICE_GPT4O_OUTPUT:10.0}
+        gpt-4o-mini:
+          input-per-million: ${COST_PRICE_GPT4O_MINI_INPUT:0.15}
+          output-per-million: ${COST_PRICE_GPT4O_MINI_OUTPUT:0.6}
+      # Conservative catch-all for any model missing from model-prices above, so
+      # an unrecognized/new model never silently under-counts spend.
+      fallback-price:
+        input-per-million: ${COST_PRICE_FALLBACK_INPUT:15.0}
+        output-per-million: ${COST_PRICE_FALLBACK_OUTPUT:75.0}
+    admin:
+      api-key: ${ADMIN_API_KEY:change-me-local-admin-key}
+      # When the admin surface is fronted by an SSO proxy (Cloudflare Access,
+      # oauth2-proxy, ...), the header it forwards the authenticated operator's
+      # identity in. Bound to MDC as `user` for per-operator audit in logs.
+      # Attribution only — authorization remains the admin key + the proxy being
+      # the sole ingress (which MUST strip client-supplied copies of this header).
+      proxy-user-header: ${ADMIN_PROXY_USER_HEADER:X-Auth-Request-Email}
+    analyze:
+      # Internal server-to-server key for the folder-brains analyze endpoint.
+      # UNSET/blank = analyze surface disabled (503 BRAIN_DISABLED). The suite adapter sends it.
+      api-key: ${ANALYZE_API_KEY:}
+      # Analyze run caps. When exceeded, the OLDEST documents are dropped first and returned
+      # in AnalyzeResponse.skippedDocs[] (with fileName + category) so the suite can prompt for
+      # manual entry. Raise these to admit larger income folders.
+      # Vision document-block caps: over any cap the OLDEST docs are skipped first.
+      max-docs: ${ANALYZE_MAX_DOCS:20}
+      max-pages: ${ANALYZE_MAX_PAGES:100}
+      max-bytes: ${ANALYZE_MAX_BYTES:26214400}   # 25 MiB
+      # Inline text budget per run (bytes). Text documents — the document engine's parsed
+      # markdown, JSON, MISMO XML, plain text — are rendered into the prompt rather than attached,
+      # so they spend model context, not the vision payload cap above. At ~4 chars per token the
+      # default admits ~100k tokens of text; past it the OLDEST text docs are skipped first.
+      max-text-bytes: ${ANALYZE_MAX_TEXT_BYTES:400000}
+      # Completion budget per analyze/refine model call. A findings array that hits this
+      # cap truncates mid-JSON and the run fails as "unparseable model response" (v1 has
+      # no corrective retry) — a 17-doc income folder overflowed the old 8000 in prod
+      # (2026-07-28). Keep well under the answer model's output ceiling (claude-haiku-4-5: 64K).
+      max-output-tokens: ${ANALYZE_MAX_OUTPUT_TOKENS:20000}
+      # OFF by default: findings carry borrower financial data (PII). The suite is the
+      # system of record for results; the engine's analysis_runs manifest stays
+      # metadata-only (ids/hashes/method names/counts/tokens) unless explicitly
+      # enabled — calculation inputs/values, calculation display names, and
+      # document filenames are also redacted from the manifest while this is off.
+      persist-findings: ${ANALYZE_PERSIST_FINDINGS:false}
+    cors:
+      # comma-separated; production example: https://example.com,https://www.example.com
+      allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:6173}
+    rate-limit:
+      requests-per-minute: ${RATE_LIMIT_REQUESTS_PER_MINUTE:10}   # per IP on public ask endpoints
+      connector-requests-per-minute: ${CONNECTOR_RATE_LIMIT_REQUESTS_PER_MINUTE:60}
+      admin-requests-per-minute: ${ADMIN_RATE_LIMIT_REQUESTS_PER_MINUTE:120}
+      # X-Forwarded-For is spoofable by direct callers, so it is IGNORED unless
+      # the app sits strictly behind a trusted proxy. Set trust-forwarded-for=true
+      # only when ALL traffic arrives via your proxy layer, and set
+      # trusted-proxy-count to the number of proxies that append to the header
+      # (e.g. 1 for Nginx only, 2 for ALB+Nginx).
+      trust-forwarded-for: ${RATE_LIMIT_TRUST_FORWARDED_FOR:false}
+      trusted-proxy-count: ${RATE_LIMIT_TRUSTED_PROXY_COUNT:1}
+
+logging:
+  level:
+    com.pragmaticds.rag: INFO

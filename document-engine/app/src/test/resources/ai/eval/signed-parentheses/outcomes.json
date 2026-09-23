@@ -1,0 +1,8 @@
+{
+  "defaultAnchorStatus": "MATCHED",
+  "anchorOverrides": {},
+  "reconciliationStatus": "RECONCILED",
+  "straightThrough": true,
+  "goldenResponseFile": "expected.json",
+  "forbiddenAutoAcceptedValues": []
+}

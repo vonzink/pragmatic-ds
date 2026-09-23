@@ -1,0 +1,32 @@
+{
+  "accounts": [
+    {
+      "institution": "Sample Bank",
+      "maskedNumber": "1666",
+      "type": "checking",
+      "statementPeriod": { "start": "2026-05-01", "end": "2026-05-31" },
+      "beginningBalance": 1612.00,
+      "endingBalance": 1200.00,
+      "transcriptionComplete": true,
+      "transactions": [
+        { "date": "2026-05-14", "description": "CAPITAL ONE MOBILE PMT", "amount": -412.00, "docId": "doc-1", "page": 1 }
+      ]
+    },
+    {
+      "institution": "Sample Bank",
+      "maskedNumber": "1666",
+      "type": "checking",
+      "statementPeriod": { "start": "2026-06-01", "end": "2026-06-30" },
+      "beginningBalance": 1200.00,
+      "endingBalance": 1666.66,
+      "transcriptionComplete": true,
+      "transactions": [
+        { "date": "2026-06-09", "description": "MOBILE DEPOSIT", "amount": 5200.00, "docId": "doc-2", "page": 1 },
+        { "date": "2026-06-14", "description": "CAPITAL ONE MOBILE PMT", "amount": -412.00, "docId": "doc-2", "page": 2 },
+        { "date": "2026-06-20", "description": "IRS USATAXPYMT 270601", "amount": -780.00, "docId": "doc-2", "page": 2 },
+        { "date": "2026-06-27", "description": "OVERDRAFT FEE", "amount": -35.00, "docId": "doc-2", "page": 2 },
+        { "date": "2026-06-28", "description": "RENT", "amount": -3506.34, "docId": "doc-2", "page": 2 }
+      ]
+    }
+  ]
+}

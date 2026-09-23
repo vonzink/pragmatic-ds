@@ -1,0 +1,32 @@
+prohibited-phrases:
+  - guaranteed
+  - definitely true
+  - no human review needed
+  - this is legal advice
+  - this is medical advice
+  - this is tax advice
+  - this is financial advice
+
+eligible-phrase: you are eligible
+
+canned-answers:
+  no-source: >-
+    I could not find enough information in the approved sources to answer that confidently.
+    Please add or select relevant source documents and try again.
+  escalation: >-
+    This question needs review by an appropriate human expert. I can summarize what
+    the approved sources say, but I cannot make a final decision here.
+  legal: >-
+    I cannot provide legal advice. I can summarize relevant approved source material,
+    but a licensed attorney should review legal questions.
+  tax: >-
+    I cannot provide tax advice. I can summarize relevant approved source material,
+    but a qualified tax professional should review tax questions.
+  live-rates: >-
+    I do not have access to live or real-time data unless it is included in the
+    approved source context.
+  fraud: >-
+    I cannot help with falsifying, hiding, or misrepresenting information.
+  personal-lookup: >-
+    I cannot look up or share information about a specific person or record. I
+    answer from the approved source documents only.

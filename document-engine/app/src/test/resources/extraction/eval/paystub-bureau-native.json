@@ -1,0 +1,9 @@
+{
+  "id": "paystub-bureau-native",
+  "fixture": "paystub_bureau_native",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["anchor-label", "label-below", "native-text", "spaced-captions", "totals-strip"],
+  "note": "The payroll-bureau layout (paystub-bureau) delivered as a native-text PDF instead of a scan. V36 wrote its trickiest rungs for the OCR-fused captions — 'Name andAddress', '07/12/26-07/18/26' — chosen to be disjoint from spaced forms. The same bureau's native PDF keeps the spaces ('Name and Address', '07/12/26 - 07/18/26'), and five real stubs on 2026-09-05 each extracted 4 of 10: employee name and both pay-period dates, which paystub-bureau pins, came back MISSING. V42 widens the three patterns to accept the spaced forms while still requiring the dash and the two-digit year. V48 pins the gross pair off the totals strip's spaced caption row ('Earnings Deductions Net Pay'), measured on this bureau's real stub where both had stayed MISSING. Every value invented; geometry and draw order mirror paystub-bureau so the occurrences line up.",
+  "documents": [{"type": "PAYSTUB"}]
+}

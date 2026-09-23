@@ -1,0 +1,28 @@
+[versions]
+springBoot = "3.5.0"
+springDependencyManagement = "1.1.7"
+springdocOpenapi = "2.8.6"
+testcontainers = "1.20.4"
+licenseReport = "2.9"
+archunit = "1.3.0"
+# Apache-2.0. Ingestion-time VALIDATION only (corrupt/encrypted/page-count) —
+# parsing belongs to the Python worker. Same role PDFBox plays in host-app.
+pdfbox = "3.0.5"
+googleGenAi = "1.66.0"
+googleAuth = "1.48.0"
+anthropicJava = "2.57.0"
+
+[libraries]
+pdfbox = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox" }
+springdoc-openapi = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdocOpenapi" }
+testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
+archunit-junit5 = { module = "com.tngtech.archunit:archunit-junit5", version.ref = "archunit" }
+google-genai = { module = "com.google.genai:google-genai", version.ref = "googleGenAi" }
+google-auth-oauth2-http = { module = "com.google.auth:google-auth-library-oauth2-http", version.ref = "googleAuth" }
+anthropic-java = { module = "com.anthropic:anthropic-java", version.ref = "anthropicJava" }
+anthropic-java-vertex = { module = "com.anthropic:anthropic-java-vertex", version.ref = "anthropicJava" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+license-report = { id = "com.github.jk1.dependency-license-report", version.ref = "licenseReport" }

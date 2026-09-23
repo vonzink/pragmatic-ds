@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "bankName":{"value":"Epsilon Synthetic Bank","text":"EPSILON SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Missing Totals","text":"CASE MISSING TOTALS","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"904 Test Avenue, Testville, ZZ 00000","text":"904 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0005","text":"SYN-0005","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-05-01","text":"May 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-05-31","text":"May 31, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"2000.00","text":"$2,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"2100.00","text":"$2,100.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":null,"text":null,"page":null,"confidence":"LOW"},
+    "totalWithdrawals":{"value":null,"text":null,"page":null,"confidence":"LOW"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-05-15","text":"05/15/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Single Deposit","text":"SYNTHETIC SINGLE DEPOSIT","page":2,"confidence":"HIGH"},"amount":{"value":"100.00","text":"$100.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2}
+  ],
+  "checks": []
+}

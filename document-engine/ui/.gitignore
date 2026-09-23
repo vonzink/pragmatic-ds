@@ -1,0 +1,7 @@
+# node_modules/ and dist/ are already ignored repo-wide (see /.gitignore).
+# These are UI-tool artefacts that the root file does not know about.
+coverage/
+playwright-report/
+test-results/
+.vite/
+*.tsbuildinfo

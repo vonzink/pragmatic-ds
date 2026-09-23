@@ -1,0 +1,9 @@
+{
+  "id": "form-1099r",
+  "fixture": "form_1099r",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["substitute-statement", "stacked-copies", "label-below", "sensitive-field"],
+  "note": "The real-world 1099 layout finding: payer-issued statements stack several copies (B/C) of the same form on one page, so every label and value prints twice and occurrence-0 semantics carry the extraction. Measured on a real substitute statement, rebuilt synthetic.",
+  "documents": [{"type": "FORM_1099_R"}]
+}

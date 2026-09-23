@@ -1,0 +1,9 @@
+{
+  "id": "ssa-award-letter",
+  "fixture": "ssa_award_letter",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["prose-document", "line-right", "spelled-date", "regex-rung"],
+  "note": "From SSA's own published sample (the fictional Jonathan Doe letter). The engine's first PROSE document: no boxes - benefit amounts live inside sentences, read LINE_RIGHT off the fragment naming each, with lines wrapped where SSA wraps them. letterDate exercises the spelled-month date format (MMMM d, uuuu).",
+  "documents": [{"type": "SSA_AWARD_LETTER"}]
+}

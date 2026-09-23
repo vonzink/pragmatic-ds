@@ -1,0 +1,9 @@
+{
+  "id": "drivers-license",
+  "fixture": "drivers_license",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["regex-rung", "identity-document", "sensitive-field"],
+  "note": "The only IDENTITY type. fullName reads by REGEX with no label at all, which makes it the corpus most exposed to a rule-pack change elsewhere widening a pattern.",
+  "documents": [{"type": "DRIVERS_LICENSE"}]
+}

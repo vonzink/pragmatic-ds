@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "bankName":{"value":"Theta Synthetic Bank","text":"THETA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Partial Balance","text":"CASE PARTIAL BALANCE","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"905 Test Avenue, Testville, ZZ 00000","text":"905 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0006","text":"SYN-0006","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-06-01","text":"June 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-06-30","text":"June 30, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"500.00","text":"$500.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"650.00","text":"$650.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"200.00","text":"$200.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"50.00","text":"$50.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-06-10","text":"06/10/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Partial Deposit","text":"SYNTHETIC PARTIAL DEPOSIT","page":2,"confidence":"HIGH"},"amount":{"value":"200.00","text":"$200.00","page":2,"confidence":"HIGH"},"balance":{"value":"700.00","text":"$700.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2},
+    {"date":{"value":"2099-06-20","text":"06/20/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Partial Withdrawal","text":"SYNTHETIC PARTIAL WITHDRAWAL","page":2,"confidence":"HIGH"},"amount":{"value":"50.00","text":"$50.00","page":2,"confidence":"HIGH"},"balance":{"value":null,"text":null,"page":null,"confidence":"LOW"},"direction":"WITHDRAWAL","page":2}
+  ],
+  "checks": []
+}

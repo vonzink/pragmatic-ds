@@ -1,0 +1,9 @@
+{
+  "id": "form-1099nec",
+  "fixture": "form_1099nec",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "sensitive-field", "1099-family-furniture", "rev-2026-boxes"],
+  "note": "Authored from the official Rev. December 2026 blank form, whose nonemployee-compensation box is now the 1a-1d split — anchors and labels target the current revision. Third 1099-family member: completes the pairwise proof that no family pack qualifies on another's shared TIN/calendar-year furniture. Box 2's cent-less $5,000 sentence proves the money rungs require decimals.",
+  "documents": [{"type": "FORM_1099_NEC"}]
+}

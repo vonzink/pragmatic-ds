@@ -1,0 +1,9 @@
+{
+  "id": "form-4506",
+  "fixture": "form_4506",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "line-right", "sensitive-field"],
+  "note": "Form 4506 Rev. 9-2024, the copy-of-return request - deliberately distinct from the 4506-C transcript request, a future sibling whose title differs.",
+  "documents": [{"type": "FORM_4506"}]
+}

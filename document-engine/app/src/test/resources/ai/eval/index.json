@@ -1,0 +1,13 @@
+{
+  "cases": [
+    "clean-digital",
+    "multi-page-unknown",
+    "signed-parentheses",
+    "duplicates-and-checks",
+    "missing-totals",
+    "partial-running-balances",
+    "online-print-out",
+    "one-cent-mismatch",
+    "prompt-injection"
+  ]
+}

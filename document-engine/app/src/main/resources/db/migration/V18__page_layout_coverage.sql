@@ -1,0 +1,23 @@
+-- V18 — Full-capture P2.4 (docs/superpowers/specs/2026-08-17-full-capture-output-design.md §13.1,
+-- task P2.4). Additive: one nullable column on a table that already carries org_id + FORCE RLS
+-- from V1/V4. No backfill, no policy change, no seed.
+--
+-- The worker has always declared, per page, which element types it did NOT look for — the
+-- /v1/layout notImplemented list (docs/WORKER_CONTRACT.md: "an empty result must stay
+-- distinguishable from 'did not look'"). The Java client parsed that declaration and then dropped
+-- it; no column held it, so the honesty marker survived exactly one HTTP response. This column is
+-- where it lives, and GET /v1/pages/{id}/structure reads detectorCoverage from it.
+--
+-- Semantics:
+--   NULL                        the page's PARSING predates this column (or has not run) — nobody
+--                               can say whether the pixel detectors looked; coverage = UNKNOWN.
+--   '[]'                        the worker declared it looked for everything; coverage = RAN.
+--   '["CHECKBOX","SIGNATURE"]'  the worker declared those detectors did not run on this page
+--                               (e.g. no raster for its index); coverage = NOT_IMPLEMENTED.
+--
+-- Deliberately NOT backfilled: inventing '[]' for old rows would assert pixel coverage nobody
+-- declared, and a wrong coverage claim is worse than an honest UNKNOWN — the same
+-- missing-over-wrong rule the extraction engine runs on. The list is a JSON ARRAY, so the jsonb
+-- key-reordering caveat (DATA_MODEL: never depend on attribute key order) does not arise: arrays
+-- keep element order, and readers treat it as a set anyway.
+ALTER TABLE page ADD COLUMN layout_not_implemented jsonb;

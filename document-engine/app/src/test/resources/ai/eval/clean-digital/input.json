@@ -1,0 +1,27 @@
+{
+  "id": "clean-digital",
+  "synthetic": true,
+  "coverage": ["clean-reconciling", "debit-credit-columns"],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "ZETA SYNTHETIC BANK",
+        "CASE CLEAN DIGITAL",
+        "900 TEST AVENUE TESTVILLE ZZ 00000",
+        "ACCOUNT SYN-0001",
+        "Statement period January 1, 2099 through January 31, 2099",
+        "Beginning Balance $1,000.00",
+        "Ending Balance $1,150.00",
+        "Total Credits $200.00",
+        "Total Debits $50.00",
+        "01/05/2099 SYNTHETIC PAYROLL ALPHA CREDIT $125.00",
+        "01/06/2099 SYNTHETIC PAYROLL BETA CREDIT $75.00",
+        "01/10/2099 SYNTHETIC UTILITY ALPHA DEBIT $20.00",
+        "01/20/2099 SYNTHETIC UTILITY BETA DEBIT $30.00"
+      ],
+      "tableText": "DATE | DESCRIPTION | DEBIT | CREDIT"
+    }
+  ]
+}

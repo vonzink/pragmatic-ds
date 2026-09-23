@@ -1,0 +1,20 @@
+{
+  "id": "schedule-1",
+  "fixture": "schedule_1",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "line-right",
+    "1040-schedule-header"
+  ],
+  "note": "Issue #60. Authored from the published 2025 blank's wording. One page: the identity header (LABEL_BELOW over the schedule's own caption), the year off the title line, and the two totals underwriting reads - line 10 (additional income) and line 26 (adjustments) - LINE_RIGHT off their own full-sentence captions with the whole-dollar-or-cents money pattern tax_return@1.2.0 introduced.",
+  "documents": [
+    {
+      "type": "SCHEDULE_1",
+      "pages": [
+        0
+      ]
+    }
+  ]
+}

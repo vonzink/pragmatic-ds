@@ -1,0 +1,10 @@
+prohibited-phrases:
+  - you are approved
+eligible-phrase: you are eligible
+canned-answers:
+  no-source: No source.
+  escalation: Escalate.
+  legal: No legal.
+  tax: No tax.
+  live-rates: No rates.
+  fraud: No fraud.

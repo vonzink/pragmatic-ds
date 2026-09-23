@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "bankName":{"value":"Omega Synthetic Credit Union","text":"OMEGA SYNTHETIC CREDIT UNION","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Multi Page","text":"CASE MULTI PAGE","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"901 Test Avenue, Testville, ZZ 00000","text":"901 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0002","text":"SYN-0002","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-02-01","text":"February 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-02-28","text":"February 28, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"500.00","text":"$500.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"650.00","text":"$650.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"200.00","text":"$200.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"50.00","text":"$50.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-01-15","text":"01/15/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Page Boundary Deposit","text":"SYNTHETIC PAGE BOUNDARY DEPOSIT","page":3,"confidence":"MEDIUM"},"amount":{"value":"200.00","text":"$200.00","page":3,"confidence":"HIGH"},"direction":"DEPOSIT","page":3},
+    {"date":{"value":"2099-02-20","text":"02/20/2099","page":3,"confidence":"HIGH"},"description":{"value":"Synthetic Continuation Withdrawal","text":"SYNTHETIC CONTINUATION WITHDRAWAL","page":3,"confidence":"HIGH"},"amount":{"value":"50.00","text":"$50.00","page":3,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":3}
+  ],
+  "checks": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "schedule-c-blank-business",
+  "fixture": "schedule_c_blank_business",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["multi-page-document", "label-below", "deliberate-missing", "blank-cell-guard"],
+  "note": "schedule-c-filled with the business-name box left EMPTY, as the caption ('If no separate business name, leave blank') invites. The next caption row, 'E Business address', prints 17 pt below the C caption's bottom edge and carries the street address on its own line — Title-Case words a name pattern accepts. businessName must come back MISSING: V48's 12 pt drop admits the value row (4 pt down) and refuses the E row, so a blank box never reads the next caption's text. Every other field reads exactly as on schedule-c-filled.",
+  "documents": [{"type": "SCHEDULE_C", "pages": [0, 1]}]
+}

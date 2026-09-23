@@ -1,0 +1,36 @@
+# Production profile overrides. Activate with SPRING_PROFILES_ACTIVE=prod.
+#
+# ProductionConfigGuard (active only under this profile) aborts startup if
+# production-critical settings are missing or still using local defaults.
+#
+# Actuator is moved off the public application port (8080) onto an internal-only
+# management port so health/metrics are reachable by probes and the metrics
+# scraper but never by public clients. Only health + Prometheus are exposed, and
+# health stays detail-free. Route the management port to your monitoring network
+# only — do NOT publish it to the internet.
+management:
+  server:
+    port: ${MANAGEMENT_PORT:9090}
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging:
+  # Emit JSON (ECS) logs in production so a log aggregator can index them and the
+  # per-request correlation id (MDC requestId) is a first-class field.
+  structured:
+    format:
+      console: ecs
+  level:
+    com.pragmaticds.rag: INFO
+    org.springframework: WARN

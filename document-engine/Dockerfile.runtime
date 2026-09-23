@@ -1,0 +1,28 @@
+# Runtime image for the engine API, and since #28 THE image compose builds. deploy-docengine.sh
+# builds the bootJar locally and ships it; this is FROM the cached JRE + COPY jar, so the box never
+# runs Gradle and never pulls from docker.io for the API build.
+#
+# Its runtime stage must MIRROR the root Dockerfile's (non-root user, /data/blobs, heap flag). The
+# root Dockerfile is still the local/dev source build; whenever its final stage changes, change this
+# too. They are two spellings of one runtime and only this one reaches production.
+#
+# The Python parser-worker is a SEPARATE image (worker/Dockerfile) built by compose on the box.
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+
+# Non-root. The API holds borrower data; it does not need root to serve HTTP. This MUST stay in
+# step with the root Dockerfile's runtime stage — compose builds the api from THIS file, so
+# anything only that file does is simply not in production. #28 pointed compose here without
+# carrying these lines across and the engine ran as root until #29.
+RUN groupadd --system docengine \
+ && useradd --system --gid docengine --home /app docengine \
+ && mkdir -p /data/blobs \
+ && chown -R docengine:docengine /app /data
+
+COPY --chown=docengine:docengine app.jar /app/app.jar
+
+USER docengine
+EXPOSE 9090
+# MaxRAMPercentage, not the JVM default of 25%: the container IS the memory budget, and a heap
+# capped at a quarter of it OOMs on large documents long before the box is under pressure.
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "/app/app.jar"]

@@ -1,0 +1,9 @@
+{
+  "id": "k1-1120s",
+  "fixture": "k1_1120s",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "line-right", "sensitive-field", "k1-family-furniture"],
+  "note": "Shareholder's K-1. allocationPercentage reads LINE_RIGHT with a percent pattern, the mortgage-statement interestRate precedent.",
+  "documents": [{"type": "SCHEDULE_K1_1120S"}]
+}

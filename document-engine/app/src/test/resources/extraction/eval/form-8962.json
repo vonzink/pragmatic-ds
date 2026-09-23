@@ -1,0 +1,20 @@
+{
+  "id": "form-8962",
+  "fixture": "form_8962",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "line-right",
+    "line-right-occurrence"
+  ],
+  "note": "Issue #60. Authored from the published 2025 blank's wording. One page: identity header, year, household income, and the Part II/III reconciliation amounts (total PTC, advance payment, excess repayment). Until V46 nothing typed this form and the splitter absorbed it into whatever preceded it.",
+  "documents": [
+    {
+      "type": "FORM_8962",
+      "pages": [
+        0
+      ]
+    }
+  ]
+}

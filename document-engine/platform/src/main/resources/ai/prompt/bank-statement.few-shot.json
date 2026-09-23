@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "bankName": { "value": "Example Test Bank", "text": "EXAMPLE TEST BANK", "page": 1, "confidence": "HIGH" },
+    "accountHolderName": { "value": "Alex Q. Sample", "text": "ALEX Q SAMPLE", "page": 1, "confidence": "HIGH" },
+    "accountHolderAddress": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountNumber": { "value": "0000000042", "text": "Account ****0042", "page": 1, "confidence": "HIGH" },
+    "statementPeriodStart": { "value": "2026-04-01", "text": "04/01/2026", "page": 1, "confidence": "HIGH" },
+    "statementPeriodEnd": { "value": "2026-04-30", "text": "04/30/2026", "page": 1, "confidence": "HIGH" },
+    "beginningBalance": { "value": "500.00", "text": "$500.00", "page": 1, "confidence": "HIGH" },
+    "endingBalance": { "value": "650.00", "text": "$650.00", "page": 2, "confidence": "HIGH" },
+    "totalDeposits": { "value": "300.00", "text": "$300.00", "page": 1, "confidence": "HIGH" },
+    "totalWithdrawals": { "value": "150.00", "text": "$150.00", "page": 1, "confidence": "HIGH" }
+  },
+  "transactions": [
+    {
+      "date": { "value": "2026-04-03", "text": "04/03", "page": 1, "confidence": "HIGH" },
+      "description": { "value": "Synthetic Deposit", "text": "SYNTHETIC DEPOSIT", "page": 1, "confidence": "HIGH" },
+      "amount": { "value": "300.00", "text": "300.00", "page": 1, "confidence": "HIGH" },
+      "balance": { "value": "800.00", "text": "800.00", "page": 1, "confidence": "HIGH" },
+      "direction": "DEPOSIT",
+      "page": 1
+    },
+    {
+      "date": { "value": "2026-04-10", "text": "04/10", "page": 1, "confidence": "HIGH" },
+      "description": { "value": "Example Purchase", "text": "EXAMPLE PURCHASE", "page": 1, "confidence": "HIGH" },
+      "amount": { "value": "50.00", "text": "50.00", "page": 1, "confidence": "HIGH" },
+      "balance": { "value": "750.00", "text": "750.00", "page": 1, "confidence": "HIGH" },
+      "direction": "WITHDRAWAL",
+      "page": 1
+    },
+    {
+      "date": { "value": "2026-04-22", "text": "04/22", "page": 2, "confidence": "HIGH" },
+      "description": { "value": "Check 0042", "text": "CHECK 0042", "page": 2, "confidence": "HIGH" },
+      "amount": { "value": "100.00", "text": "100.00", "page": 2, "confidence": "HIGH" },
+      "balance": { "value": "650.00", "text": "650.00", "page": 2, "confidence": "HIGH" },
+      "direction": "WITHDRAWAL",
+      "page": 2
+    }
+  ],
+  "checks": [
+    {
+      "checkNumber": { "value": "0042", "text": "0042", "page": 2, "confidence": "HIGH" },
+      "datePaid": { "value": "2026-04-22", "text": "04/22", "page": 2, "confidence": "HIGH" },
+      "amount": { "value": "100.00", "text": "100.00", "page": 2, "confidence": "HIGH" },
+      "page": 2
+    }
+  ]
+}

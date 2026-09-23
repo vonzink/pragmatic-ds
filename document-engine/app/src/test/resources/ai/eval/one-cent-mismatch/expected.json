@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "bankName":{"value":"Iota Synthetic Bank","text":"IOTA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case One Cent","text":"CASE ONE CENT","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"906 Test Avenue, Testville, ZZ 00000","text":"906 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0007","text":"SYN-0007","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-07-01","text":"July 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-07-31","text":"July 31, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"1149.99","text":"$1,149.99","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"200.00","text":"$200.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"50.00","text":"$50.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-07-10","text":"07/10/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Mismatch Deposit","text":"SYNTHETIC MISMATCH DEPOSIT","page":2,"confidence":"HIGH"},"amount":{"value":"200.00","text":"$200.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2},
+    {"date":{"value":"2099-07-20","text":"07/20/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Mismatch Withdrawal","text":"SYNTHETIC MISMATCH WITHDRAWAL","page":2,"confidence":"HIGH"},"amount":{"value":"50.00","text":"$50.00","page":2,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":2}
+  ],
+  "checks": []
+}

@@ -1,0 +1,27 @@
+{
+  "defaultAnchorStatus": "MATCHED",
+  "anchorOverrides": {
+    "summary.beginningBalance":"AMBIGUOUS",
+    "summary.endingBalance":"AMBIGUOUS",
+    "summary.totalDeposits":"AMBIGUOUS",
+    "summary.totalWithdrawals":"AMBIGUOUS",
+    "transactions[0].description":"AMBIGUOUS",
+    "transactions[0].amount":"AMBIGUOUS",
+    "transactions[0].direction":"AMBIGUOUS",
+    "transactions[1].description":"AMBIGUOUS",
+    "transactions[1].amount":"AMBIGUOUS",
+    "transactions[1].direction":"AMBIGUOUS",
+    "transactions[2].description":"AMBIGUOUS",
+    "transactions[2].amount":"AMBIGUOUS",
+    "transactions[2].direction":"AMBIGUOUS",
+    "transactions[3].description":"AMBIGUOUS",
+    "transactions[3].amount":"AMBIGUOUS",
+    "transactions[3].direction":"AMBIGUOUS",
+    "checks[0].checkNumber":"AMBIGUOUS",
+    "checks[1].checkNumber":"AMBIGUOUS"
+  },
+  "reconciliationStatus": "RECONCILED",
+  "straightThrough": false,
+  "goldenResponseFile": "expected.json",
+  "forbiddenAutoAcceptedValues": []
+}

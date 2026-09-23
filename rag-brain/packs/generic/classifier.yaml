@@ -1,0 +1,42 @@
+rules:
+  - category: FRAUD
+    patterns:
+      - '\b(fake|falsif|forge|doctor|alter)\w*\b'
+      - '\b(hide|conceal|misrepresent)\b.*\b(information|data|record|document|evidence)'
+      - '\b(lie|lying)\b.*\b(application|record|report|document)'
+
+  - category: LEGAL
+    patterns:
+      - '\b(sue|suing|lawsuit|litigation)\b'
+      - '\b(is (it|this) legal|illegal)\b'
+      - '\b(lawyer|attorney)\b'
+      - '\bbreach of contract\b'
+
+  - category: TAX
+    patterns:
+      - '\btax (strategy|advice|loophole)\b'
+      - '\b(deduct|deduction|write off|writing off)\b'
+      - '\bhow should (i|we) file\b.*\btax'
+
+  - category: LIVE_RATES
+    patterns:
+      - '\b(current|live|real-time|today''?s?) (price|prices|rate|rates|data)\b'
+      - '\bwhat(''s| is| are)? .* (right now|currently)\b'
+
+  - category: ELIGIBILITY
+    patterns:
+      - '\b(am i|are we) (eligible|approved|qualified)\b'
+      - '\bdo i qualify\b'
+      - '\bwill (i|we) be (approved|accepted|eligible)\b'
+
+  # PERSONAL_LOOKUP: a request to pull up or report a specific person's or
+  # borrower's record. The brain answers from approved documents, never from a
+  # live loan or person record, so these escalate before retrieval. Kept
+  # deliberately narrow: "how do I look up a file" (a how-to) stays EDUCATIONAL.
+  - category: PERSONAL_LOOKUP
+    patterns:
+      - '^(?!.*\bhow (do|can|to|should|would) (i|we|you)\b)(?=.*\b(pull|look|bring) up\b.*\b(info|information|file|record|profile|account|application|pre-?approval)\b)'
+      - '\b(do|does|did) (i|we|he|she|they) have (a |an |any )?(pre-?approval|approval|loan|file|application|account)s? (for|on|with|under)\b'
+      - '\b(ssn|social security number|social security|date of birth|dob) (of|for|on)\b'
+      - '\b(status|stage) of\b.*\b(?!(a|an|the|my|your|our|each|every|this|that|any) )[a-z]+(''s)? (loan|file|application|pre-?approval)\b'
+      - '\b[a-z]+ (?!(this|that|these|those|his|hers|its|is|was|as|has|does|us|thus|plus|versus|process|business|address)\b)(?!(borrower|borrowers|co-borrower|client|customer|applicant|lender|buyer|seller|member|user|employee|veteran|spouse|owner|tenant|fannie|freddie|mae|mac|ginnie|agency|investor)''?s\b)[a-z]+''?s (loan|file|application|pre-?approval|credit|income|ssn|info|information|record|account|profile)\b'

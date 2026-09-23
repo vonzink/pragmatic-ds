@@ -1,0 +1,363 @@
+{
+  "cells": [
+    {
+      "dpi": 200,
+      "engine": "rapidocr-ppocrv4",
+      "fixture": "native_200",
+      "metrics": {
+        "M1_field_accuracy": 0.8372,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 0.9231,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.6438,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 527.1,
+          "p95": 570.9
+        },
+        "M7_peak_rss_bytes": 1394982912,
+        "M8_model_load_ms": 91.3,
+        "detected_rotation": 0,
+        "words_predicted": 39,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 300,
+      "engine": "rapidocr-ppocrv4",
+      "fixture": "native_300",
+      "metrics": {
+        "M1_field_accuracy": 0.9535,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 1.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.6903,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 515.6,
+          "p95": 571.8
+        },
+        "M7_peak_rss_bytes": 1441284096,
+        "M8_model_load_ms": 91.3,
+        "detected_rotation": 0,
+        "words_predicted": 42,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "rapidocr-ppocrv4",
+      "fixture": "scanned_200",
+      "metrics": {
+        "M1_field_accuracy": 0.8372,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 0.9231,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.6438,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 504.5,
+          "p95": 555.1
+        },
+        "M7_peak_rss_bytes": 1442430976,
+        "M8_model_load_ms": 91.3,
+        "detected_rotation": 0,
+        "words_predicted": 39,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "rapidocr-ppocrv4",
+      "fixture": "rot90_200",
+      "metrics": {
+        "M1_field_accuracy": 0.8372,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 0.9231,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.6438,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 499.1,
+          "p95": 557.0
+        },
+        "M7_peak_rss_bytes": 1442643968,
+        "M8_model_load_ms": 91.3,
+        "detected_rotation": 90,
+        "words_predicted": 39,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "rapidocr-ppocrv4",
+      "fixture": "degraded_200",
+      "metrics": {
+        "M1_field_accuracy": 0.3256,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 0.2468,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.4301,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 508.7,
+          "p95": 558.8
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 91.3,
+        "detected_rotation": 0,
+        "words_predicted": 27,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "tesseract",
+      "fixture": "native_200",
+      "metrics": {
+        "M1_field_accuracy": 1.0,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 1.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.7965,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 328.8,
+          "p95": 342.5
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 2.3,
+        "detected_rotation": 0,
+        "words_predicted": 43,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 300,
+      "engine": "tesseract",
+      "fixture": "native_300",
+      "metrics": {
+        "M1_field_accuracy": 1.0,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 1.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.7986,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 489.5,
+          "p95": 489.7
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 2.3,
+        "detected_rotation": 0,
+        "words_predicted": 43,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "tesseract",
+      "fixture": "scanned_200",
+      "metrics": {
+        "M1_field_accuracy": 1.0,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 1.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.7965,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 327.9,
+          "p95": 329.0
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 2.3,
+        "detected_rotation": 0,
+        "words_predicted": 43,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "tesseract",
+      "fixture": "rot90_200",
+      "metrics": {
+        "M1_field_accuracy": 1.0,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 1.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.7965,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 1.0,
+        "M6_runtime_ms": {
+          "p50": 327.6,
+          "p95": 328.0
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 2.3,
+        "detected_rotation": 90,
+        "words_predicted": 43,
+        "words_truth": 43
+      },
+      "runs": 3
+    },
+    {
+      "dpi": 200,
+      "engine": "tesseract",
+      "fixture": "degraded_200",
+      "metrics": {
+        "M1_field_accuracy": 0.0,
+        "M2_numeric_accuracy": {
+          "char_accuracy": 0.0,
+          "digit_transpositions": 0,
+          "tokens": 13
+        },
+        "M3_mean_iou": 0.0,
+        "M4_table_alignment": {
+          "reason": "PHASE_3",
+          "status": "SKIPPED"
+        },
+        "M5_kendall_tau": 0.0,
+        "M6_runtime_ms": {
+          "p50": 1320.7,
+          "p95": 1324.3
+        },
+        "M7_peak_rss_bytes": 1450541056,
+        "M8_model_load_ms": 2.3,
+        "detected_rotation": 0,
+        "words_predicted": 0,
+        "words_truth": 43
+      },
+      "runs": 3
+    }
+  ],
+  "generatedAt": "2026-08-02T03:13:17.764765+00:00",
+  "layout_cells": [
+    {
+      "engine": "clustering-layout",
+      "fixture": "ruled_table",
+      "metrics": {
+        "M4_table_alignment": {
+          "correct_words": 25,
+          "graded_words": 25,
+          "status": "MEASURED",
+          "value": 1.0
+        },
+        "M6_runtime_ms": {
+          "p50": 0.5,
+          "p95": 0.6
+        }
+      },
+      "runs": 3,
+      "spans": "NATIVE",
+      "table": {
+        "cols": 5,
+        "rows": 5,
+        "ruled": true
+      }
+    },
+    {
+      "engine": "clustering-layout",
+      "fixture": "unruled_table",
+      "metrics": {
+        "M4_table_alignment": {
+          "correct_words": 25,
+          "graded_words": 25,
+          "status": "MEASURED",
+          "value": 1.0
+        },
+        "M6_runtime_ms": {
+          "p50": 0.4,
+          "p95": 0.5
+        }
+      },
+      "runs": 3,
+      "spans": "NATIVE",
+      "table": {
+        "cols": 5,
+        "rows": 5,
+        "ruled": false
+      }
+    }
+  ],
+  "platform": {
+    "machine": "arm64",
+    "python": "3.12.1",
+    "system": "Darwin"
+  },
+  "schema": 1,
+  "skipped": [
+    {
+      "cell": "rapidocr-ppocrv5 (PP-OCRv5)",
+      "reason": "installed rapidocr-onnxruntime ships no PP-OCRv5 model set; cell skipped rather than substituting another model"
+    },
+    {
+      "cell": "rapidocr-ppocrv6 (PP-OCRv6)",
+      "reason": "installed rapidocr-onnxruntime ships no PP-OCRv6 model set; cell skipped rather than substituting another model"
+    },
+    {
+      "cell": "M4_table_alignment (ocr engine cells)",
+      "reason": "layout metric \u2014 measured in layout_cells via the Phase 3 ClusteringLayoutEngine over native text spans; an OCR cell has no layout of its own, so its placeholder stays"
+    }
+  ]
+}

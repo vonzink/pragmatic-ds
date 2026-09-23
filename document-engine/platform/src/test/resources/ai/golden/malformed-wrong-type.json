@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "bankName": { "value": "Y Bank", "text": "Y Bank", "page": 1, "confidence": "HIGH" },
+    "accountHolderName": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountHolderAddress": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountNumber": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "statementPeriodStart": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "statementPeriodEnd": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "beginningBalance": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "endingBalance": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "totalDeposits": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "totalWithdrawals": { "value": null, "text": null, "page": null, "confidence": "LOW" }
+  },
+  "transactions": [
+    {
+      "date": { "value": "2026-07-01", "text": "07/01", "page": 1, "confidence": "HIGH" },
+      "description": { "value": "X", "text": "X", "page": 1, "confidence": "HIGH" },
+      "amount": { "value": "1.00", "text": "1.00", "page": 1, "confidence": "HIGH" },
+      "balance": null,
+      "direction": "CREDIT",
+      "page": "one"
+    }
+  ],
+  "checks": []
+}

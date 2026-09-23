@@ -1,0 +1,39 @@
+{
+  "id": "multi-page-unknown",
+  "synthetic": true,
+  "coverage": ["unknown-continuation", "page-boundary-ledger"],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "OMEGA SYNTHETIC CREDIT UNION",
+        "CASE MULTI PAGE",
+        "901 TEST AVENUE TESTVILLE ZZ 00000",
+        "ACCOUNT SYN-0002",
+        "Statement period February 1, 2099 through February 28, 2099",
+        "Beginning Balance $500.00",
+        "Ending Balance $650.00",
+        "Total Deposits $200.00",
+        "Total Withdrawals $50.00"
+      ],
+      "tableText": "SUMMARY"
+    },
+    {
+      "number": 2,
+      "classification": "BANK_STATEMENT",
+      "spans": ["01/15/2099 SYNTHETIC PAGE"],
+      "tableText": "ROW START"
+    },
+    {
+      "number": 3,
+      "classification": "UNKNOWN",
+      "spans": [
+        "UNKNOWN CONTINUATION",
+        "BOUNDARY DEPOSIT $200.00",
+        "02/20/2099 SYNTHETIC CONTINUATION WITHDRAWAL $50.00"
+      ],
+      "tableText": "ROW CONTINUATION | AMOUNT"
+    }
+  ]
+}

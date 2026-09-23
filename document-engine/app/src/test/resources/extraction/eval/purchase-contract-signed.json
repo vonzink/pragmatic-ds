@@ -1,0 +1,9 @@
+{
+  "id": "purchase-contract-signed",
+  "fixture": "purchase_contract_signed",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["signature-presence", "multi-page-document"],
+  "note": "Two pages, one document, signatures on page 2. buyerSigned/sellerSigned come from the SIGNATURE_PRESENCE detector rather than text, so truth pins seven fields and the schema declares nine — the gap shows up as schema coverage, not as a miss.",
+  "documents": [{"type": "PURCHASE_CONTRACT"}]
+}

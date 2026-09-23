@@ -1,0 +1,9 @@
+{
+  "id": "paystub-adp",
+  "fixture": "paystub_adp",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["anchor-label", "line-right", "totals-row", "deliberate-missing"],
+  "note": "A national payroll provider's 'Statement of Earnings and Deductions', drawn to a real stub measured 2026-09-14 on which paystub@1.3.0 captured 4 of 10. No 'Gross' word anywhere: the earnings detail is a caption row over 9 pt-pitch rows (which the worker emits as a table WITHOUT its caption row — the caption sits outside the absorption pitch), and the totals print 120 pt below as one line, 'TOTAL EARNINGS >>> current ytd' with the deductions total on the same baseline. V48 reads the gross pair ANCHOR_LABEL LINE_RIGHT occurrence 0/1 off 'Total Earnings' and federal tax off the 'FIT' caption. employerName, borrowerName, payDate and payFrequency are pinned MISSING: the company block and the employee name carry no caption, the date's only caption is a bare 'DATE:', and the frequency is not printed. Every value invented.",
+  "documents": [{"type": "PAYSTUB"}]
+}

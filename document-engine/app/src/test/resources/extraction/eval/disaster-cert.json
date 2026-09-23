@@ -1,0 +1,9 @@
+{
+  "id": "disaster-cert",
+  "fixture": "disaster_cert",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["prose-document", "regex-rung", "generic-language"],
+  "note": "A lender disaster certification in GENERIC industry language - the measured document was a proprietary lender template, so the fixture keeps the semantics and the FEMA vocabulary ('federally declared disaster'), never the vendor's wording.",
+  "documents": [{"type": "DISASTER_CERT"}]
+}

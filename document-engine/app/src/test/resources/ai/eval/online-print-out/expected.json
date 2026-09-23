@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "bankName":{"value":"Iota Synthetic Bank","text":"IOTA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Online Printout","text":"CASE ONLINE PRINTOUT","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"908 Test Avenue, Testville, ZZ 00000","text":"908 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"...0009","text":"...0009","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":null,"text":null,"page":null,"confidence":"LOW"},
+    "statementPeriodEnd":{"value":null,"text":null,"page":null,"confidence":"LOW"},
+    "beginningBalance":{"value":null,"text":null,"page":null,"confidence":"LOW"},
+    "endingBalance":{"value":"4812.33","text":"$4,812.33","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":null,"text":null,"page":null,"confidence":"LOW"},
+    "totalWithdrawals":{"value":null,"text":null,"page":null,"confidence":"LOW"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-08-24","text":"08/24/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Card Purchase","text":"SYNTHETIC CARD PURCHASE","page":1,"confidence":"HIGH"},"amount":{"value":"54.20","text":"54.20","page":1,"confidence":"HIGH"},"balance":{"value":"4812.33","text":"4812.33","page":1,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":1},
+    {"date":{"value":"2099-08-22","text":"08/22/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Transfer Out","text":"SYNTHETIC TRANSFER OUT","page":1,"confidence":"HIGH"},"amount":{"value":"500.00","text":"500.00","page":1,"confidence":"HIGH"},"balance":{"value":"4866.53","text":"4866.53","page":1,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":1},
+    {"date":{"value":"2099-08-21","text":"08/21/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Payroll Deposit","text":"SYNTHETIC PAYROLL DEPOSIT","page":1,"confidence":"HIGH"},"amount":{"value":"2180.40","text":"2180.40","page":1,"confidence":"HIGH"},"balance":{"value":"5366.53","text":"5366.53","page":1,"confidence":"HIGH"},"direction":"DEPOSIT","page":1},
+    {"date":{"value":"2099-08-19","text":"08/19/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Zelle Payment","text":"SYNTHETIC ZELLE PAYMENT","page":1,"confidence":"HIGH"},"amount":{"value":"120.00","text":"120.00","page":1,"confidence":"HIGH"},"balance":{"value":"3186.13","text":"3186.13","page":1,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":1}
+  ],
+  "checks": []
+}

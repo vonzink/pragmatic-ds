@@ -1,0 +1,7 @@
+-r requirements.txt
+pytest==9.1.1
+httpx
+pip-licenses
+# Fixture generation only (BSD-3): draws synthetic documents at KNOWN coordinates
+# so ground truth exists by construction. Never a runtime dependency.
+reportlab

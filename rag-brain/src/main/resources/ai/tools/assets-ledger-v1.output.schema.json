@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assets-ledger-v1.output",
+  "title": "Assets ledger",
+  "description": "The transcribed transaction ledger, in the shape AssetsCalcService reads as the analyzer envelope's domain object. Identical to what the model was asked to transcribe by hand, so the deterministic rules, the reconciliation check, and the report renderer are unchanged by where the ledger came from.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["accounts"],
+  "properties": {
+    "accounts": {
+      "type": "array",
+      "description": "One object per statement. Three monthly statements for one account are three entries with the same institution and maskedNumber and different statementPeriod values.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["transcriptionComplete", "transactions"],
+        "properties": {
+          "institution": { "type": "string" },
+          "maskedNumber": {
+            "type": "string",
+            "description": "Last four digits only; a full account number is never carried."
+          },
+          "type": { "type": "string" },
+          "statementPeriod": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "start": { "type": "string" },
+              "end": { "type": "string" }
+            }
+          },
+          "beginningBalance": {
+            "type": "number",
+            "description": "Omitted rather than inferred when the statement prints none. AssetsCalcService reconciles beginningBalance + sum(transactions) against endingBalance, so an inferred figure would make the completeness proof circular."
+          },
+          "endingBalance": { "type": "number" },
+          "transcriptionComplete": {
+            "type": "boolean",
+            "description": "False when any row could not be read completely enough to be summed. A row is never dropped silently: dropping it would leave totals that look confident and are wrong."
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["amount"],
+              "properties": {
+                "date": { "type": "string" },
+                "description": {
+                  "type": "string",
+                  "description": "Verbatim as extracted. Never normalized, expanded, or tidied — the keyword rules match on these strings."
+                },
+                "amount": {
+                  "type": "number",
+                  "description": "Signed: positive credit, negative debit."
+                },
+                "runningBalance": { "type": "number" },
+                "docId": { "type": "string" },
+                "page": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

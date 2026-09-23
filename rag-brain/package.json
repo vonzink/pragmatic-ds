@@ -1,0 +1,17 @@
+{
+  "name": "pds-rag-brain-tools",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Corpus checks and retrieval evals for rag-brain. Not the dashboard (see dashboard/).",
+  "scripts": {
+    "corpus:validate": "node corpus/suite/tests/validate-corpus.js",
+    "corpus:coverage": "node corpus/suite/tests/coverage.js",
+    "corpus:retrieval": "node corpus/suite/tests/run-retrieval.js",
+    "corpus:check": "npm run corpus:validate && npm run corpus:coverage && npm run corpus:retrieval",
+    "eval:retrieval": "node scripts/eval/retrieval-eval.mjs",
+    "analyze:shadow": "node corpus/suite/tests/run-analyze-shadow.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

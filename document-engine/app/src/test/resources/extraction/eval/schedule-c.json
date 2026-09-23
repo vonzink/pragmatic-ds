@@ -1,0 +1,9 @@
+{
+  "id": "schedule-c",
+  "fixture": "schedule_c",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["multi-page-document", "continuation-page-anchors", "label-below", "line-right", "sensitive-field"],
+  "note": "Authored from the official 2025 blank form. Two pages, one document: page 2 carries none of page 1's anchors and must qualify on its own Part III/IV headings — the Schedule E continuation problem, solved the same way. Mixes both extraction geometries: identity boxes read LABEL_BELOW, numbered income lines read ANCHOR_LABEL/LINE_RIGHT.",
+  "documents": [{"type": "SCHEDULE_C", "pages": [0, 1]}]
+}

@@ -1,0 +1,33 @@
+{
+  "_comment": "Copy to sources.json and edit. Each source becomes ONE markdown file in out/ plus one entry in out/manifest.partial.json (schema matches ../s3-ingest/manifest.json). 'url' + 'fileName' are required; the rest inherit from 'defaults'. sourceType in AGENCY_GUIDELINE | INTERNAL_POLICY | INVESTOR_OVERLAY | EDUCATIONAL. See README for the regulatory-corpus caveat: prefer official published files for Fannie/Freddie/HUD; use crawling for your own docs + educational/explainer content.",
+  "defaults": {
+    "sourceName": "Knowledge Base",
+    "sourceType": "EDUCATIONAL",
+    "pruneThreshold": 0.48,
+    "ignoreLinks": true
+  },
+  "sources": [
+    {
+      "url": "https://www.consumerfinance.gov/owning-a-home/loan-options/conventional-loans/",
+      "fileName": "cfpb-conventional-loans.md",
+      "title": "Conventional Loans — CFPB",
+      "sourceName": "Consumer Financial Protection Bureau",
+      "sourceType": "EDUCATIONAL"
+    },
+    {
+      "url": "https://www.consumerfinance.gov/owning-a-home/loan-options/FHA-loans/",
+      "fileName": "cfpb-fha-loans.md",
+      "title": "FHA Loans — CFPB",
+      "sourceName": "Consumer Financial Protection Bureau",
+      "sourceType": "EDUCATIONAL"
+    },
+    {
+      "_note": "INTERNAL_POLICY entries must point at a PUBLIC page. Do NOT point at the suite console (suite.example.com) — it is a Cognito-gated SPA with no crawlable help pages; the crawler would get an auth wall / empty render. For internal how-to content, author markdown into a pack corpus directly instead of crawling.",
+      "url": "https://www.consumerfinance.gov/owning-a-home/process/",
+      "fileName": "cfpb-homebuying-process.md",
+      "title": "The Home-Buying Process (CFPB)",
+      "sourceName": "Consumer Financial Protection Bureau",
+      "sourceType": "EDUCATIONAL"
+    }
+  ]
+}

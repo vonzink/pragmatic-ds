@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assets-ledger-v1.input",
+  "title": "Assets ledger tool input",
+  "description": "The subset of a Document Engine result envelope this tool reads. The tool receives the whole verified envelope; this schema names the parts it actually consumes, so a release pinning the tool is pinning a stated dependency on the engine's bank-statement extraction rather than on the envelope as a whole. Repeating rows are identified by a non-null groupKey: one group is one transaction.",
+  "type": "object",
+  "required": ["envelopeVersion", "canonicalizationVersion", "documents"],
+  "properties": {
+    "envelopeVersion": { "type": "string" },
+    "canonicalizationVersion": { "type": "string" },
+    "documents": {
+      "type": "array",
+      "description": "Logical documents in envelope order. Only those whose documentTypeCode is configured as a statement type are read; the rest are ignored, not an error.",
+      "items": {
+        "type": "object",
+        "required": ["documentTypeCode", "ordinal", "fields"],
+        "properties": {
+          "documentTypeCode": { "type": "string" },
+          "ordinal": { "type": "integer" },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "status"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Matched against the configured account and transaction field names."
+                },
+                "groupKey": {
+                  "type": ["string", "null"],
+                  "description": "Null for a field that does not repeat, which makes it an account header field. Non-null groups the field into one transaction row."
+                },
+                "status": { "enum": ["FOUND", "MISSING"] },
+                "normalized": {
+                  "type": ["object", "null"],
+                  "description": "Typed arms. Only these are read; rawValue is never parsed, because re-parsing a value the engine already normalized is how two systems come to disagree about the same number.",
+                  "properties": {
+                    "text": { "type": ["string", "null"] },
+                    "number": { "type": ["number", "null"] },
+                    "date": { "type": ["string", "null"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "online-print-out",
+  "synthetic": true,
+  "coverage": [
+    "online-print-out",
+    "no-period-ledger",
+    "chained-running-balances",
+    "newest-first",
+    "month-to-date-tiles"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "IOTA SYNTHETIC BANK",
+        "Printed from Iota Personal Online",
+        "TOTAL CHECKING ...0009",
+        "CASE ONLINE PRINTOUT",
+        "908 TEST AVENUE TESTVILLE ZZ 00000",
+        "Present balance $4,812.33",
+        "Available balance $4,712.33",
+        "+$2,180.40 Deposits this month",
+        "-$674.20 Withdrawals this month",
+        "On Debit card coverage",
+        "Transaction activity",
+        "08/24/2099 SYNTHETIC CARD PURCHASE 54.20 DEBIT BALANCE 4812.33",
+        "08/22/2099 SYNTHETIC TRANSFER OUT 500.00 DEBIT BALANCE 4866.53",
+        "08/21/2099 SYNTHETIC PAYROLL DEPOSIT 2180.40 CREDIT BALANCE 5366.53",
+        "08/19/2099 SYNTHETIC ZELLE PAYMENT 120.00 DEBIT BALANCE 3186.13"
+      ],
+      "tableText": "DATE | DESCRIPTION | AMOUNT | BALANCE"
+    }
+  ]
+}

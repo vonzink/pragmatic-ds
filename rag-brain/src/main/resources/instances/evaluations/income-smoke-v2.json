@@ -1,0 +1,69 @@
+{
+  "id": "income-smoke",
+  "version": 2,
+  "description": "Smoke coverage for a pinned income instance. Version 2 adds a fifth case over fixture-paystub-review-required and is otherwise byte-identical in intent to version 1, which is left in place unchanged so that every historical income-smoke v1 report digest stays reproducible. Every package named here is a synthetic fixture; no scenario references a real borrower package, and no expected borrower value appears anywhere in this file. Assertions are JSON pointers into the assertion document described by InstanceAssertionDocument: the stored analysis result with its findings payload inflated under /findings. A scenario checks that the answer is shaped correctly, cites its evidence, and does not invent what the parse did not contain — never that it contains a particular number. Two cases assert an absence, and an absence is only worth asserting when the fixture makes it reachable: fixture-unsupported-only contains nothing an income contract allows, so a release must refuse it before analysis, and fixture-paystub-unreadable is a compatible paystub with every field MISSING, so a release is asked the question and has nothing true to answer with. Note the coupling this set assumes: a release whose parsed-data contract sets missingFields to REJECT refuses the unreadable paystub rather than reporting on it, and would fail the fourth case for that reason. This set is for releases that tolerate missing fields and are expected to say so. The fifth case asserts ruleId and inputDigest under the doubled /findings/findings node the inflated findingsJson is published under — proving the pointer a scenario would use to catch a fabricated finding actually addresses evidence, rather than a shape that silently stopped matching the live envelope. It deliberately does NOT assert subjectKey: a subject key needs a subjectScope, no production run supplies one today, and FindingJson omits the property entirely when it is null — so a gate asserting it would fail every correct release. ruleId and inputDigest are on every finding the pipeline emits, scope or no scope.",
+  "scenarios": [
+    {
+      "name": "single-paystub-produces-a-cited-report",
+      "packageFixture": "fixture-paystub-single",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/facts",
+        "/citations/0"
+      ],
+      "forbiddenPointers": []
+    },
+    {
+      "name": "paystub-and-w2-produce-calculations",
+      "packageFixture": "fixture-paystub-w2",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/facts/0",
+        "/findings/calculations/0",
+        "/citations/0"
+      ],
+      "forbiddenPointers": []
+    },
+    {
+      "name": "unsupported-package-is-refused-before-any-analysis",
+      "packageFixture": "fixture-unsupported-only",
+      "revision": 1,
+      "requiredPointers": [
+        "/status",
+        "/reason"
+      ],
+      "forbiddenPointers": [
+        "/reportMarkdown",
+        "/citations/0",
+        "/findings/facts/0",
+        "/findings/calculations/0"
+      ]
+    },
+    {
+      "name": "unreadable-paystub-yields-no-fabricated-findings",
+      "packageFixture": "fixture-paystub-unreadable",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/missingItems/0"
+      ],
+      "forbiddenPointers": [
+        "/findings/facts/0",
+        "/findings/calculations/0"
+      ]
+    },
+    {
+      "name": "review-required-paystub-emits-an-addressable-finding",
+      "packageFixture": "fixture-paystub-review-required",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/findings/0/ruleId",
+        "/findings/findings/0/inputDigest"
+      ],
+      "forbiddenPointers": []
+    }
+  ]
+}

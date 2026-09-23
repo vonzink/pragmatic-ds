@@ -1,0 +1,9 @@
+{
+  "id": "paystub-rotated",
+  "fixture": "paystub_complete_rot180",
+  "layout": "GRID",
+  "synthetic": true,
+  "coverage": ["rotation", "coordinate-contract"],
+  "note": "Same document, /Rotate 180. Spans stay canonical rotation-0, which is the whole point of the coordinate contract — every value must match the unrotated case exactly.",
+  "documents": [{"type": "PAYSTUB"}]
+}

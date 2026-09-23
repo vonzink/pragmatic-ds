@@ -1,0 +1,603 @@
+{
+  "canonicalizationVersion": "DOCENGINE-C14N-1",
+  "documents": [
+    {
+      "documentTypeCode": "PAYSTUB",
+      "fields": [
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "STRING",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "borrowerName",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9812,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.9911
+          },
+          "dataType": "MONEY",
+          "displayedText": "$3,200.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 54.6,
+                "x": 402.35,
+                "y": 266.4
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7203
+            },
+            {
+              "box": {
+                "height": 11.2,
+                "width": 44,
+                "x": 352.1,
+                "y": 266.4
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 7202
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "currentGrossPay",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 3200,
+            "text": null
+          },
+          "rawValue": "3,200.00",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.97,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.97
+          },
+          "dataType": "STRING",
+          "displayedText": "Northwind Millwork LLC",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 168.4,
+                "x": 72,
+                "y": 58.5
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7101
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "employerName",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "Northwind Millwork LLC"
+          },
+          "rawValue": "Northwind Millwork LLC",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9763,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.9862
+          },
+          "dataType": "MONEY",
+          "displayedText": "$384.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 46.8,
+                "x": 402.35,
+                "y": 290.6
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7204
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "federalWithholding",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 384,
+            "text": null
+          },
+          "rawValue": "384.00",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9805,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.9904
+          },
+          "dataType": "MONEY",
+          "displayedText": "$2,438.72",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 54.6,
+                "x": 402.35,
+                "y": 314.8
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7205
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "netPay",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 2438.72,
+            "text": null
+          },
+          "rawValue": "2,438.72",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.995,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.995
+          },
+          "dataType": "DATE",
+          "displayedText": "02/20/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 48.2,
+                "x": 301.4,
+                "y": 96.5
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7104
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "payDate",
+          "normalized": {
+            "date": "2026-02-20",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "02/20/2026",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.94,
+          "confidenceComponents": {
+            "anchorStrength": 0.95,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.94
+          },
+          "dataType": "ENUM",
+          "displayedText": "Semi-Monthly",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 72.5,
+                "x": 120.8,
+                "y": 96.5
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7106
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "payFrequency",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "SEMIMONTHLY"
+          },
+          "rawValue": "Semi-Monthly",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9905,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9905
+          },
+          "dataType": "DATE",
+          "displayedText": "02/15/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 48.2,
+                "x": 221.6,
+                "y": 82.1
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7103
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "payPeriodEnd",
+          "normalized": {
+            "date": "2026-02-15",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "02/15/2026",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9905,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9905
+          },
+          "dataType": "DATE",
+          "displayedText": "02/01/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 48.2,
+                "x": 140.2,
+                "y": 82.1
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7102
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "payPeriodStart",
+          "normalized": {
+            "date": "2026-02-01",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "02/01/2026",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9744,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.9842
+          },
+          "dataType": "MONEY",
+          "displayedText": "$9,600.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 54.6,
+                "x": 402.35,
+                "y": 402.7
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0000-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 7305
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "ytdGrossPay",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 9600,
+            "text": null
+          },
+          "rawValue": "9,600.00",
+          "schema": {
+            "id": "5f1a0000-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        }
+      ],
+      "id": "5f1a0000-0000-4000-8000-000000000020",
+      "ordinal": 0,
+      "pageIds": [
+        "5f1a0000-0000-4000-8000-000000000010"
+      ]
+    }
+  ],
+  "envelopeVersion": "1.0.0",
+  "generation": {
+    "packageRevision": 1,
+    "parseGeneration": 1,
+    "processingJobId": "5f1a0000-0000-4000-8000-0000000000b0",
+    "reuseEligibility": "PARSE_ONCE_CURRENT_PACKAGE",
+    "sourceSetSha256": "0a0552f104917af260f872d9093ea2bd87fb60c5d79ca678b440c4a899f61756"
+  },
+  "package": {
+    "id": "5f1a0000-0000-4000-8000-0000000000a0"
+  },
+  "pages": [
+    {
+      "blank": false,
+      "classification": {
+        "confidence": 0.9,
+        "documentTypeCode": "PAYSTUB",
+        "evidence": {
+          "anchors": [
+            {
+              "anchorId": "pay-period",
+              "boxes": [
+                {
+                  "height": 10,
+                  "width": 58.4,
+                  "x": 72,
+                  "y": 82.1
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 10,
+                "start": 0
+              },
+              "spanIds": [
+                7001
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "gross-pay",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 44,
+                  "x": 352.1,
+                  "y": 266.4
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 9,
+                "start": 0
+              },
+              "spanIds": [
+                7202
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "pay-date",
+              "boxes": [
+                {
+                  "height": 10,
+                  "width": 44.6,
+                  "x": 253.9,
+                  "y": 96.5
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 8,
+                "start": 0
+              },
+              "spanIds": [
+                7002
+              ],
+              "weight": 2
+            },
+            {
+              "anchorId": "ytd",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 26.8,
+                  "x": 320.2,
+                  "y": 402.7
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 3,
+                "start": 0
+              },
+              "spanIds": [
+                7003
+              ],
+              "weight": 1
+            }
+          ],
+          "scores": [
+            {
+              "minConfidence": 0.6,
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "score": 0.9,
+              "targetScore": 10
+            }
+          ]
+        },
+        "method": "RULE_ANCHOR",
+        "rulePackVersion": "1.1.0"
+      },
+      "duplicate": false,
+      "heightPt": 792,
+      "id": "5f1a0000-0000-4000-8000-000000000010",
+      "packagePageIndex": 0,
+      "renderDpi": 300,
+      "rotation": 0,
+      "sourceFileId": "5f1a0000-0000-4000-8000-000000000001",
+      "sourcePageIndex": 0,
+      "textLayer": "NATIVE",
+      "widthPt": 612
+    }
+  ],
+  "provenance": {
+    "applicationRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "extractionEngineRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "stages": [
+      {
+        "attempt": 1,
+        "outputDigest": "22400c31d195e3eec0edcc023cf7e934a03c2ed06830e8058c73bcd11cf7b907",
+        "parserVersions": null,
+        "stage": "VALIDATING",
+        "workerVersion": "1.4.0"
+      },
+      {
+        "attempt": 1,
+        "outputDigest": null,
+        "parserVersions": {
+          "pdf": "3.0.7"
+        },
+        "stage": "EXTRACTING",
+        "workerVersion": "1.4.0"
+      }
+    ],
+    "workerContractRelease": {
+      "availability": "UNAVAILABLE"
+    }
+  },
+  "sources": [
+    {
+      "contentSha256": "8c585eb7eefed19f276c4f6214b9b1e59c9237c052a53c0f6bf7d02de2c2bd1d",
+      "contentType": "application/pdf",
+      "id": "5f1a0000-0000-4000-8000-000000000001",
+      "ordinal": 0,
+      "sizeBytes": 48211
+    }
+  ],
+  "unassignedPageIds": []
+}

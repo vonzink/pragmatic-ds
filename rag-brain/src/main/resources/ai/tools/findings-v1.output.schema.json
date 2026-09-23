@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pragmaticds.invalid/schemas/findings-v1.output.schema.json",
+  "title": "Findings Tool Output v1",
+  "description": "Shared output contract for every tool answering producesFindings(). One schema for all of them by design: a change to the finding contract is a change to every rule pinned against it, and a shared outputSchemaSha256 makes that invalidation happen at once rather than one rule at a time. subjectKey is absent here because a tool holds no run context; FindingAssembler stamps it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["findings"],
+  "properties": {
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } }
+  },
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleId", "ruleVersion", "severity", "summary", "inputDigest", "anchors"],
+      "properties": {
+        "ruleId": { "type": "string", "pattern": "^[a-z0-9_.]+$", "maxLength": 128 },
+        "ruleVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "severity": { "enum": ["BLOCKING", "WARNING", "INFO"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "inputDigest": { "$ref": "#/$defs/digest" },
+        "anchors": { "type": "array", "items": { "$ref": "#/$defs/anchor" } },
+        "citationIds": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logicalDocumentId", "documentTypeCode", "documentOrdinal", "fieldName"],
+      "properties": {
+        "logicalDocumentId": { "type": "string", "format": "uuid" },
+        "documentTypeCode": { "type": "string", "minLength": 1 },
+        "documentOrdinal": { "type": "integer", "minimum": 0 },
+        "fieldName": { "type": "string", "minLength": 1 },
+        "groupKey": { "type": ["string", "null"] },
+        "pageId": { "type": ["string", "null"], "format": "uuid" },
+        "box": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["x", "y", "width", "height"],
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "width": { "type": "number" },
+            "height": { "type": "number" }
+          }
+        }
+      }
+    }
+  }
+}

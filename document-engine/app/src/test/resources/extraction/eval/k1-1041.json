@@ -1,0 +1,9 @@
+{
+  "id": "k1-1041",
+  "fixture": "k1_1041",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "multi-page-document", "continuation-page-anchors", "sensitive-field", "k1-family-furniture"],
+  "note": "Beneficiary's K-1 with the codes back page every mailed one ships with. No page-1 anchor repeats on page 2, so it qualifies on its own header regex plus the codes-list sentence — the Schedule C continuation pattern, third use. The back page prints 'Form 1040' repeatedly, worth 0.20 on the TAX_RETURN pack and gated.",
+  "documents": [{"type": "SCHEDULE_K1_1041", "pages": [0, 1]}]
+}

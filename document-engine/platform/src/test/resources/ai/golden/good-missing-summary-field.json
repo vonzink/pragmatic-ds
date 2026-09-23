@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "bankName": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountHolderName": { "value": "Pat Q. Example", "text": "PAT Q EXAMPLE", "page": 1, "confidence": "HIGH" },
+    "accountHolderAddress": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountNumber": { "value": "0000005678", "text": "Acct ****5678", "page": 1, "confidence": "HIGH" },
+    "statementPeriodStart": { "value": "2026-06-01", "text": "June 1, 2026", "page": 1, "confidence": "MEDIUM" },
+    "statementPeriodEnd": { "value": "2026-06-30", "text": "June 30, 2026", "page": 1, "confidence": "MEDIUM" },
+    "beginningBalance": { "value": "250.00", "text": "$250.00", "page": 1, "confidence": "HIGH" },
+    "endingBalance": { "value": "250.00", "text": "$250.00", "page": 1, "confidence": "HIGH" },
+    "totalDeposits": { "value": "0.00", "text": "$0.00", "page": 1, "confidence": "HIGH" },
+    "totalWithdrawals": { "value": "0.00", "text": "$0.00", "page": 1, "confidence": "HIGH" }
+  },
+  "transactions": [],
+  "checks": []
+}

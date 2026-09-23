@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+/*
+ * Minimal base only. There is no component library and no design system yet —
+ * feature components use plain Tailwind utilities.
+ */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}

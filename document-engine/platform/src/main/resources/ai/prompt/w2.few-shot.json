@@ -1,0 +1,11 @@
+{
+  "employeeName": { "value": "CASEY R EXAMPLE", "text": "CASEY R EXAMPLE", "page": 1, "confidence": "HIGH" },
+  "employerName": { "value": "NORTHWIND SAMPLE CO", "text": "NORTHWIND SAMPLE CO", "page": 1, "confidence": "HIGH" },
+  "employerEin": { "value": "11-2233445", "text": "11-2233445", "page": 1, "confidence": "HIGH" },
+  "taxYear": { "value": "2024", "text": "2024", "page": 1, "confidence": "HIGH" },
+  "wagesTipsOtherComp": { "value": "48120.50", "text": "48120.50", "page": 1, "confidence": "HIGH" },
+  "federalIncomeTaxWithheld": { "value": "5210.00", "text": "5210.00", "page": 1, "confidence": "HIGH" },
+  "socialSecurityWages": { "value": "52620.50", "text": "52620.50", "page": 1, "confidence": "HIGH" },
+  "medicareWages": { "value": "52620.50", "text": "52620.50", "page": 1, "confidence": "HIGH" },
+  "stateWages": { "value": null, "text": null, "page": null, "confidence": "LOW" }
+}

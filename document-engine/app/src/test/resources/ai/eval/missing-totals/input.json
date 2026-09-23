@@ -1,0 +1,28 @@
+{
+  "id": "missing-totals",
+  "synthetic": true,
+  "coverage": ["missing-totals"],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "EPSILON SYNTHETIC BANK",
+        "CASE MISSING TOTALS",
+        "904 TEST AVENUE TESTVILLE ZZ 00000",
+        "ACCOUNT SYN-0005",
+        "Statement period May 1, 2099 through May 31, 2099",
+        "Beginning Balance $2,000.00",
+        "Ending Balance $2,100.00",
+        "Summary totals unavailable"
+      ],
+      "tableText": "SUMMARY TOTALS UNAVAILABLE"
+    },
+    {
+      "number": 2,
+      "classification": "BANK_STATEMENT",
+      "spans": ["05/15/2099 SYNTHETIC SINGLE DEPOSIT $100.00"],
+      "tableText": "DATE | DESCRIPTION | AMOUNT"
+    }
+  ]
+}

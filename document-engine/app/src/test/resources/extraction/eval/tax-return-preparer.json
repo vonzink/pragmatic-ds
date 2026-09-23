@@ -1,0 +1,23 @@
+{
+  "id": "tax-return-preparer",
+  "fixture": "tax_return_preparer",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "multi-page-document",
+    "line-right",
+    "money-whole-dollars-bare",
+    "line-number-beside-amount",
+    "sensitive-field"
+  ],
+  "note": "V49. The 1040 money column as preparer software prints it, measured on three real preparer-printed filings: caption at 8 pt, dot leaders as SEPARATE 2 pt spans, the line number repeated beside the amount column, and the amount a BARE comma-grouped whole-dollar token in a 12 pt face raised ~3.9 pt off the caption baseline — no cents, no trailing period. Every money rung found its full-sentence caption and matched nothing before tax_return@1.4.0. The refund column is empty (an owed return): refundAmount must stay missing rather than read the `35a` beside it, and line 16's `8814`/`4972` and the refund line's `8888` must never read as amounts.",
+  "documents": [
+    {
+      "type": "TAX_RETURN",
+      "pages": [
+        0,
+        1
+      ]
+    }
+  ]
+}

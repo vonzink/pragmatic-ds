@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "pages": [
+      {
+        "dpi": 200,
+        "heightPt": 792.0,
+        "heightPx": 2200,
+        "pageIndex": 0,
+        "pngPart": "page-0",
+        "rotation": 0,
+        "widthPt": 612.0,
+        "widthPx": 1700
+      },
+      {
+        "dpi": 200,
+        "heightPt": 792.0,
+        "heightPx": 2200,
+        "pageIndex": 1,
+        "pngPart": "page-1",
+        "rotation": 0,
+        "widthPt": 612.0,
+        "widthPx": 1700
+      },
+      {
+        "dpi": 200,
+        "heightPt": 792.0,
+        "heightPx": 2200,
+        "pageIndex": 2,
+        "pngPart": "page-2",
+        "rotation": 0,
+        "widthPt": 612.0,
+        "widthPx": 1700
+      }
+    ],
+    "worker": {
+      "libraries": {
+        "pypdfium2": "5.12.1"
+      },
+      "version": "0.2.0"
+    }
+  },
+  "pngParts": [
+    {
+      "length": 115445,
+      "name": "page-0",
+      "sha256": "46ba6106ca746bbc96464adca3e0c356ad9be8866adce33b7299add426325748"
+    },
+    {
+      "length": 115808,
+      "name": "page-1",
+      "sha256": "b3b59a916021b5c8c1cc0eeeb563d55523805c1ec220785f5bde7990b880af14"
+    },
+    {
+      "length": 115923,
+      "name": "page-2",
+      "sha256": "62479efd970f0275a608ab22e10d0380f91b6ece0755a3f7bef22684779fdff6"
+    }
+  ]
+}

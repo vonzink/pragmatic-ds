@@ -1,0 +1,9 @@
+{
+  "id": "paystub-bureau",
+  "fixture": "paystub_bureau",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["provider-variety", "recall-regression", "ocr-fused-captions", "line-right", "label-below", "two-digit-year", "totals-strip"],
+  "note": "The payroll-bureau layout, measured on a real Denver contractor's stub - a SCANNED document whose spans reach the engine through OCR. It matched only 'Pay Period' and 'Earnings' on paystub@1.1.0 (5 of the 10-point target), so a real borrower's stub classified UNKNOWN. V36's pack adds the dialect's vocabulary as fused-tolerant regexes ('Deposit ?Date', 'Pay ?Frequency'), because OCR fuses many of this layout's captions into single tokens ('PayFrequency:', 'ThisPayPeriod', 'NetPay', 'TotalCurrentNet:') - the fixture draws them fused so the anchors are proven against the span stream OCR actually produces. Nine fields extract since V48: currentGrossPay/ytdGrossPay were unpinned from V36 to V47 because the only caption over those values is the totals strip's repeated 'Earnings' and LABEL_BELOW binds a label's FIRST page occurrence (the earnings table header); V48 reads them off the strip's caption ROW - 'Earnings Deductions NetPay' for the current block, the whole 'Earnings Deductions NetPay' block that FOLLOWS a NetPay for YTD - which does not repeat. employerName stays deliberately unpinned (the company block prints no caption). Absent beats confidently wrong, same as VOE lenderName and SSA-1099 netBenefits.",
+  "documents": [{"type": "PAYSTUB"}]
+}

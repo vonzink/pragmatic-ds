@@ -1,0 +1,9 @@
+{
+  "id": "schedule-f",
+  "fixture": "schedule_f",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "line-right", "two-column-grid", "sensitive-field"],
+  "note": "Authored from the official 2025 blank form, and the widest schema the engine seeds — 47 fields for a farm's whole income and expense picture. Part II is TWO columns on a shared baseline, so one printed line carries two captions and two amounts and every expense rung has to find its own column first. It is also the corpus's Schedule C confusion case: 648 shared phrases, none of them anchored.",
+  "documents": [{"type": "SCHEDULE_F", "pages": [0]}]
+}

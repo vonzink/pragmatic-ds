@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pragmaticds.invalid/schemas/findings-v1.input.schema.json",
+  "title": "Findings Tool Input v1",
+  "description": "Findings tools take the verified engine result envelope itself and no parameters. The schema exists because a tool's identity is all four of name, version, input digest and output digest, and an absent input schema would leave one quarter of that identity unpinned.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}

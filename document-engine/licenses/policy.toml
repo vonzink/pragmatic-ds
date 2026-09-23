@@ -1,0 +1,196 @@
+####################################################################
+# Pragmatic DS Document Engine — licence policy
+#
+# Authoritative prose: docs/LICENSING.md
+# Enforced by:        tools/license_gate_cli.py (CI, all three ecosystems)
+#
+# The engine is intended for Apache-2.0 release, so copyleft is a hard
+# blocker rather than a trade-off. Edit this file only alongside
+# docs/LICENSING.md — they are meant to say the same thing.
+####################################################################
+
+allowed = [
+  # ── Permissive ────────────────────────────────────────────────────────────
+  "MIT",
+  "MIT-0",
+  "MIT-CMU",
+  "0BSD",
+  "BSD-2-Clause",
+  "BSD-3-Clause",
+  "Apache-2.0",
+  "ISC",
+  "HPND",
+  "PostgreSQL",
+  "Python-2.0",
+  "Zlib",
+  "Unlicense",
+  "CC0-1.0",
+  "FTL",
+
+  # ── Weak (file-level) copyleft — permitted for UNMODIFIED linked deps ─────
+  # EPL obligations attach to modifications of EPL-licensed files, not to an
+  # independent work that links them. This is the Apache Foundation's
+  # "Category B" position, and it is unavoidable on a JVM stack: logback,
+  # aspectjweaver, and the jakarta.* APIs are all EPL-bearing.
+  #
+  # CONDITION: we consume these as unmodified binaries. If Pragmatic DS ever patches an
+  # EPL file, that file's source must be published. See docs/LICENSING.md 4.4.
+  #
+  # Eclipse Distribution License (EDL 1.0) is plain BSD-3-Clause and is aliased
+  # to it below rather than listed here.
+  "EPL-1.0",
+  "EPL-2.0",
+  # MPL-2.0 obligations likewise attach to modifications of MPL files, not to
+  # a work that links them unmodified. Carried by certifi, which exists in
+  # effectively every Python environment. Same condition as the EPL entries.
+  "MPL-2.0",
+
+  # Python Software Foundation licence — permissive.
+  "PSF-2.0",
+
+  # Blue Oak Model License 1.0.0 — permissive, OSI-approved, written to be
+  # clearer than MIT rather than more permissive or less. Copyright AND patent
+  # grant, no copyleft, no notice obligation beyond source copies.
+  #
+  # It is here in the MAIN allowlist, not a dev-only tier, deliberately: a
+  # dev-only tier exists to hold licences whose obligations you escape by not
+  # distributing them. BlueOak has none to escape. isaacs relicensed minimatch,
+  # lru-cache, glob and friends to it, so it now reaches almost every JS tree
+  # transitively — pinning around it blocks security updates to buy nothing.
+  # See docs/LICENSING.md 4.6.
+  "BlueOak-1.0.0",
+
+  # ── Attribution-only content licence ──────────────────────────────────────
+  # CC-BY-4.0 covers DATA, not code, in this tree: `caniuse-lite` (browser
+  # support tables) is an unavoidable transitive of browserslist, which both
+  # Vite and autoprefixer depend on — i.e. every React/Vite/Tailwind build.
+  #
+  # It imposes no copyleft on our source: the obligation is attribution, which
+  # THIRD-PARTY-NOTICES.md discharges. It is NOT a licence for code — if a
+  # CC-BY *code* dependency ever appears, reject it rather than reusing this
+  # entry. Reviewed for Phase 6; see docs/LICENSING.md 4.5.
+  "CC-BY-4.0",
+]
+
+# Substring match, case-insensitive, against each arm of an SPDX expression.
+# "GPL" deliberately also catches "LGPL" and "AGPL".
+denied_patterns = [
+  "AGPL",
+  "GPL",
+  "LGPL",
+  "SSPL",
+  "BUSL",
+  "ELASTIC",
+  "CC-BY-NC",
+  "COMMONS CLAUSE",
+  "PROSPERITY",
+  "POLYFORM",
+]
+
+####################################################################
+# Aliases — the three ecosystems disagree on naming.
+#   pip-licenses  emits Python trove classifier names
+#   Gradle        emits POM <license><name> free text
+#   npm           emits SPDX, usually correctly
+# Aliasing runs BEFORE both the allowlist and the denylist, so it can
+# never rescue a denied licence — see tools/tests/test_license_gate.py.
+####################################################################
+[aliases]
+"MIT License" = "MIT"
+"The MIT License" = "MIT"
+"BSD License" = "BSD-3-Clause"          # ambiguous 2 vs 3 clause; both allowed
+"BSD 3-Clause License" = "BSD-3-Clause"
+"The BSD 3-Clause License" = "BSD-3-Clause"
+"BSD-3-Clause License" = "BSD-3-Clause"
+"BSD 2-Clause License" = "BSD-2-Clause"
+"Apache Software License" = "Apache-2.0"
+"Apache License 2.0" = "Apache-2.0"
+"Apache License, Version 2.0" = "Apache-2.0"
+"The Apache License, Version 2.0" = "Apache-2.0"
+"The Apache Software License, Version 2.0" = "Apache-2.0"
+"ISC License (ISCL)" = "ISC"
+"Apache License Version 2.0" = "Apache-2.0"
+"Apache 2.0" = "Apache-2.0"
+"3-Clause BSD License" = "BSD-3-Clause"
+
+# pypdfium2 declares its bundled tree as a comma list ending in the literal
+# words "dependency licenses". Verbatim alias to the conjunctive truth: the
+# wheel carries PDFium (BSD-3/Apache-2.0) plus bundled deps, of which FreeType
+# is the licence-relevant one — FTL elected per LICENSING.md 4.3.
+"BSD-3-Clause, Apache-2.0, dependency licenses" = "BSD-3-Clause AND Apache-2.0 AND FTL"
+
+# Maven POM free-text seen in the real dependency tree (jk1 license-report).
+# Some POMs embed a link= suffix in the licence *name* — matched verbatim.
+"\"Apache License 2.0\";link=\"http://www.apache.org/licenses/LICENSE-2.0.html\"" = "Apache-2.0"
+"\"Apache-2.0\";link=\"https://www.apache.org/licenses/LICENSE-2.0.txt\"" = "Apache-2.0"
+"Eclipse Public License - v 1.0" = "EPL-1.0"
+"Eclipse Public License - v 2.0" = "EPL-2.0"
+"Eclipse Public License v. 2.0" = "EPL-2.0"
+"EPL 2.0" = "EPL-2.0"
+# The Eclipse DISTRIBUTION License is BSD-3-Clause, unrelated to the EPL
+# despite the similar name.
+"Eclipse Distribution License - v 1.0" = "BSD-3-Clause"
+"Eclipse Distribution License v. 1.0" = "BSD-3-Clause"
+"EDL 1.0" = "BSD-3-Clause"
+"GNU General Public License, version 2 with the GNU Classpath Exception" = "GPL-2.0-with-classpath-exception"
+"GPL2 w/ CPE" = "GPL-2.0-with-classpath-exception"
+"Public Domain, per Creative Commons CC0" = "CC0-1.0"
+"Historical Permission Notice and Disclaimer (HPND)" = "HPND"
+"CMU License (MIT-CMU)" = "MIT-CMU"
+"PostgreSQL License" = "PostgreSQL"
+"Python Software Foundation License" = "Python-2.0"
+"Mozilla Public License 2.0 (MPL 2.0)" = "MPL-2.0"
+"The Unlicense (Unlicense)" = "Unlicense"
+"FreeType License" = "FTL"
+# npm SPDX for the caniuse-lite data tables (see the allowlist rationale).
+"CC-BY-4.0" = "CC-BY-4.0"
+"Creative Commons Attribution 4.0 International" = "CC-BY-4.0"
+"Blue Oak Model License 1.0.0" = "BlueOak-1.0.0"
+"BlueOak-1.0" = "BlueOak-1.0.0"
+
+# Denied licences are aliased too, so the failure message names the real
+# licence rather than a vendor's prose for it.
+"GNU Affero General Public License v3" = "AGPL-3.0"
+"GNU Affero General Public License v3 or later (AGPLv3+)" = "AGPL-3.0-or-later"
+"GNU General Public License v2 (GPLv2)" = "GPL-2.0"
+"GNU General Public License v3 (GPLv3)" = "GPL-3.0"
+"GNU Lesser General Public License v2 (LGPLv2)" = "LGPL-2.0"
+"GNU Lesser General Public License v2 or later (LGPLv2+)" = "LGPL-2.1-or-later"
+"GNU Lesser General Public License v3 (LGPLv3)" = "LGPL-3.0"
+
+####################################################################
+# Exemptions — narrow, package-scoped, and documented.
+# Matched on package AND licence, never licence alone, so an exemption
+# can never become a global loophole for that licence.
+# Each entry corresponds to a numbered section of docs/LICENSING.md.
+####################################################################
+
+[[exemptions]]
+package = "temurin-jdk"
+license = "GPL-2.0-with-classpath-exception"
+elected = "GPL-2.0-with-classpath-exception"
+reason = "Classpath Exception permits linking without copyleft. Every OpenJDK build is GPLv2+CE; there is no permissive JDK. (LICENSING.md 4.1)"
+
+[[exemptions]]
+package = "org.hibernate.orm:hibernate-core"
+license = "GNU Library General Public License v2.1 or later"
+elected = "LGPL-2.1-or-later"
+reason = "Hibernate ORM 6.x is LGPL-2.1 (the Apache-2.0 relicense lands in ORM 7). Consumed as an unmodified jar over a public API; LGPL linking obligations are met by carrying the notice and preserving relinking. Upgrade to ORM 7 (Apache-2.0) when Spring Boot adopts it. (LICENSING.md 4.2)"
+
+[[exemptions]]
+package = "freetype"
+license = "FTL OR GPL-2.0"
+elected = "FTL"
+reason = "Dual-licensed, bundled inside PDFium via pypdfium2. Pragmatic DS elects FTL (BSD-style, attribution). (LICENSING.md 4.3)"
+
+[[exemptions]]
+package = "pi_heif"
+license = "GNU Lesser General Public License v3 (LGPLv3)"
+elected = "LGPL-3.0"
+reason = "HEIC decoding — an iPhone's default photo format, which no permissive decoder reads. The wheel bundles libheif and libde265 (LGPL-3.0) unmodified and dynamically linked, with relinking preserved; no Pragmatic DS source is derived from either. DECODE-ONLY is the point: its sibling pillow-heif bundles x265 and is GPLv2, which is why that package is rejected outright rather than exempted. Notice carried in THIRD-PARTY-NOTICES.md. (LICENSING.md 5.4)"
+
+[[exemptions]]
+package = "opencv-python-headless"
+license = "Apache-2.0"
+elected = "Apache-2.0"
+reason = "OpenCV core is Apache-2.0. The wheel bundles FFmpeg (LGPL-2.1); no video codecs are exercised and the unmodified wheel preserves relinking. Notice carried in THIRD-PARTY-NOTICES.md. (LICENSING.md 5.1)"

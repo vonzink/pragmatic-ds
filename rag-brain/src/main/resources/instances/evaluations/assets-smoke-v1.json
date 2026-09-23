@@ -1,0 +1,47 @@
+{
+    "id": "assets-smoke",
+    "version": 1,
+    "description": "Smoke coverage for a pinned asset instance that runs under the assets-v2 ledger rules (analyzers.yaml instance-slugs). The bank-statement case requires /findings/domain/derived/reconciliation/status, which only the engine writes (AssetsCalcService) and only when the instance slug resolved an analyzer's assets rules, so its presence proves the alias worked and the deterministic half ran. Presence, not a value: the Document Engine's BANK_STATEMENT parse carries header fields only (balances, period, totals) and no transaction rows, so a correct release can report MISMATCH, OK or INCOMPLETE depending on how it transcribes the header. Two cases assert refusal: a package with nothing an asset contract allows (an HOI declaration) and a paystub, which is an income document, must both be refused before any analysis. Every package named here is a synthetic fixture; no expected borrower value appears anywhere in this file.",
+    "scenarios": [
+        {
+            "name": "bank-statement-produces-an-enriched-ledger-report",
+            "packageFixture": "fixture-bank-statement-single",
+            "revision": 1,
+            "requiredPointers": [
+                "/reportMarkdown",
+                "/citations/0",
+                "/findings/domain/accounts/0",
+                "/findings/domain/derived/reconciliation/status"
+            ],
+            "forbiddenPointers": []
+        },
+        {
+            "name": "unsupported-package-is-refused-before-any-analysis",
+            "packageFixture": "fixture-unsupported-only",
+            "revision": 1,
+            "requiredPointers": [
+                "/status",
+                "/reason"
+            ],
+            "forbiddenPointers": [
+                "/reportMarkdown",
+                "/citations/0",
+                "/findings/domain/accounts/0"
+            ]
+        },
+        {
+            "name": "income-package-is-refused-before-any-analysis",
+            "packageFixture": "fixture-paystub-single",
+            "revision": 1,
+            "requiredPointers": [
+                "/status",
+                "/reason"
+            ],
+            "forbiddenPointers": [
+                "/reportMarkdown",
+                "/citations/0",
+                "/findings/domain/accounts/0"
+            ]
+        }
+    ]
+}

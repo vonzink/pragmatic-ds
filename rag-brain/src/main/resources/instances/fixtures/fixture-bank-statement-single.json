@@ -1,0 +1,1235 @@
+{
+  "canonicalizationVersion": "DOCENGINE-C14N-1",
+  "documents": [
+    {
+      "documentTypeCode": "BANK_STATEMENT",
+      "fields": [
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "STRING",
+          "displayedText": "Jordan Q. Fixture",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 33.6,
+                "x": 159.2,
+                "y": 113.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1284
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 11.6,
+                "x": 198.8,
+                "y": 113.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1285
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 33.6,
+                "x": 216.4,
+                "y": 113.3
+              },
+              "layoutElementId": null,
+              "ordinal": 2,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1286
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 39.7,
+                "x": 72,
+                "y": 113.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1282
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 35.5,
+                "x": 117.7,
+                "y": 113.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1283
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "accountHolderName",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "Jordan Q. Fixture"
+          },
+          "rawValue": "Jordan Q. Fixture",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "STRING",
+          "displayedText": "482199021177",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 73.4,
+                "x": 165.9,
+                "y": 131.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1289
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 39.7,
+                "x": 72,
+                "y": 131.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1287
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 42.2,
+                "x": 117.7,
+                "y": 131.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1288
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "accountNumber",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "482199021177"
+          },
+          "rawValue": "482199021177",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": true,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.6,
+          "confidenceComponents": {
+            "anchorStrength": 0.6,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "STRING",
+          "displayedText": "FIRST SYNTHETIC BANK",
+          "evidence": [
+            {
+              "box": {
+                "height": 14,
+                "width": 40.4,
+                "x": 72,
+                "y": 50.9
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1272
+            },
+            {
+              "box": {
+                "height": 14,
+                "width": 79.3,
+                "x": 118.4,
+                "y": 50.9
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1273
+            },
+            {
+              "box": {
+                "height": 14,
+                "width": 40.4,
+                "x": 203.8,
+                "y": 50.9
+              },
+              "layoutElementId": null,
+              "ordinal": 2,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1274
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "REGEX",
+          "name": "bankName",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "FIRST SYNTHETIC BANK"
+          },
+          "rawValue": "FIRST SYNTHETIC BANK",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "MONEY",
+          "displayedText": "12,847.61",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 48.9,
+                "x": 180,
+                "y": 153.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1292
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 53.8,
+                "x": 72,
+                "y": 153.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1290
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 42.2,
+                "x": 131.8,
+                "y": 153.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1291
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "beginningBalance",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 12847.61,
+            "text": null
+          },
+          "rawValue": "12,847.61",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "MONEY",
+          "displayedText": "14,203.15",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 48.9,
+                "x": 163.5,
+                "y": 337.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1319
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 37.3,
+                "x": 72,
+                "y": 337.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1317
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 42.2,
+                "x": 115.3,
+                "y": 337.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1318
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "endingBalance",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 14203.15,
+            "text": null
+          },
+          "rawValue": "14,203.15",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "monthToDateDeposits",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "monthToDateWithdrawals",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "DATE",
+          "displayedText": "01/31/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 239.7,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1281
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 50.1,
+                "x": 72,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1277
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 34.8,
+                "x": 128.1,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1278
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 169,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 2,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1279
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 3.7,
+                "x": 230,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 3,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1280
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 239.7,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 4,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1281
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "statementPeriodEnd",
+          "normalized": {
+            "date": "2026-01-31",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "01/31/2026",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "DATE",
+          "displayedText": "01/01/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 169,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1279
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 50.1,
+                "x": 72,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1277
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 34.8,
+                "x": 128.1,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1278
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 169,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 2,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1279
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 3.7,
+                "x": 230,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 3,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1280
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 55,
+                "x": 239.7,
+                "y": 95.3
+              },
+              "layoutElementId": null,
+              "ordinal": 4,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1281
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "statementPeriodStart",
+          "normalized": {
+            "date": "2026-01-01",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "01/01/2026",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "MONEY",
+          "displayedText": "3,711.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 42.8,
+                "x": 151.2,
+                "y": 361.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1322
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 24.5,
+                "x": 72,
+                "y": 361.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1320
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 42.8,
+                "x": 102.5,
+                "y": 361.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1321
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "totalDeposits",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 3711,
+            "text": null
+          },
+          "rawValue": "3,711.00",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9,
+          "confidenceComponents": {
+            "anchorStrength": 0.9,
+            "normalizerCertainty": 1,
+            "spanConfidence": 1
+          },
+          "dataType": "MONEY",
+          "displayedText": "675.50",
+          "evidence": [
+            {
+              "box": {
+                "height": 11,
+                "width": 33.6,
+                "x": 168.3,
+                "y": 379.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 1325
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 24.5,
+                "x": 72,
+                "y": 379.3
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1323
+            },
+            {
+              "box": {
+                "height": 11,
+                "width": 59.9,
+                "x": 102.5,
+                "y": 379.3
+              },
+              "layoutElementId": null,
+              "ordinal": 1,
+              "pageId": "5f1a0004-0000-4000-8000-000000000010",
+              "role": "LABEL",
+              "textSpanId": 1324
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "totalWithdrawals",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 675.5,
+            "text": null
+          },
+          "rawValue": "675.50",
+          "schema": {
+            "id": "5f1a0004-0000-4000-8000-000000000011",
+            "version": "1.6.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "NOT_VALIDATED"
+        }
+      ],
+      "id": "5f1a0004-0000-4000-8000-000000000012",
+      "ordinal": 0,
+      "pageIds": [
+        "5f1a0004-0000-4000-8000-000000000010"
+      ]
+    }
+  ],
+  "envelopeVersion": "1.0.0",
+  "generation": {
+    "packageRevision": 1,
+    "parseGeneration": 1,
+    "processingJobId": "5f1a0004-0000-4000-8000-000000000013",
+    "reuseEligibility": "PARSE_ONCE_CURRENT_PACKAGE",
+    "sourceSetSha256": "1994951ab9305727b41283385288eded7ada139f6ac5d64c5a25e40752a2620a"
+  },
+  "package": {
+    "id": "5f1a0004-0000-4000-8000-000000000014"
+  },
+  "pages": [
+    {
+      "blank": false,
+      "classification": {
+        "confidence": 1,
+        "documentTypeCode": "BANK_STATEMENT",
+        "evidence": {
+          "anchors": [
+            {
+              "anchorId": "deposits",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 46.5,
+                  "x": 72,
+                  "y": 177.3
+                },
+                {
+                  "height": 11,
+                  "width": 19.6,
+                  "x": 124.5,
+                  "y": 177.3
+                },
+                {
+                  "height": 11,
+                  "width": 37.9,
+                  "x": 150,
+                  "y": 177.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 192,
+                "start": 172
+              },
+              "spanIds": [
+                1293,
+                1294,
+                1295
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "stmt-period",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 50.1,
+                  "x": 72,
+                  "y": 95.3
+                },
+                {
+                  "height": 11,
+                  "width": 34.8,
+                  "x": 128.1,
+                  "y": 95.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 55,
+                "start": 39
+              },
+              "spanIds": [
+                1277,
+                1278
+              ],
+              "weight": 2
+            },
+            {
+              "anchorId": "begin-balance",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 53.8,
+                  "x": 72,
+                  "y": 153.3
+                },
+                {
+                  "height": 11,
+                  "width": 42.2,
+                  "x": 131.8,
+                  "y": 153.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 161,
+                "start": 144
+              },
+              "spanIds": [
+                1290,
+                1291
+              ],
+              "weight": 2
+            },
+            {
+              "anchorId": "end-balance",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 37.3,
+                  "x": 72,
+                  "y": 337.3
+                },
+                {
+                  "height": 11,
+                  "width": 42.2,
+                  "x": 115.3,
+                  "y": 337.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 389,
+                "start": 375
+              },
+              "spanIds": [
+                1317,
+                1318
+              ],
+              "weight": 2
+            },
+            {
+              "anchorId": "acct-statement",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 44,
+                  "x": 72,
+                  "y": 77.3
+                },
+                {
+                  "height": 11,
+                  "width": 53.2,
+                  "x": 122,
+                  "y": 77.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 38,
+                "start": 21
+              },
+              "spanIds": [
+                1275,
+                1276
+              ],
+              "weight": 2
+            },
+            {
+              "anchorId": "withdrawals",
+              "boxes": [
+                {
+                  "height": 11,
+                  "width": 64.8,
+                  "x": 72,
+                  "y": 263.3
+                }
+              ],
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 309,
+                "start": 298
+              },
+              "spanIds": [
+                1308
+              ],
+              "weight": 1
+            }
+          ],
+          "scores": [
+            {
+              "minConfidence": 0.6,
+              "packType": "APPRAISAL",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "BANK_STATEMENT",
+              "packVersion": "1.1.0",
+              "score": 1,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "CLOSING_DISCLOSURE",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "DISASTER_CERT",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "DRIVERS_LICENSE",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_1099_G",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_1099_MISC",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_1099_NEC",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_1099_R",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_4506",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "FORM_SSA_1099",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "HOI_DECLARATION",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "MORTGAGE_STATEMENT",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "PAYSTUB",
+              "packVersion": "1.2.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "PURCHASE_CONTRACT",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_B",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_C",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_D",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_E",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_F",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_K1_1041",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_K1_1065",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SCHEDULE_K1_1120S",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "SSA_AWARD_LETTER",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "TAX_RETURN",
+              "packVersion": "1.1.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "TITLE_COMMITMENT",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "URLA",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "VOE",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "W2",
+              "packVersion": "1.1.0",
+              "score": 0,
+              "targetScore": 10
+            },
+            {
+              "minConfidence": 0.6,
+              "packType": "WIRING_INSTRUCTIONS",
+              "packVersion": "1.0.0",
+              "score": 0,
+              "targetScore": 10
+            }
+          ]
+        },
+        "method": "RULE_ANCHOR",
+        "rulePackVersion": "1.1.0"
+      },
+      "duplicate": false,
+      "heightPt": 792,
+      "id": "5f1a0004-0000-4000-8000-000000000010",
+      "packagePageIndex": 0,
+      "renderDpi": 200,
+      "rotation": 0,
+      "sourceFileId": "5f1a0004-0000-4000-8000-000000000015",
+      "sourcePageIndex": 1,
+      "textLayer": "NATIVE",
+      "widthPt": 612
+    }
+  ],
+  "provenance": {
+    "applicationRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "extractionEngineRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "stages": [
+      {
+        "attempt": 1,
+        "outputDigest": "eb76614d099f5a96b9353bffe055bb330b6ac72eec824d01c770d7dd2270e9c3",
+        "parserVersions": null,
+        "stage": "VALIDATING",
+        "workerVersion": "1.4.0"
+      },
+      {
+        "attempt": 1,
+        "outputDigest": null,
+        "parserVersions": {
+          "pdf": "3.0.7"
+        },
+        "stage": "EXTRACTING",
+        "workerVersion": "1.4.0"
+      }
+    ],
+    "workerContractRelease": {
+      "availability": "UNAVAILABLE"
+    }
+  },
+  "sources": [
+    {
+      "contentSha256": "27e092be4ec0fd4721057e865c5e7fc12eba854a956a00e17a918c9077ec35e5",
+      "contentType": "application/pdf",
+      "id": "5f1a0004-0000-4000-8000-000000000015",
+      "ordinal": 0,
+      "sizeBytes": 12800
+    }
+  ],
+  "unassignedPageIds": []
+}

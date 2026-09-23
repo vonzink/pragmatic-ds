@@ -1,0 +1,14 @@
+-- V17 — Full-capture P2.3 (docs/superpowers/specs/2026-08-17-full-capture-output-design.md §13.4,
+-- task P2.3). Additive: one index, no table, no column, no policy, no seed.
+--
+-- layout_element has carried a parent_element_id self-FK since V4 and, until now, exactly one
+-- index: (org_id, page_id, ordinal). That was enough while trees were only ever read whole per
+-- page — the extraction engine's projection loads a page's elements in one sweep. The L2 read
+-- surface changes the access shape: GET /v1/pages/{id}/structure resolves individual elements and
+-- their children (?containsSpan=, ?element= on /spans), so child-of-element lookups stop being
+-- "walk the page list in memory" and become a query predicate. Without this index every such
+-- lookup is a sequential scan over the org's elements.
+--
+-- org_id leads for the same reason it leads every other index in this schema: RLS predicates and
+-- the house org-scoped repository methods always constrain it first.
+CREATE INDEX layout_element_org_parent_idx ON layout_element (org_id, parent_element_id);

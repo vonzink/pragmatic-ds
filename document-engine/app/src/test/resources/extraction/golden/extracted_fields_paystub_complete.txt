@@ -1,0 +1,319 @@
+field borrowerName
+  data_type=STRING
+  displayed_text=Jordan Q. Fixture
+  raw_value=Jordan Q. Fixture
+  normalized_text=Jordan Q. Fixture
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,94.10,52.00,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=130.00,94.10,33.60,10.20 span=true element=false
+  evidence VALUE#1 page=0 box=169.60,94.10,11.60,10.20 span=true element=false
+  evidence VALUE#2 page=0 box=187.20,94.10,33.60,10.20 span=true element=false
+field currentGrossPay
+  data_type=MONEY
+  displayed_text=4,670.69
+  raw_value=4,670.69
+  normalized_text=null
+  normalized_number=4670.6900
+  normalized_date=null
+  normalized_json=null
+  extraction_method=TABLE_CLUSTER
+  extractor_version=engine/1.0.0
+  confidence=1.0000
+  confidence_components={"anchorStrength": 1.0, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=380.00,174.10,39.70,10.20 span=true element=true
+  evidence LABEL#1 page=0 box=72.00,262.10,31.80,10.20 span=true element=true
+  evidence VALUE#0 page=0 box=380.00,262.10,42.80,10.20 span=true element=true
+field currentTotalDeductions
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field earningCurrentAmount
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field earningDescription
+  data_type=STRING
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field earningHours
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field earningRate
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field earningYtdAmount
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field employerName
+  data_type=STRING
+  displayed_text=ACME WIDGETS LLC
+  raw_value=ACME WIDGETS LLC
+  normalized_text=ACME WIDGETS LLC
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=REGEX
+  extractor_version=engine/1.0.0
+  confidence=0.6000
+  confidence_components={"anchorStrength": 0.6, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence VALUE#0 page=0 box=72.00,61.90,41.20,13.00 span=true element=false
+  evidence VALUE#1 page=0 box=119.20,61.90,65.30,13.00 span=true element=false
+  evidence VALUE#2 page=0 box=190.60,61.90,27.20,13.00 span=true element=false
+field federalWithholding
+  data_type=MONEY
+  displayed_text=612.44
+  raw_value=612.44
+  normalized_text=null
+  normalized_number=612.4400
+  normalized_date=null
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,314.10,37.30,10.20 span=true element=false
+  evidence LABEL#1 page=0 box=115.30,314.10,57.50,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=178.80,314.10,33.60,10.20 span=true element=false
+field netPay
+  data_type=MONEY
+  displayed_text=$3,565.87
+  raw_value=$3,565.87
+  normalized_text=null
+  normalized_number=3565.8700
+  normalized_date=null
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,343.40,19.30,11.10 span=true element=false
+  evidence LABEL#1 page=0 box=97.30,343.40,21.30,11.10 span=true element=false
+  evidence VALUE#0 page=0 box=124.70,343.40,53.40,11.10 span=true element=false
+field payDate
+  data_type=DATE
+  displayed_text=01/17/2026
+  raw_value=01/17/2026
+  normalized_text=null
+  normalized_number=null
+  normalized_date=2026-01-17
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,130.10,19.00,10.20 span=true element=false
+  evidence LABEL#1 page=0 box=97.00,130.10,26.30,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=129.20,130.10,55.00,10.20 span=true element=false
+field payFrequency
+  data_type=ENUM
+  displayed_text=Bi-Weekly
+  raw_value=Bi-Weekly
+  normalized_text=BIWEEKLY
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,148.10,19.00,10.20 span=true element=false
+  evidence LABEL#1 page=0 box=97.00,148.10,55.00,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=158.00,148.10,49.50,10.20 span=true element=false
+field payPeriodEnd
+  data_type=DATE
+  displayed_text=01/15/2026
+  raw_value=01/15/2026
+  normalized_text=null
+  normalized_number=null
+  normalized_date=2026-01-15
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,112.10,19.00,10.20 span=true element=false
+  evidence LABEL#1 page=0 box=97.00,112.10,34.80,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=208.50,112.10,55.00,10.20 span=true element=false
+field payPeriodStart
+  data_type=DATE
+  displayed_text=01/01/2026
+  raw_value=01/01/2026
+  normalized_text=null
+  normalized_number=null
+  normalized_date=2026-01-01
+  normalized_json=null
+  extraction_method=ANCHOR_LABEL
+  extractor_version=engine/1.0.0
+  confidence=0.9000
+  confidence_components={"anchorStrength": 0.9, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=72.00,112.10,19.00,10.20 span=true element=false
+  evidence LABEL#1 page=0 box=97.00,112.10,34.80,10.20 span=true element=false
+  evidence VALUE#0 page=0 box=137.80,112.10,55.00,10.20 span=true element=false
+field ytdGrossPay
+  data_type=MONEY
+  displayed_text=4,670.69
+  raw_value=4,670.69
+  normalized_text=null
+  normalized_number=4670.6900
+  normalized_date=null
+  normalized_json=null
+  extraction_method=TABLE_CLUSTER
+  extractor_version=engine/1.0.0
+  confidence=1.0000
+  confidence_components={"anchorStrength": 1.0, "spanConfidence": 1.0000, "normalizerCertainty": 1}
+  validation_status=NOT_VALIDATED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+  evidence LABEL#0 page=0 box=490.00,174.10,22.00,10.20 span=true element=true
+  evidence LABEL#1 page=0 box=72.00,262.10,31.80,10.20 span=true element=true
+  evidence VALUE#0 page=0 box=490.00,262.10,42.80,10.20 span=true element=true
+field ytdNetPay
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true
+field ytdTotalDeductions
+  data_type=MONEY
+  displayed_text=null
+  raw_value=null
+  normalized_text=null
+  normalized_number=null
+  normalized_date=null
+  normalized_json=null
+  extraction_method=NONE
+  extractor_version=engine/1.0.0
+  confidence=0.0000
+  confidence_components=null
+  validation_status=MANUAL_REVIEW_REQUIRED
+  review_status=NOT_REVIEWED
+  is_sensitive=false
+  is_current=true

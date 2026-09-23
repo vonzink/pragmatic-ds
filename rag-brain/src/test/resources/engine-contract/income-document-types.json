@@ -1,0 +1,32 @@
+{
+  "_comment": "Pinned copy of the Document Engine's INCOME document types, taken from the engine's consumer contract section 5 (Coverage). This is the reader side of the same gate the engine runs against its own migrations (ConsumerCoverageTableIT). Refresh it with tools/engine-goldens/refresh_income_types.py whenever the engine pin moves; EngineIncomeTypeCoverageTest fails when the engine serves an INCOME type the Income Lab does not accept.",
+  "engineRepo": "pds-document-engine",
+  "engineRef": "consumer-contract-2026-09",
+  "engineCommit": "d43961c10a7dbc0bbef23844ee266be091499094",
+  "source": "docs/consumer/income-extraction-contract.md",
+  "sourceSection": "5 — Coverage",
+  "incomeTypes": [
+    "FORM_1099_G",
+    "FORM_1099_MISC",
+    "FORM_1099_NEC",
+    "FORM_1099_R",
+    "FORM_8962",
+    "FORM_SSA_1099",
+    "PAYSTUB",
+    "SCHEDULE_1",
+    "SCHEDULE_2",
+    "SCHEDULE_B",
+    "SCHEDULE_C",
+    "SCHEDULE_D",
+    "SCHEDULE_E",
+    "SCHEDULE_F",
+    "SCHEDULE_K1_1041",
+    "SCHEDULE_K1_1065",
+    "SCHEDULE_K1_1120S",
+    "SSA_AWARD_LETTER",
+    "STATE_TAX_RETURN",
+    "TAX_RETURN",
+    "VOE",
+    "W2"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "partial-running-balances",
+  "synthetic": true,
+  "coverage": ["partial-running-balances"],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "THETA SYNTHETIC BANK",
+        "CASE PARTIAL BALANCE",
+        "905 TEST AVENUE TESTVILLE ZZ 00000",
+        "ACCOUNT SYN-0006",
+        "Statement period June 1, 2099 through June 30, 2099",
+        "Beginning Balance $500.00",
+        "Ending Balance $650.00",
+        "Total Deposits $200.00",
+        "Total Withdrawals $50.00"
+      ],
+      "tableText": "SUMMARY"
+    },
+    {
+      "number": 2,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "06/10/2099 SYNTHETIC PARTIAL DEPOSIT $200.00 BALANCE $700.00",
+        "06/20/2099 SYNTHETIC PARTIAL WITHDRAWAL $50.00 BALANCE NOT PRINTED"
+      ],
+      "tableText": "DATE | DESCRIPTION | AMOUNT | PARTIAL BALANCE"
+    }
+  ]
+}

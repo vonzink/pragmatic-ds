@@ -1,0 +1,460 @@
+{
+  "canonicalizationVersion": "DOCENGINE-C14N-1",
+  "documents": [
+    {
+      "documentTypeCode": "HOI_DECLARATION",
+      "fields": [
+        {
+          "confidence": 0.9686,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.9784
+          },
+          "dataType": "MONEY",
+          "displayedText": "$1,840.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 54.6,
+                "x": 402.35,
+                "y": 168.4
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9105
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "annualPremium",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 1840,
+            "text": null
+          },
+          "rawValue": "1,840.00",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9702,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 0.99,
+            "spanConfidence": 0.98
+          },
+          "dataType": "MONEY",
+          "displayedText": "$420,000.00",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 68.2,
+                "x": 402.35,
+                "y": 144.2
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9104
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "dwellingCoverage",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": 420000,
+            "text": null
+          },
+          "rawValue": "420,000.00",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9711,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9711
+          },
+          "dataType": "DATE",
+          "displayedText": "03/01/2026",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 48.2,
+                "x": 301.4,
+                "y": 120.6
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9103
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "effectiveDate",
+          "normalized": {
+            "date": "2026-03-01",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "03/01/2026",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9694,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9694
+          },
+          "dataType": "DATE",
+          "displayedText": "03/01/2027",
+          "evidence": [
+            {
+              "box": {
+                "height": 10,
+                "width": 48.2,
+                "x": 385.6,
+                "y": 120.6
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9106
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "expirationDate",
+          "normalized": {
+            "date": "2027-03-01",
+            "json": null,
+            "number": null,
+            "text": null
+          },
+          "rawValue": "03/01/2027",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "STRING",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "insuredName",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0.9564,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9564
+          },
+          "dataType": "STRING",
+          "displayedText": "Cascade Mutual Insurance",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 180.2,
+                "x": 72,
+                "y": 72.4
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9101
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "insurerName",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "Cascade Mutual Insurance"
+          },
+          "rawValue": "Cascade Mutual Insurance",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0.9629,
+          "confidenceComponents": {
+            "anchorStrength": 1,
+            "normalizerCertainty": 1,
+            "spanConfidence": 0.9629
+          },
+          "dataType": "STRING",
+          "displayedText": "CM-4471-88203",
+          "evidence": [
+            {
+              "box": {
+                "height": 11.2,
+                "width": 108.6,
+                "x": 72,
+                "y": 96.5
+              },
+              "layoutElementId": null,
+              "ordinal": 0,
+              "pageId": "5f1a0002-0000-4000-8000-000000000010",
+              "role": "VALUE",
+              "textSpanId": 9102
+            }
+          ],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "ANCHOR_LABEL",
+          "name": "policyNumber",
+          "normalized": {
+            "date": null,
+            "json": null,
+            "number": null,
+            "text": "CM-4471-88203"
+          },
+          "rawValue": "CM-4471-88203",
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": true,
+          "status": "FOUND",
+          "validationStatus": "VALID"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "STRING",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "propertyAddress",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0002-0000-4000-8000-0000000000c0",
+            "version": "1.0.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        }
+      ],
+      "id": "5f1a0002-0000-4000-8000-000000000020",
+      "ordinal": 0,
+      "pageIds": [
+        "5f1a0002-0000-4000-8000-000000000010"
+      ]
+    }
+  ],
+  "envelopeVersion": "1.0.0",
+  "generation": {
+    "packageRevision": 1,
+    "parseGeneration": 1,
+    "processingJobId": "5f1a0002-0000-4000-8000-0000000000b0",
+    "reuseEligibility": "PARSE_ONCE_CURRENT_PACKAGE",
+    "sourceSetSha256": "4f5ab5c9d85e11714c1bc49c5bcd3376e74724e6c4c03d7dac3b1a7952905c7c"
+  },
+  "package": {
+    "id": "5f1a0002-0000-4000-8000-0000000000a0"
+  },
+  "pages": [
+    {
+      "blank": false,
+      "classification": {
+        "confidence": 0.9,
+        "documentTypeCode": "HOI_DECLARATION",
+        "evidence": {
+          "anchors": [
+            {
+              "anchorId": "decl-page",
+              "boxes": [
+                {
+                  "height": 12.5,
+                  "width": 132.4,
+                  "x": 196.5,
+                  "y": 36
+                }
+              ],
+              "packType": "HOI_DECLARATION",
+              "packVersion": "1.0.0",
+              "range": {
+                "end": 17,
+                "start": 0
+              },
+              "spanIds": [
+                9001
+              ],
+              "weight": 5
+            },
+            {
+              "anchorId": "dwelling-cov",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 124.8,
+                  "x": 72,
+                  "y": 144.2
+                }
+              ],
+              "packType": "HOI_DECLARATION",
+              "packVersion": "1.0.0",
+              "range": {
+                "end": 17,
+                "start": 0
+              },
+              "spanIds": [
+                9002
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "annual-premium",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 106.2,
+                  "x": 72,
+                  "y": 168.4
+                }
+              ],
+              "packType": "HOI_DECLARATION",
+              "packVersion": "1.0.0",
+              "range": {
+                "end": 14,
+                "start": 0
+              },
+              "spanIds": [
+                9003
+              ],
+              "weight": 1
+            }
+          ],
+          "scores": [
+            {
+              "minConfidence": 0.6,
+              "packType": "HOI_DECLARATION",
+              "packVersion": "1.0.0",
+              "score": 0.9,
+              "targetScore": 10
+            }
+          ]
+        },
+        "method": "RULE_ANCHOR",
+        "rulePackVersion": "1.0.0"
+      },
+      "duplicate": false,
+      "heightPt": 792,
+      "id": "5f1a0002-0000-4000-8000-000000000010",
+      "packagePageIndex": 0,
+      "renderDpi": 300,
+      "rotation": 0,
+      "sourceFileId": "5f1a0002-0000-4000-8000-000000000001",
+      "sourcePageIndex": 0,
+      "textLayer": "NATIVE",
+      "widthPt": 612
+    }
+  ],
+  "provenance": {
+    "applicationRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "extractionEngineRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "stages": [
+      {
+        "attempt": 1,
+        "outputDigest": "eb76614d099f5a96b9353bffe055bb330b6ac72eec824d01c770d7dd2270e9c3",
+        "parserVersions": null,
+        "stage": "VALIDATING",
+        "workerVersion": "1.4.0"
+      },
+      {
+        "attempt": 1,
+        "outputDigest": null,
+        "parserVersions": {
+          "pdf": "3.0.7"
+        },
+        "stage": "EXTRACTING",
+        "workerVersion": "1.4.0"
+      }
+    ],
+    "workerContractRelease": {
+      "availability": "UNAVAILABLE"
+    }
+  },
+  "sources": [
+    {
+      "contentSha256": "a3a18bbc2e06ea03ffe05b19fb2fa7b2dbc610876218053b95b6912cba228638",
+      "contentType": "application/pdf",
+      "id": "5f1a0002-0000-4000-8000-000000000001",
+      "ordinal": 0,
+      "sizeBytes": 22184
+    }
+  ],
+  "unassignedPageIds": []
+}

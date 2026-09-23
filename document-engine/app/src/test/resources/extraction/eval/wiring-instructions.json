@@ -1,0 +1,9 @@
+{
+  "id": "wiring-instructions",
+  "fixture": "wiring_instructions",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["line-right", "regex-rung", "sensitive-field", "fraud-surface"],
+  "note": "The escrow wire page, measured on a real one. A fraud-surface type: the point of extracting wire coordinates is comparability against known-good instructions, and the ABA and account numbers are SENSITIVE so they arrive masked like SSNs.",
+  "documents": [{"type": "WIRING_INSTRUCTIONS"}]
+}

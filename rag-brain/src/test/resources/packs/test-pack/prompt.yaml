@@ -1,0 +1,10 @@
+template: |
+  Hard: %s
+  Soft: %s
+  Context: %s
+  Question: %s
+  Disclaimer: %s
+hard-rules: |-
+  H1
+guidance: |-
+  G1

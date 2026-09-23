@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`types.ts against docs/api/openapi.json > leaves only known-unmatched types unchecked 1`] = `
+[
+  "BoundaryProvenance",
+  "DataType",
+  "EvidenceRole",
+  "ExtractionMethod",
+  "FieldCorrectionAction",
+  "FieldReviewStatus",
+  "GroupKind",
+  "MalwareScanStatus",
+  "PackageSummary",
+  "PageVerdict",
+  "ProblemDetail",
+  "ProcessingStage",
+  "ReviewStatus",
+  "StageStatus",
+  "TextLayer",
+  "TextSource",
+  "UnassignedReason",
+  "ValidationStatus",
+]
+`;

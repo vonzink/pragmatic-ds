@@ -1,0 +1,362 @@
+{
+  "canonicalizationVersion": "DOCENGINE-C14N-1",
+  "documents": [
+    {
+      "documentTypeCode": "PAYSTUB",
+      "fields": [
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "STRING",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "borrowerName",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "currentGrossPay",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "STRING",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "employerName",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "federalWithholding",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "netPay",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "DATE",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "payDate",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "ENUM",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "payFrequency",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "DATE",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "payPeriodEnd",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "DATE",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "payPeriodStart",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        },
+        {
+          "confidence": 0,
+          "confidenceComponents": null,
+          "dataType": "MONEY",
+          "displayedText": null,
+          "evidence": [],
+          "extractorVersion": "engine/1.0.0",
+          "groupKey": null,
+          "method": "NONE",
+          "name": "ytdGrossPay",
+          "normalized": null,
+          "rawValue": null,
+          "schema": {
+            "id": "5f1a0003-0000-4000-8000-0000000000c0",
+            "version": "1.1.0"
+          },
+          "sensitive": false,
+          "status": "MISSING",
+          "validationStatus": "NOT_VALIDATED"
+        }
+      ],
+      "id": "5f1a0003-0000-4000-8000-000000000020",
+      "ordinal": 0,
+      "pageIds": [
+        "5f1a0003-0000-4000-8000-000000000010"
+      ]
+    }
+  ],
+  "envelopeVersion": "1.0.0",
+  "generation": {
+    "packageRevision": 1,
+    "parseGeneration": 1,
+    "processingJobId": "5f1a0003-0000-4000-8000-0000000000b0",
+    "reuseEligibility": "PARSE_ONCE_CURRENT_PACKAGE",
+    "sourceSetSha256": "a43fa86842d5599e3468d1c8d94fcd255b814c0689f608562b94a9ef72ce1da0"
+  },
+  "package": {
+    "id": "5f1a0003-0000-4000-8000-0000000000a0"
+  },
+  "pages": [
+    {
+      "blank": false,
+      "classification": {
+        "confidence": 0.7,
+        "documentTypeCode": "PAYSTUB",
+        "evidence": {
+          "anchors": [
+            {
+              "anchorId": "pay-period",
+              "boxes": [
+                {
+                  "height": 10,
+                  "width": 58.4,
+                  "x": 72,
+                  "y": 82.1
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 10,
+                "start": 0
+              },
+              "spanIds": [
+                7001
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "gross-pay",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 44,
+                  "x": 352.1,
+                  "y": 266.4
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 9,
+                "start": 0
+              },
+              "spanIds": [
+                7002
+              ],
+              "weight": 3
+            },
+            {
+              "anchorId": "ytd",
+              "boxes": [
+                {
+                  "height": 11.2,
+                  "width": 26.8,
+                  "x": 320.2,
+                  "y": 402.7
+                }
+              ],
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "range": {
+                "end": 3,
+                "start": 0
+              },
+              "spanIds": [
+                7003
+              ],
+              "weight": 1
+            }
+          ],
+          "scores": [
+            {
+              "minConfidence": 0.6,
+              "packType": "PAYSTUB",
+              "packVersion": "1.1.0",
+              "score": 0.7,
+              "targetScore": 10
+            }
+          ]
+        },
+        "method": "RULE_ANCHOR",
+        "rulePackVersion": "1.1.0"
+      },
+      "duplicate": false,
+      "heightPt": 792,
+      "id": "5f1a0003-0000-4000-8000-000000000010",
+      "packagePageIndex": 0,
+      "renderDpi": 200,
+      "rotation": 0,
+      "sourceFileId": "5f1a0003-0000-4000-8000-000000000001",
+      "sourcePageIndex": 0,
+      "textLayer": "SCANNED",
+      "widthPt": 612
+    }
+  ],
+  "provenance": {
+    "applicationRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "extractionEngineRelease": {
+      "availability": "UNAVAILABLE"
+    },
+    "stages": [
+      {
+        "attempt": 1,
+        "outputDigest": "cf10d541fad5b8922d763ed5ffc20fd81b630ac342b1443877f1ce0989b002af",
+        "parserVersions": null,
+        "stage": "VALIDATING",
+        "workerVersion": "1.4.0"
+      },
+      {
+        "attempt": 1,
+        "outputDigest": null,
+        "parserVersions": {
+          "pdf": "3.0.7"
+        },
+        "stage": "EXTRACTING",
+        "workerVersion": "1.4.0"
+      }
+    ],
+    "workerContractRelease": {
+      "availability": "UNAVAILABLE"
+    }
+  },
+  "sources": [
+    {
+      "contentSha256": "fd6ff38e6eb5a8cad511faa8bf9ce2ff109adc39233ec90f376c5d2ba827c9eb",
+      "contentType": "application/pdf",
+      "id": "5f1a0003-0000-4000-8000-000000000001",
+      "ordinal": 0,
+      "sizeBytes": 17605
+    }
+  ],
+  "unassignedPageIds": []
+}

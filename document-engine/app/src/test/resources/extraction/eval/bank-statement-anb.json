@@ -1,0 +1,9 @@
+{
+  "id": "bank-statement-anb",
+  "fixture": "bank_statement_anb",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["statement-dialect", "masked-account-number-one-span", "label-occurrences", "printed-withdrawals-total", "business-holder"],
+  "note": "ANB Bank business statement: 'Ending Balance' is printed first as a table header and only the engine's every-occurrence rule reaches the real line; the account number is one span 'Number:XXXXXXXX7788'; the totals are '29 Credit(s) This Period' / '159 Debit(s) This Period', so the derivation never runs.",
+  "documents": [{"type": "BANK_STATEMENT", "pages": [0]}]
+}

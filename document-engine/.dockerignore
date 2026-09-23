@@ -1,0 +1,39 @@
+# The Dockerfile does `COPY . .` before building. Without this file that context
+# includes local build output, virtualenvs, node_modules, and — most importantly —
+# `data/`, the local blob store holding uploaded documents. Build context is not a
+# place borrower content should ever go, even though only the jar is copied out.
+
+.git
+.github
+.gitignore
+
+# Build output — the image builds its own; shipping ours in invites a stale jar.
+build
+*/build
+.gradle
+*/.gradle
+bin
+out
+
+# Local blob storage: uploaded documents and page rasters.
+data
+
+# Python
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+
+# Frontend (Phase 6) — the API image does not build the UI.
+ui/node_modules
+ui/dist
+node_modules
+dist
+
+# Agent worktrees: full copies of the repo, each with its own build output.
+.claude
+
+# Docs and fixtures are not needed to build the API jar.
+docs
+fixtures

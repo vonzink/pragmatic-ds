@@ -1,0 +1,71 @@
+{
+  "id": "income-smoke",
+  "version": 4,
+  "description": "Smoke coverage for a pinned income instance whose release declares the income-domain-v2 contract (spec 2026-09-14, calculation worksheet). Version 4 is version 2 plus one required pointer on each paystub-bearing case: /findings/domain/borrowers/0/sources/0/computed/basis. That member is written by the engine, never by the model, and exists only when the model declared schemaVersion income-domain-v2 and the enricher ran, so its presence proves the release produces calculator-labelled monthly figures and a worksheet. Presence, not a particular value: CALCULATOR, MODEL_STATED and NONE are all correct answers for some fixture, and a gate that demanded CALCULATOR would refuse a correct release on a paystub that omits its pay frequency and period. Versions 1 and 2 are left unchanged so every historical report digest stays reproducible; version 3 stays unallowlisted for its own subjectKey reason. Every package named here is a synthetic fixture; no expected borrower value appears anywhere in this file.",
+  "scenarios": [
+    {
+      "name": "single-paystub-produces-a-cited-report",
+      "packageFixture": "fixture-paystub-single",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/facts",
+        "/citations/0",
+        "/findings/domain/borrowers/0/sources/0/computed/basis"
+      ],
+      "forbiddenPointers": []
+    },
+    {
+      "name": "paystub-and-w2-produce-calculations",
+      "packageFixture": "fixture-paystub-w2",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/facts/0",
+        "/findings/calculations/0",
+        "/citations/0",
+        "/findings/domain/borrowers/0/sources/0/computed/basis"
+      ],
+      "forbiddenPointers": []
+    },
+    {
+      "name": "unsupported-package-is-refused-before-any-analysis",
+      "packageFixture": "fixture-unsupported-only",
+      "revision": 1,
+      "requiredPointers": [
+        "/status",
+        "/reason"
+      ],
+      "forbiddenPointers": [
+        "/reportMarkdown",
+        "/citations/0",
+        "/findings/facts/0",
+        "/findings/calculations/0"
+      ]
+    },
+    {
+      "name": "unreadable-paystub-yields-no-fabricated-findings",
+      "packageFixture": "fixture-paystub-unreadable",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/missingItems/0"
+      ],
+      "forbiddenPointers": [
+        "/findings/facts/0",
+        "/findings/calculations/0"
+      ]
+    },
+    {
+      "name": "review-required-paystub-emits-an-addressable-finding",
+      "packageFixture": "fixture-paystub-review-required",
+      "revision": 1,
+      "requiredPointers": [
+        "/reportMarkdown",
+        "/findings/findings/0/ruleId",
+        "/findings/findings/0/inputDigest"
+      ],
+      "forbiddenPointers": []
+    }
+  ]
+}

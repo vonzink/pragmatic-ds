@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "bankName": { "value": "Anywhere Savings & Loan", "text": "Anywhere Savings & Loan", "page": 1, "confidence": "HIGH" },
+    "accountHolderName": { "value": "Sam T. Placeholder", "text": "SAM T PLACEHOLDER", "page": 1, "confidence": "HIGH" },
+    "accountHolderAddress": { "value": "5 Nowhere Rd, Faketown, ZZ 00000", "text": "5 NOWHERE RD FAKETOWN ZZ 00000", "page": 1, "confidence": "MEDIUM" },
+    "accountNumber": { "value": "0000009999", "text": "XXXX-XXXX-9999", "page": 1, "confidence": "HIGH" },
+    "statementPeriodStart": { "value": "2026-05-01", "text": "5/1/26", "page": 1, "confidence": "LOW" },
+    "statementPeriodEnd": { "value": "2026-05-31", "text": "5/31/26", "page": 1, "confidence": "LOW" },
+    "beginningBalance": { "value": "-50.00", "text": "($50.00)", "page": 1, "confidence": "HIGH" },
+    "endingBalance": { "value": "75.00", "text": "$75.00", "page": 1, "confidence": "HIGH" },
+    "totalDeposits": { "value": "125.00", "text": "$125.00", "page": 1, "confidence": "HIGH" },
+    "totalWithdrawals": { "value": "0.00", "text": "$0.00", "page": 1, "confidence": "HIGH" }
+  },
+  "transactions": [
+    {
+      "date": { "value": "2026-05-10", "text": "5/10", "page": 1, "confidence": "MEDIUM" },
+      "description": { "value": "Mobile Deposit", "text": "MOBILE DEPOSIT", "page": 1, "confidence": "HIGH" },
+      "amount": { "value": "125.00", "text": "125.00", "page": 1, "confidence": "HIGH" },
+      "balance": { "value": "75.00", "text": "75.00", "page": 1, "confidence": "HIGH" },
+      "direction": "DEPOSIT",
+      "page": 1
+    }
+  ],
+  "checks": []
+}

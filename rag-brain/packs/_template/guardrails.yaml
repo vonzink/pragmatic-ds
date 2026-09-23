@@ -1,0 +1,11 @@
+prohibited-phrases:
+  - guaranteed
+eligible-phrase: based on the documents
+canned-answers:
+  no-source: I could not find that in the provided documents. Please rephrase or add the relevant document.
+  escalation: This question is best handled by a qualified professional.
+  legal: I can't provide legal advice. Please consult a licensed attorney.
+  tax: I can't provide tax advice. Please consult a qualified tax professional.
+  live-rates: I can't provide live rates or pricing. Please check an official source.
+  fraud: I can't help with that request.
+  personal-lookup: I can't look up information about a specific person or record.

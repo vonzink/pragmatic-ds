@@ -1,0 +1,18 @@
+{
+  "id": "ssa-1099",
+  "fixture": "ssa_1099",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "sensitive-field",
+    "none-valued-boxes",
+    "non-irs-layout"
+  ],
+  "note": "Measured on a real benefit statement, rebuilt synthetic. SSA's own layout, not an IRS box grid: 'Box N.' captions with values below. Boxes 4 and 6 print the WORD 'NONE' \u2014 their rungs read a NONE-or-money pattern, pinning that a rung must read what the form says rather than going quiet hunting for a number. The description column repeats box 3's amount on purpose: occurrence-0 and the drop window keep the right number on the right box. KNOWN ENGINE LIMIT: netBenefits does not capture. Box 5's caption is followed by the sub-caption '(Box 3 minus Box 4)' before the amount, and LABEL_BELOW gives the cell to the FIRST admitted line and never looks lower - deliberately, because skipping down is how a shape mismatch on the true value line becomes a confident wrong value from the line beneath it. Truth still pins the correct amount, so the eval keeps reporting the shortfall rather than blessing it.",
+  "documents": [
+    {
+      "type": "FORM_SSA_1099"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "w2-typographic",
+  "fixture": "w2_form_typographic",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["typographic-punctuation", "label-below"],
+  "note": "Curly apostrophes and en-dashes in the captions. The label matcher must fold typographic punctuation or every caption-anchored field goes quiet at once.",
+  "documents": [{"type": "W2"}]
+}

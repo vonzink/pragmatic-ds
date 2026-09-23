@@ -1,0 +1,9 @@
+{
+  "id": "hoi-declaration",
+  "fixture": "hoi_declaration",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["policy-period", "coverage-amount"],
+  "note": "The mortgagee clause prints a lender name and a loan number, which is exactly the vocabulary MORTGAGE_STATEMENT anchors on — the near-miss this case keeps honest.",
+  "documents": [{"type": "HOI_DECLARATION"}]
+}

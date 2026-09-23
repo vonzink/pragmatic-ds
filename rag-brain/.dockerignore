@@ -1,0 +1,23 @@
+# Build outputs (force a clean build inside the image)
+build/
+.gradle/
+
+# VCS / IDE
+.git/
+.github/
+.idea/
+*.iml
+
+# Dashboard (built/deployed separately)
+dashboard/node_modules/
+dashboard/dist/
+
+# Local data and secrets
+data/
+.env
+.env.*
+
+# Docs and scratch
+docs/
+scripts/
+*.md

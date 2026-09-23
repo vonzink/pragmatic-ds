@@ -1,0 +1,216 @@
+spring:
+  application:
+    name: pds-document-engine
+
+  datasource:
+    # ⚠️ In dev and prod this MUST be a non-owner role (docengine_app, or a login
+    # role granted it). Flyway owns the schema. If the app connects as the schema
+    # owner, Postgres RLS is silently bypassed — risk R2 in the implementation
+    # plan — and only the application layer protects tenant isolation.
+    url: ${DOCENGINE_DB_URL:jdbc:postgresql://localhost:6433/docengine}
+    username: ${DOCENGINE_DB_USER:docengine_app_login}
+    password: ${DOCENGINE_DB_PASSWORD:}
+    hikari:
+      # EXPLICIT, because the invisible default of 10 is what turned a bulk
+      # "Classify 27 documents" into seventeen red Error badges: the unbounded
+      # processing executor started 27 threads, ten took a connection and the
+      # rest timed out after 30s with CannotCreateTransactionException.
+      # The API's request threads and the pipeline's processing threads BOTH
+      # draw from this one pool, so it is also the input to
+      # docengine.processing.max-concurrent-jobs — see ProcessingExecutorSizing.
+      # Postgres itself must have room for this many (plus Flyway's owner
+      # connection) inside max_connections.
+      maximum-pool-size: ${DOCENGINE_DB_POOL_SIZE:20}
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    # Flyway connects as the schema OWNER; the application connects as a
+    # non-owner role. Set DOCENGINE_DB_OWNER_* in dev and prod to keep them
+    # separate — that separation is what makes RLS actually engage.
+    # Unset, these fall back to the application datasource, which is correct for
+    # local development and tests but must not be relied on in a deployment.
+    #
+    # An EXPLICIT url is given (not derived from the app datasource) because
+    # Phase 7a wraps the app datasource with the RLS connection-stamping wrapper;
+    # Flyway must build its own owner connection from these values and never
+    # introspect that wrapper.
+    url: ${DOCENGINE_DB_OWNER_URL:${spring.datasource.url}}
+    user: ${DOCENGINE_DB_OWNER_USER:${spring.datasource.username}}
+    password: ${DOCENGINE_DB_OWNER_PASSWORD:${spring.datasource.password}}
+
+  jpa:
+    hibernate:
+      # Flyway owns the schema. Hibernate must never alter it.
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+
+  servlet:
+    multipart:
+      # Deliberately ABOVE docengine.ingest.max-file-bytes (100MB): the service-level
+      # check owns the FILE_TOO_LARGE rejection and reports sizes in its params. The
+      # servlet cap is the outer backstop; when it fires instead, the exception
+      # handler still maps it to FILE_TOO_LARGE (413) rather than 500.
+      max-file-size: ${DOCENGINE_MAX_FILE_SIZE:120MB}
+      max-request-size: ${DOCENGINE_MAX_REQUEST_SIZE:600MB}
+
+server:
+  port: ${DOCENGINE_PORT:9090}
+  error:
+    # Error responses carry a stable code from the PII-free taxonomy, never a
+    # stack trace and never document content.
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+docengine:
+  processing:
+    # How many jobs may walk the pipeline at once. A processing thread holds a
+    # JDBC connection for the length of a stage attempt, so this is a claim on
+    # the SAME pool the HTTP request threads use — it is DERIVED from that pool
+    # rather than chosen beside it, and an explicit value above the ceiling is
+    # clamped (with a startup WARN) instead of honoured. To process more at
+    # once, raise DOCENGINE_DB_POOL_SIZE.
+    #   0 (default) = derive: hikari.maximum-pool-size - connection-headroom
+    #                 -> 20 - 8 = 12 concurrent jobs out of the box.
+    max-concurrent-jobs: ${DOCENGINE_PROCESSING_MAX_CONCURRENT_JOBS:0}
+    # Connections reserved for the API's own request threads. 8 is the reuse
+    # probe's worst case: an upload running the parse-once probe holds TWO
+    # connections at once (its transaction plus the probe's REQUIRES_NEW
+    # candidate scan) and docengine.reuse.max-concurrent-probes lets four such
+    # uploads be inside that window at the same time.
+    connection-headroom: ${DOCENGINE_PROCESSING_CONNECTION_HEADROOM:8}
+    # Dispatches waiting for a worker. Generous on purpose: a bulk classify of
+    # any realistic size QUEUES and takes longer, it never fails. If the queue
+    # does fill, the dispatch runs on the CALLER (backpressure) rather than
+    # being rejected — a rejected dispatch would strand an already-committed
+    # job row in a status that resume (FAILED only) cannot recover.
+    queue-capacity: ${DOCENGINE_PROCESSING_QUEUE_CAPACITY:1000}
+    # A container restart drains in-flight stages instead of interrupting them:
+    # a stage attempt is mid-transaction, and an interrupt abandons the attempt
+    # row that resume reads. Bounded so shutdown cannot hang forever.
+    shutdown-await-seconds: ${DOCENGINE_PROCESSING_SHUTDOWN_AWAIT_SECONDS:60}
+    # Wall-clock budget for ONE run of a job, checked before each worker-bound
+    # stage and between OCR pages / layout files. A job past its budget fails
+    # once with JOB_TIME_BUDGET_EXCEEDED so the next document gets the worker.
+    # Per-call timeouts alone cannot bound a job: OCR is one call per page, so
+    # a 75-page scan at ~70s a page held the queue for an hour (2026-09-16).
+    # 0 (default) = unbounded. Production runs 300 ("five minutes or move on").
+    job-time-budget-seconds: ${DOCENGINE_PROCESSING_JOB_TIME_BUDGET_SECONDS:0}
+    # Per-page allowance layered on the flat budget: deadline = start + max(flat, per-page × pages),
+    # pages known once RENDERING has run. 0 = off. Production: 90 ("a minute and a half per page").
+    job-time-budget-seconds-per-page: ${DOCENGINE_PROCESSING_JOB_TIME_BUDGET_SECONDS_PER_PAGE:0}
+
+  worker:
+    base-url: ${DOCENGINE_WORKER_URL:http://localhost:9091}
+    # Shared secret for the API → worker hop. The worker holds no credentials of
+    # its own and persists nothing.
+    shared-secret: ${DOCENGINE_WORKER_SECRET:}
+    timeout-seconds: ${DOCENGINE_WORKER_TIMEOUT:120}
+    ocr-timeout-seconds: ${DOCENGINE_WORKER_OCR_TIMEOUT:${DOCENGINE_WORKER_TIMEOUT:300}}
+
+  storage:
+    # local | s3 — behind BlobStoragePort.
+    driver: ${DOCENGINE_STORAGE_DRIVER:local}
+    local-root: ${DOCENGINE_STORAGE_ROOT:./data/blobs}
+
+  retention:
+    # Soft delete stamps purge_after = now + this, UNLESS the org has a
+    # retention_policy default row (document_category NULL), which wins.
+    default-purge-after-days: ${DOCENGINE_RETENTION_PURGE_AFTER_DAYS:30}
+    # The scheduled retention purge cadence. Hourly by default; a due package is
+    # purged within an hour of its purge_after. Set to "-" to disable the sweep.
+    purge-cron: ${DOCENGINE_RETENTION_PURGE_CRON:0 0 * * * *}
+
+  signed-url:
+    # Server secret for app-issued download tokens (HMAC-SHA256). Local storage
+    # has no native presign, so the app signs and verifies. Empty = fail closed:
+    # signing and verifying both refuse rather than mint forgeable tokens. A
+    # deployment MUST set its own.
+    secret: ${DOCENGINE_SIGNED_URL_SECRET:}
+
+  apikey:
+    # Salt for hashing service API keys (HMAC-SHA256 over the presented key). The
+    # X-DocEngine-Api-Key header authenticates the LOS alongside the OIDC bearer
+    # path (Spec 6 §6a.2). Empty = fail closed: API-key authentication is DISABLED
+    # and every presented key is rejected (401), logged once at startup. A
+    # deployment that uses service auth MUST set its own.
+    salt: ${DOCENGINE_APIKEY_SALT:}
+
+  ai:
+    # LLM egress is OFF by default and config-gated. Spec 5.
+    enabled: ${DOCENGINE_AI_ENABLED:false}
+    # Vertex Gemini is the recommended provider when explicitly enabled;
+    # Vertex Claude is the fallback. The false enabled default still prevents egress.
+    provider: ${DOCENGINE_AI_PROVIDER:vertex-gemini}
+    model: ${DOCENGINE_AI_MODEL:gemini-2.5-flash-lite}
+    # Empty is fail-closed: selection resolves to the stub adapter.
+    api-key: ${DOCENGINE_AI_API_KEY:}
+    # Overridable so adapter tests and controlled gateways never need the live endpoint.
+    base-url: ${DOCENGINE_AI_BASE_URL:https://api.anthropic.com}
+    # A full bank-statement ledger (many pages, long transaction descriptions) can take the model
+    # well past 30s to generate — too low a timeout turns a good extraction into a transient error.
+    timeout-seconds: ${DOCENGINE_AI_TIMEOUT_SECONDS:90}
+    # Max provider OUTPUT tokens. The structured JSON for a multi-page statement with 50-100
+    # transactions easily exceeds 8k tokens; hitting the ceiling truncates mid-JSON and the whole
+    # response is discarded (finishReason=MAX_TOKENS -> response_truncated). Flash-Lite allows 64k.
+    max-output-tokens: ${DOCENGINE_AI_MAX_OUTPUT_TOKENS:32768}
+    # Reject oversized documents before any provider egress.
+    max-pages: ${DOCENGINE_AI_MAX_PAGES:100}
+    max-input-characters: ${DOCENGINE_AI_MAX_INPUT_CHARACTERS:500000}
+    vertex:
+      project: ${DOCENGINE_AI_VERTEX_PROJECT:}
+      region: ${DOCENGINE_AI_VERTEX_REGION:us-central1}
+
+  reuse:
+    # Parse-once: a re-upload of already-parsed bytes serves the PRIOR package
+    # when — and only when — the behavior fingerprint (engine release, parser
+    # adapter, worker /version, the org's winning packs and schemas) matches
+    # exactly. The stored fingerprint is written at FINALIZING and describes
+    # what the parse ACTUALLY EXECUTED under, never what admitted the upload.
+    # Every doubt fails open to a fresh parse; forceReparse=true on POST
+    # /v1/packages always parses fresh. This switch is the rollout master:
+    # off = the probe never runs.
+    #
+    # NOTE: the stub parser adapter has no behavior identity, so with
+    # DOCENGINE_PROCESSING_ADAPTER unset there is no fingerprint at all and
+    # reuse is inert regardless of this switch.
+    enabled: ${DOCENGINE_REUSE_ENABLED:true}
+    # The reuse probe's candidate check runs in its own transaction while the
+    # upload's transaction still holds a connection, so a probing upload wants
+    # two at once. This bounds how many uploads may be inside that window; an
+    # upload that cannot get a permit parses fresh rather than waiting.
+    max-concurrent-probes: ${DOCENGINE_REUSE_MAX_CONCURRENT_PROBES:4}
+    # OPERATOR CONTRACT: when set, this string REPLACES build-info as the
+    # engineRelease fingerprint input, enabling reuse across rebuilds that are
+    # provably behavior-identical. Holding it constant across a Java behavior
+    # change would reuse stale parses — change it whenever behavior changes.
+    engine-release: ${DOCENGINE_REUSE_ENGINE_RELEASE:}
+    # The /version probe must never make an upload hang: short timeout, short
+    # success cache. Probe failure = no fingerprint = no reuse = normal parse.
+    worker-probe-timeout-seconds: ${DOCENGINE_REUSE_PROBE_TIMEOUT:5}
+    worker-probe-cache-seconds: ${DOCENGINE_REUSE_PROBE_CACHE:60}
+
+logging:
+  level:
+    root: INFO
+    com.pragmaticds.docengine: ${DOCENGINE_LOG_LEVEL:INFO}
+    # Would log full SQL including parameter values — borrower data in logs.
+    org.hibernate.SQL: WARN
+    org.hibernate.orm.jdbc.bind: WARN

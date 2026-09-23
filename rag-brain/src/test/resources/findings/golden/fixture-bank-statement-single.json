@@ -1,0 +1,35 @@
+[ {
+  "ruleId" : "field.manual_review_required",
+  "ruleVersion" : "1.0.0",
+  "severity" : "WARNING",
+  "summary" : "The extractor flagged monthToDateDeposits on this BANK_STATEMENT for manual review.",
+  "subjectKey" : "sha256:0ae86034923136e2a2e0061ec2c199db97aedfa071340183b10acb971fbdb6b7",
+  "inputDigest" : "sha256:d87b50ac27d6f14db95d0509eebe513b5ee40ffe8853885ce50510e5d5c687d3",
+  "anchors" : [ {
+    "logicalDocumentId" : "5f1a0004-0000-4000-8000-000000000012",
+    "documentTypeCode" : "BANK_STATEMENT",
+    "documentOrdinal" : 0,
+    "fieldName" : "monthToDateDeposits",
+    "groupKey" : null,
+    "pageId" : null,
+    "box" : null
+  } ],
+  "citationIds" : [ ]
+}, {
+  "ruleId" : "field.manual_review_required",
+  "ruleVersion" : "1.0.0",
+  "severity" : "WARNING",
+  "summary" : "The extractor flagged monthToDateWithdrawals on this BANK_STATEMENT for manual review.",
+  "subjectKey" : "sha256:93d9dea08c11e8280c27c17ce6b4bc11e8b31450fca9b126894348e446a1b274",
+  "inputDigest" : "sha256:d87b50ac27d6f14db95d0509eebe513b5ee40ffe8853885ce50510e5d5c687d3",
+  "anchors" : [ {
+    "logicalDocumentId" : "5f1a0004-0000-4000-8000-000000000012",
+    "documentTypeCode" : "BANK_STATEMENT",
+    "documentOrdinal" : 0,
+    "fieldName" : "monthToDateWithdrawals",
+    "groupKey" : null,
+    "pageId" : null,
+    "box" : null
+  } ],
+  "citationIds" : [ ]
+} ]

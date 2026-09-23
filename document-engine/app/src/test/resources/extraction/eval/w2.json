@@ -1,0 +1,9 @@
+{
+  "id": "w2",
+  "fixture": "w2_form",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "box-grid", "sensitive-field"],
+  "note": "The Spec 4 headline case. Against w2@1.0.0 nine of these ten fields searched LINE_RIGHT and found nothing: a real W-2 extracted 2 of 10 at classification 1.00. Capture rate here is that regression, permanently watched.",
+  "documents": [{"type": "W2"}]
+}

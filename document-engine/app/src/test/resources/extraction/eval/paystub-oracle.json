@@ -1,0 +1,9 @@
+{
+  "id": "paystub-oracle",
+  "fixture": "paystub_oracle",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["provider-variety", "recall-regression", "line-right", "label-below"],
+  "note": "The Oracle-HCM payroll layout, measured on a real employer's stub that scored 0.40 on paystub@1.0.0 - a real recall miss, four of five sampled providers passed. V34's pack fixed classification (1.1.0's Oracle vocabulary); V35's schema fixes extraction. Oracle prints its captions ABOVE their values in a header band, so the six fields this layout shares with no other paystub caption vocabulary - employer, employee, period type, period start/end, payment date - read LABEL_BELOW rungs appended to each existing ladder. federalWithholding stays deliberately unpinned: Oracle prints only 'Employee Tax Deductions', the total of every employee tax, and reporting that as the federal line would be confidently wrong in the borrower's favour.",
+  "documents": [{"type": "PAYSTUB"}]
+}

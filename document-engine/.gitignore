@@ -1,0 +1,48 @@
+.venv/
+worker/.wvenv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.gradle/
+build/
+node_modules/
+dist/
+*.log
+.claude/worktrees/
+.claude/settings.local.json
+data/
+app/data/
+.superpowers/
+
+# Real borrower documents for local pack/schema validation.
+# NEVER committed: these carry NPI. Synthetic fixtures live in fixtures/ (manifest-verified).
+corpus/*
+!corpus/README.md
+
+# Claude Code session tooling: local settings and agent worktrees (nested git checkouts).
+.claude/*
+!.claude/skills/
+.worktrees/
+deploy/docengine-vertex.json
+deploy/*vertex*.json
+
+# Every local environment file, anywhere in the tree — engine credentials, the
+# deploy target's host and key path, a stray root-level engine.env. NEVER
+# committed.
+#
+# `*.env`, not `.env`: the bare form matched only a file named exactly `.env`, so
+# `engine.env` at the repo root was staged-able by a plain `git add -A`. Gitleaks
+# would likely have caught it in CI, but that is detection after the secret is
+# already in a commit. This is the prevention.
+#
+# The `.example` templates do not match this pattern and stay tracked.
+*.env
+
+# macOS Finder metadata — never part of a build.
+.DS_Store
+
+# understand-anything's generated knowledge graph and its fingerprint baseline.
+# A derived index of the tree (~3MB) that is rebuilt from the code on demand, so
+# committing it would version a second, staler description of what the code
+# already says — and it churns on every commit that touches a source file.
+.understand-anything/

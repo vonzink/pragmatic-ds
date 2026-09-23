@@ -1,0 +1,28 @@
+# syntax=docker/dockerfile:1
+# Thin runtime image for constrained hosts: COPY a LOCALLY-built jar + packs — no
+# Gradle build on the box (a multi-stage build OOMs the shared 4 GB instance).
+# Usage: build the jar locally (./gradlew bootJar), ship app.jar + packs/ + this file,
+# then on the box:  docker build --pull=false -f Dockerfile.runtime -t rag-brain:latest .
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends curl \
+ && rm -rf /var/lib/apt/lists/* \
+ && groupadd -r app && useradd -r -g app -u 1001 app \
+ && mkdir -p /app/data/documents /app/data/packs \
+ && chown -R app:app /app
+
+# app.jar + the domain packs the engine loads by relative path at runtime.
+COPY --chown=app:app app.jar app.jar
+COPY --chown=app:app packs ./packs
+
+USER app
+EXPOSE 8080 9090
+ENV SPRING_PROFILES_ACTIVE=prod \
+    JAVA_OPTS="-XX:MaxRAMPercentage=75.0"
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+  CMD curl -fsS http://localhost:9090/actuator/health || exit 1
+
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar app.jar"]

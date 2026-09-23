@@ -1,0 +1,228 @@
+{
+  "borrowerName": {
+    "value": "Alex Q. Sample",
+    "text": "ALEX Q SAMPLE",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "employerName": {
+    "value": "Example Widgets LLC",
+    "text": "EXAMPLE WIDGETS LLC",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "payPeriodStart": {
+    "value": "2026-04-01",
+    "text": "04/01/2026",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "payPeriodEnd": {
+    "value": "2026-04-14",
+    "text": "04/14/2026",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "payDate": {
+    "value": "2026-04-17",
+    "text": "04/17/2026",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "payFrequency": {
+    "value": "Bi-Weekly",
+    "text": "Bi-Weekly",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "currentGrossPay": {
+    "value": "2400.00",
+    "text": "$2,400.00",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "ytdGrossPay": {
+    "value": "19200.00",
+    "text": "$19,200.00",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "netPay": {
+    "value": "1850.25",
+    "text": "$1,850.25",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "federalWithholding": {
+    "value": null,
+    "text": null,
+    "page": null,
+    "confidence": "LOW"
+  },
+  "currentTotalDeductions": {
+    "value": "549.75",
+    "text": "$549.75",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "ytdTotalDeductions": {
+    "value": "4398.00",
+    "text": "$4,398.00",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "ytdNetPay": {
+    "value": "14802.00",
+    "text": "$14,802.00",
+    "page": 1,
+    "confidence": "HIGH"
+  },
+  "earnings": [
+    {
+      "description": {
+        "value": "Regular",
+        "text": "Regular",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "hours": {
+        "value": "80.00",
+        "text": "80.00",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "rate": {
+        "value": "25.00",
+        "text": "25.0000",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "2000.00",
+        "text": "$2,000.00",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "16000.00",
+        "text": "$16,000.00",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    },
+    {
+      "description": {
+        "value": "Overtime",
+        "text": "Overtime",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "hours": {
+        "value": "10.00",
+        "text": "10.00",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "rate": {
+        "value": "40.00",
+        "text": "40.0000",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "400.00",
+        "text": "$400.00",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "3200.00",
+        "text": "$3,200.00",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    }
+  ],
+  "deductions": [
+    {
+      "description": {
+        "value": "Federal Income Tax",
+        "text": "Fed Income Tax",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "321.09",
+        "text": "$321.09",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "2568.72",
+        "text": "$2,568.72",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    },
+    {
+      "description": {
+        "value": "Social Security",
+        "text": "Social Security",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "148.80",
+        "text": "$148.80",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "1190.40",
+        "text": "$1,190.40",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    },
+    {
+      "description": {
+        "value": "Medicare",
+        "text": "Medicare",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "34.80",
+        "text": "$34.80",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "278.40",
+        "text": "$278.40",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    },
+    {
+      "description": {
+        "value": "401k",
+        "text": "401(k)",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "currentAmount": {
+        "value": "45.06",
+        "text": "$45.06",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "ytdAmount": {
+        "value": "360.48",
+        "text": "$360.48",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    }
+  ]
+}

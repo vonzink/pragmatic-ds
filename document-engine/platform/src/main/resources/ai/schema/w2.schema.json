@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "employeeName",
+    "employerName",
+    "employerEin",
+    "taxYear",
+    "wagesTipsOtherComp",
+    "federalIncomeTaxWithheld",
+    "socialSecurityWages",
+    "medicareWages",
+    "stateWages"
+  ],
+  "properties": {
+    "employeeName": { "$ref": "#/$defs/textCell" },
+    "employerName": { "$ref": "#/$defs/textCell" },
+    "employerEin": { "$ref": "#/$defs/textCell" },
+    "taxYear": { "$ref": "#/$defs/textCell" },
+    "wagesTipsOtherComp": { "$ref": "#/$defs/moneyCell" },
+    "federalIncomeTaxWithheld": { "$ref": "#/$defs/moneyCell" },
+    "socialSecurityWages": { "$ref": "#/$defs/moneyCell" },
+    "medicareWages": { "$ref": "#/$defs/moneyCell" },
+    "stateWages": { "$ref": "#/$defs/moneyCell" }
+  },
+  "$defs": {
+    "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+    "textCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": { "type": ["string", "null"] },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "moneyCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "decimal string, no currency symbol or commas, for example 1234.56"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    }
+  }
+}

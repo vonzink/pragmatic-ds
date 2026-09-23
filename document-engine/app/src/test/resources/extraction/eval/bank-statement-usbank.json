@@ -1,0 +1,9 @@
+{
+  "id": "bank-statement-usbank",
+  "fixture": "bank_statement_usbank",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["statement-dialect", "abbreviated-month-period", "dashed-account-number", "join-next-line", "derived-withdrawals", "known-bank-name"],
+  "note": "The U.S. Bank Uni-Statement first page as measured on real documents (2026-09-22): the period as abbreviated-month dates on separate lines around 'through', the dashed account number beside the legal name, joint holders on two address-block lines, and withdrawals printed only as three categories so totalWithdrawals must be DERIVED from the balance identity.",
+  "documents": [{"type": "BANK_STATEMENT", "pages": [0]}]
+}

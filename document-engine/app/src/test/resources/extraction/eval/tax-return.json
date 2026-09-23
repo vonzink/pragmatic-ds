@@ -1,0 +1,17 @@
+{
+  "id": "tax-return",
+  "fixture": "tax_return",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "relative-line-selector",
+    "multi-page-document",
+    "sensitive-field"
+  ],
+  "note": "Two pages, the 1040 itself. Until issue #60 a Schedule 2 page rode as page 3 under design D4 (one type covers the 1040 AND its schedules); D4 is reversed - Schedules 1 and 2 are their own types (schedule-1 / schedule-2 cases) - so this must be ONE two-page document, and a second document here is a splitting regression, not an extraction one.",
+  "documents": [
+    {
+      "type": "TAX_RETURN"
+    }
+  ]
+}

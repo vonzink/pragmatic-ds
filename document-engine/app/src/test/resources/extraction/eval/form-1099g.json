@@ -1,0 +1,9 @@
+{
+  "id": "form-1099g",
+  "fixture": "form_1099g",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "sensitive-field", "1099-family-furniture"],
+  "note": "Unemployment income. Shares the 1099 family's furniture (PAYER'S TIN / RECIPIENT'S TIN) with FORM_1099_R, which makes this case half of the proof that the two packs cannot qualify on each other's pages.",
+  "documents": [{"type": "FORM_1099_G"}]
+}

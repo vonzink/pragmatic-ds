@@ -1,0 +1,18 @@
+{
+  "id": "voe",
+  "fixture": "voe_form",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "lender-form",
+    "money-normalizer",
+    "date-normalizer"
+  ],
+  "note": "Request for Verification of Employment (the Fannie Form 1005 shape): numbered item captions with the filled value below each. The gross-earnings table is drawn as furniture so the money rungs prove they don't reach into a neighbouring table for a plausible number. KNOWN ENGINE LIMIT: lenderName captures 'FIRST SYNTHETIC MORTGAGE' and loses the 'LLC'. Box 2's caption is the RIGHT-MOST thing on its row, so cellWindow finds no next caption to bound against and fail-closes at the caption's own right edge - 'no printed boundary, no widening'. The last word of a value wider than its caption therefore falls outside the cell with zero overlap, which no cellOverlap threshold can admit. Truth pins the full name.",
+  "documents": [
+    {
+      "type": "VOE"
+    }
+  ]
+}

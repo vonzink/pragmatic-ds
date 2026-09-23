@@ -1,0 +1,9 @@
+{
+  "id": "k1-1065",
+  "fixture": "k1_1065",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "sensitive-field", "k1-family-furniture"],
+  "note": "Partner's K-1, from the committed 2025 blank. The K-1 siblings share more furniture than the 1099s (Final K-1, calendar-year line, the whole box vocabulary), so classification rides entirely on the Part I/II identity and the one-row footer regex.",
+  "documents": [{"type": "SCHEDULE_K1_1065"}]
+}

@@ -1,0 +1,23 @@
+[ {
+  "ruleId" : "field.manual_review_required",
+  "ruleVersion" : "1.0.0",
+  "severity" : "WARNING",
+  "summary" : "The extractor flagged employer_name on this PAYSTUB for manual review.",
+  "subjectKey" : "sha256:ef26fe0e9172fb5ee5c871fb6096f2d558727b336125711431881ab6a8519a2a",
+  "inputDigest" : "sha256:d87b50ac27d6f14db95d0509eebe513b5ee40ffe8853885ce50510e5d5c687d3",
+  "anchors" : [ {
+    "logicalDocumentId" : "5f1a0000-0000-4000-8000-000000000020",
+    "documentTypeCode" : "PAYSTUB",
+    "documentOrdinal" : 0,
+    "fieldName" : "employer_name",
+    "groupKey" : null,
+    "pageId" : "5f1a0000-0000-4000-8000-000000000010",
+    "box" : {
+      "x" : 72,
+      "y" : 58.5,
+      "width" : 168.4,
+      "height" : 11.2
+    }
+  } ],
+  "citationIds" : [ ]
+} ]

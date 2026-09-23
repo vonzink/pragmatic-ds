@@ -1,0 +1,3479 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9090",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/v1/pages/{id}/verdict": {
+      "post": {
+        "tags": [
+          "page-verdict-controller"
+        ],
+        "operationId": "override",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerdictRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/packages": {
+      "post": {
+        "tags": [
+          "package-controller"
+        ],
+        "operationId": "upload",
+        "parameters": [
+          {
+            "name": "loanId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "forceReparse",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/regroup": {
+      "post": {
+        "tags": [
+          "regroup-controller"
+        ],
+        "operationId": "regroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegroupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageDocumentsView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{id}/resume": {
+      "post": {
+        "tags": [
+          "job-controller"
+        ],
+        "operationId": "resume",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{id}/cancel": {
+      "post": {
+        "tags": [
+          "job-controller"
+        ],
+        "operationId": "cancel",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/extraction-schemas": {
+      "get": {
+        "tags": [
+          "extraction-schema-authoring-controller"
+        ],
+        "operationId": "effective",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EffectiveSchemaList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "extraction-schema-authoring-controller"
+        ],
+        "operationId": "author",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthoredSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/review": {
+      "post": {
+        "tags": [
+          "document-review-controller"
+        ],
+        "operationId": "markReviewed",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDecisionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/classification": {
+      "post": {
+        "tags": [
+          "document-review-controller"
+        ],
+        "operationId": "reclassify",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReclassifyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentDecisionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/ai-extract": {
+      "post": {
+        "tags": [
+          "document-ai-rerun-controller"
+        ],
+        "operationId": "rerun",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentRerunResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/fields/{id}": {
+      "patch": {
+        "tags": [
+          "field-correction-controller"
+        ],
+        "operationId": "correct",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CorrectionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processing/throughput": {
+      "get": {
+        "tags": [
+          "processing-throughput-controller"
+        ],
+        "operationId": "currentThroughput",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Throughput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pages/{id}/structure": {
+      "get": {
+        "tags": [
+          "page-structure-controller"
+        ],
+        "description": "L2 STRUCTURE: one page's geometric structure exactly as persisted \u2014 tables with (row, col)-addressed cells, visual blocks, pixel marks \u2014 each carrying the span ids that lead down to L1. ADMIN only: the body is the page's unmasked text, re-grouped. structureConfidence and textConfidence are separate numbers and never multiplied; a structure with no member spans has null textConfidence. detectorCoverage says whether each detector family looked (RAN / NOT_IMPLEMENTED / UNKNOWN). ?containsSpan= keeps the structures owning that span (the upward walk); ?kind=TABLE|BLOCK|MARK narrows. An ETag is issued only for the unfiltered whole-page window and carries the structure contract version; compare body.contentHash to detect a re-parse mid-walk.",
+        "operationId": "structure",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "containsSpan",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "Quoted \"<pageId>.<content_hash>-l2/<structureContract>\"; issued only for the whole-page window, and absent when the page has no content_hash",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "private, no-store",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "nosniff",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageStructureView"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/pages/{id}/spans": {
+      "get": {
+        "tags": [
+          "page-span-controller"
+        ],
+        "description": "L1 RAW: one window of a page's captured text spans, in the page's total order (source, ordinal, id). ADMIN only \u2014 the body is unmasked borrower text and masking cannot apply, because masking is per named sensitive field and a span has no name. Filters AND together and never reorder; follow nextCursor to exhaustion. limit defaults to 1000 and is refused above 5000 rather than clamped. An ETag is issued, and honoured, ONLY for the unfiltered uncursored whole-page window \u2014 it is the one representation it describes, and it is omitted rather than fabricated on a page with no content_hash. To tell whether a reparse happened mid-walk, compare the contentHash member, which every window carries.",
+        "operationId": "spans",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minConfidence",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "box",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "Quoted \"<pageId>.<content_hash>\"; issued only for the whole-page window, and absent when the page has no content_hash",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "private, no-store",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "nosniff",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageSpansView"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/pages/{id}/signed-url": {
+      "get": {
+        "tags": [
+          "page-controller"
+        ],
+        "operationId": "signedUrl",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssuedUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pages/{id}/render": {
+      "get": {
+        "tags": [
+          "page-controller"
+        ],
+        "operationId": "render",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{packageId}/engine-results": {
+      "get": {
+        "tags": [
+          "engine-result-controller"
+        ],
+        "operationId": "engineResultHistory",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EngineResultMetadataView"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/packages/{packageId}/engine-results/{revision}": {
+      "get": {
+        "tags": [
+          "engine-result-controller"
+        ],
+        "operationId": "revision",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "revision",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Length": {
+                "description": "Exact canonical byte length",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "ETag": {
+                "description": "Quoted envelope SHA-256",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "private, no-store",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "nosniff",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/vnd.pragmaticds.document-engine-result+json;version=1": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/packages/{packageId}/engine-result": {
+      "get": {
+        "tags": [
+          "engine-result-controller"
+        ],
+        "operationId": "current",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Length": {
+                "description": "Exact canonical byte length",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "ETag": {
+                "description": "Quoted envelope SHA-256",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "private, no-store",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "nosniff",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/vnd.pragmaticds.document-engine-result+json;version=1": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/packages/{id}": {
+      "get": {
+        "tags": [
+          "package-controller"
+        ],
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageView"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "package-controller"
+        ],
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/usage": {
+      "get": {
+        "tags": [
+          "package-usage-controller"
+        ],
+        "operationId": "get_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageUsageView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/triage": {
+      "get": {
+        "tags": [
+          "package-triage-controller"
+        ],
+        "operationId": "triageQueue",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageTriageView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/pages": {
+      "get": {
+        "tags": [
+          "page-controller"
+        ],
+        "operationId": "list",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackagePagesView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/export": {
+      "get": {
+        "tags": [
+          "package-export-controller"
+        ],
+        "operationId": "get_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageExportView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/documents": {
+      "get": {
+        "tags": [
+          "package-documents-controller"
+        ],
+        "operationId": "get_3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageDocumentsView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/packages/{id}/classification": {
+      "get": {
+        "tags": [
+          "package-classification-controller"
+        ],
+        "operationId": "get_4",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageClassificationView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{id}": {
+      "get": {
+        "tags": [
+          "job-controller"
+        ],
+        "operationId": "get_5",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files/{id}/signed-url": {
+      "get": {
+        "tags": [
+          "package-controller"
+        ],
+        "operationId": "signedUrl_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssuedUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files/{id}/content": {
+      "get": {
+        "tags": [
+          "package-controller"
+        ],
+        "operationId": "content",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/extraction-schemas/{documentTypeCode}": {
+      "get": {
+        "tags": [
+          "extraction-schema-authoring-controller"
+        ],
+        "operationId": "authoredVersions",
+        "parameters": [
+          {
+            "name": "documentTypeCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthoredHistory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/download": {
+      "get": {
+        "tags": [
+          "signed-download-controller"
+        ],
+        "operationId": "download",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/pdf": {
+      "get": {
+        "tags": [
+          "document-pdf-controller"
+        ],
+        "operationId": "pdf",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/pdf/signed-url": {
+      "get": {
+        "tags": [
+          "document-pdf-controller"
+        ],
+        "operationId": "signedUrl_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssuedUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/history": {
+      "get": {
+        "tags": [
+          "document-review-controller"
+        ],
+        "operationId": "history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/gold": {
+      "get": {
+        "tags": [
+          "gold-export-controller"
+        ],
+        "operationId": "export",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoldDocumentView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/fields": {
+      "get": {
+        "tags": [
+          "document-fields-controller"
+        ],
+        "operationId": "get_6",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentFieldsView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/fields.md": {
+      "get": {
+        "tags": [
+          "document-markdown-controller"
+        ],
+        "operationId": "get_7",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/markdown;charset=UTF-8": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{id}/body.md": {
+      "get": {
+        "tags": [
+          "document-body-controller"
+        ],
+        "operationId": "bodyMarkdown",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/markdown;charset=UTF-8": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VerdictRequest": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "DuplicateWarning": {
+        "type": "object",
+        "properties": {
+          "shaPrefix": {
+            "type": "string"
+          }
+        }
+      },
+      "FileResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "originalFilename": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Reused": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "jobId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "engineResultRevision": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UploadResult": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "jobId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileResult"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DuplicateWarning"
+            }
+          },
+          "reused": {
+            "$ref": "#/components/schemas/Reused"
+          }
+        }
+      },
+      "Move": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "toDocumentId": {
+            "type": "string"
+          }
+        }
+      },
+      "NewDocument": {
+        "type": "object",
+        "properties": {
+          "tempId": {
+            "type": "string"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "pageIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      },
+      "RegroupRequest": {
+        "type": "object",
+        "properties": {
+          "intent": {
+            "type": "string"
+          },
+          "moves": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Move"
+            }
+          },
+          "newDocuments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewDocument"
+            }
+          },
+          "deletedDocumentIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "DocumentPageView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classification": {
+            "$ref": "#/components/schemas/PageClassificationView"
+          }
+        }
+      },
+      "DocumentView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "classificationConfidence": {
+            "type": "number"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "boundaryProvenance": {
+            "type": "string"
+          },
+          "absorbedUntypedPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentPageView"
+            }
+          }
+        }
+      },
+      "PackageDocumentsView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentView"
+            }
+          },
+          "unassignedPages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnassignedPageView"
+            }
+          }
+        }
+      },
+      "PageClassificationView": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "rulePackVersion": {
+            "type": "string"
+          },
+          "coQualifyingTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "UnassignedPageView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "BLANK",
+              "DUPLICATE",
+              "CLEARED"
+            ]
+          }
+        }
+      },
+      "JobResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string"
+          },
+          "currentStage": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StageResponse"
+            }
+          }
+        }
+      },
+      "StageResponse": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipReason": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "durationMs": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "AuthoredSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "retiredVersions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "DecisionView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "action": {
+            "type": "string"
+          },
+          "previousValue": {
+            "type": "object"
+          },
+          "newValue": {
+            "type": "object"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "decidedBy": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "decidedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DocumentDecisionResult": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "reviewedBy": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reviewedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "decision": {
+            "$ref": "#/components/schemas/DecisionView"
+          }
+        }
+      },
+      "ReclassifyRequest": {
+        "type": "object",
+        "properties": {
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "pageIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      },
+      "DocumentRerunResult": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "APPLIED",
+              "ERROR",
+              "NOT_ELIGIBLE"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "fieldsInserted": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conflicts": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CorrectionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "fieldId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fieldName": {
+            "type": "string"
+          },
+          "machineValue": {
+            "type": "object"
+          },
+          "effectiveValue": {
+            "type": "object"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "decision": {
+            "$ref": "#/components/schemas/DecisionView"
+          }
+        }
+      },
+      "Throughput": {
+        "type": "object",
+        "properties": {
+          "ocrSecondsPerPage": {
+            "type": "number",
+            "format": "double"
+          },
+          "otherSecondsPerPage": {
+            "type": "number",
+            "format": "double"
+          },
+          "fixedSecondsPerJob": {
+            "type": "number",
+            "format": "double"
+          },
+          "sampleJobs": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "measured": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BlockView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "box": {
+            "$ref": "#/components/schemas/BoxView"
+          },
+          "structureConfidence": {
+            "type": "number"
+          },
+          "textConfidence": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          },
+          "spanIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "BoxView": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          }
+        }
+      },
+      "CellView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "row": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "col": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "box": {
+            "$ref": "#/components/schemas/BoxView"
+          },
+          "text": {
+            "type": "string"
+          },
+          "textConfidence": {
+            "type": "number"
+          },
+          "spanIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "MarkView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "box": {
+            "$ref": "#/components/schemas/BoxView"
+          },
+          "structureConfidence": {
+            "type": "number"
+          },
+          "textConfidence": {
+            "type": "number"
+          },
+          "checked": {
+            "type": "boolean"
+          },
+          "spanIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "PageStructureView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "widthPt": {
+            "type": "number"
+          },
+          "heightPt": {
+            "type": "number"
+          },
+          "rotation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentHash": {
+            "type": "string"
+          },
+          "structureContract": {
+            "type": "string"
+          },
+          "detectorCoverage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlockView"
+            }
+          },
+          "tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TableView"
+            }
+          },
+          "marks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarkView"
+            }
+          }
+        }
+      },
+      "TableView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "box": {
+            "$ref": "#/components/schemas/BoxView"
+          },
+          "rows": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cols": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ruled": {
+            "type": "boolean"
+          },
+          "structureConfidence": {
+            "type": "number"
+          },
+          "cells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CellView"
+            }
+          }
+        }
+      },
+      "PageSpansView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "widthPt": {
+            "type": "number"
+          },
+          "heightPt": {
+            "type": "number"
+          },
+          "rotation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "textLayer": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          },
+          "spans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpanView"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          },
+          "returned": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "truncated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SpanView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "ocrEngine": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "fontSize": {
+            "type": "number"
+          },
+          "fontName": {
+            "type": "string"
+          }
+        }
+      },
+      "IssuedUrl": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "EngineResultMetadataView": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "processingJobId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parseGeneration": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "materializedJobAttempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envelopeSchemaVersion": {
+            "type": "string"
+          },
+          "sourceSetSha256": {
+            "type": "string"
+          },
+          "provenanceSha256": {
+            "type": "string"
+          },
+          "envelopeSha256": {
+            "type": "string"
+          },
+          "envelopeSizeBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reuseEligibility": {
+            "type": "string",
+            "enum": [
+              "PARSE_ONCE_CURRENT_PACKAGE"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "FileView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "originalFilename": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "declaredContentType": {
+            "type": "string"
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "malwareScanStatus": {
+            "type": "string"
+          }
+        }
+      },
+      "PackageView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "loanId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileView"
+            }
+          }
+        }
+      },
+      "AttemptsView": {
+        "type": "object",
+        "properties": {
+          "jobAttempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jobStatus": {
+            "type": "string"
+          },
+          "parseGeneration": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stageAttempts": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "retriedAttempts": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "failedAttempts": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "retries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RetriedStageView"
+            }
+          }
+        }
+      },
+      "CostProducerView": {
+        "type": "object",
+        "properties": {
+          "producer": {
+            "type": "string"
+          },
+          "observed": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "DocumentUsageView": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ocrPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "byTextLayer": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "ElapsedView": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string"
+          },
+          "perDocumentElapsedAvailable": {
+            "type": "boolean"
+          },
+          "packageWallClockMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "packageStageElapsedMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "failedAttemptElapsedMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StageUsageView"
+            }
+          }
+        }
+      },
+      "JsonNode": {
+        "type": "object"
+      },
+      "ModelCostView": {
+        "type": "object",
+        "properties": {
+          "calls": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "inputTokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "outputTokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "costUsd": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "byModel": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelSpendView"
+            }
+          },
+          "producers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CostProducerView"
+            }
+          }
+        }
+      },
+      "ModelSpendView": {
+        "type": "object",
+        "properties": {
+          "producer": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "calls": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "inputTokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "outputTokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "costUsd": {
+            "type": "number"
+          }
+        }
+      },
+      "PackageUsageView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pages": {
+            "$ref": "#/components/schemas/PageUsageView"
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentUsageView"
+            }
+          },
+          "unassignedPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elapsed": {
+            "$ref": "#/components/schemas/ElapsedView"
+          },
+          "attempts": {
+            "$ref": "#/components/schemas/AttemptsView"
+          },
+          "modelCost": {
+            "$ref": "#/components/schemas/ModelCostView"
+          }
+        }
+      },
+      "PageUsageView": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ocrPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "byTextLayer": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "RetriedStageView": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "attempts": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastErrorCode": {
+            "type": "string"
+          }
+        }
+      },
+      "StageUsageView": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "durationMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "skipReason": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "workerVersion": {
+            "type": "string"
+          },
+          "parserVersions": {
+            "$ref": "#/components/schemas/JsonNode"
+          }
+        }
+      },
+      "BestLoser": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "minConfidence": {
+            "type": "number"
+          },
+          "shortfall": {
+            "type": "number"
+          }
+        }
+      },
+      "LabelView": {
+        "type": "object",
+        "properties": {
+          "decisionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "decidedBy": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "decidedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PackageTriageView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TriageItemView"
+            }
+          }
+        }
+      },
+      "TriageItemView": {
+        "type": "object",
+        "properties": {
+          "logicalDocumentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentOrdinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "startPackagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endPackagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "nearMiss": {
+            "type": "boolean"
+          },
+          "bestLoser": {
+            "$ref": "#/components/schemas/BestLoser"
+          },
+          "weakAnchors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeakAnchor"
+            }
+          },
+          "label": {
+            "$ref": "#/components/schemas/LabelView"
+          }
+        }
+      },
+      "WeakAnchor": {
+        "type": "object",
+        "properties": {
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "anchorId": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PackagePagesView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PageView"
+            }
+          }
+        }
+      },
+      "PageView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceFileId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "widthPt": {
+            "type": "number"
+          },
+          "heightPt": {
+            "type": "number"
+          },
+          "rotation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detectedRotation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "renderDpi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasRender": {
+            "type": "boolean"
+          },
+          "textLayer": {
+            "type": "string"
+          },
+          "blank": {
+            "type": "boolean"
+          },
+          "duplicateOfPageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceContentType": {
+            "type": "string"
+          }
+        }
+      },
+      "BoundingBoxView": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          }
+        }
+      },
+      "ExportDocumentView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "classificationConfidence": {
+            "type": "number"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "boundaryProvenance": {
+            "type": "string"
+          },
+          "absorbedUntypedPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumbers": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportFieldView"
+            }
+          }
+        }
+      },
+      "ExportFieldView": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string"
+          },
+          "groupKey": {
+            "type": "string"
+          },
+          "groupKind": {
+            "type": "string"
+          },
+          "textProvenance": {
+            "$ref": "#/components/schemas/TextProvenanceView"
+          },
+          "value": {
+            "type": "object"
+          },
+          "normalizedValue": {
+            "type": "object"
+          },
+          "displayedText": {
+            "type": "object"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "boundingBox": {
+            "$ref": "#/components/schemas/BoundingBoxView"
+          },
+          "extractionMethod": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "validationStatus": {
+            "type": "string"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "effectiveStatus": {
+            "type": "string"
+          }
+        }
+      },
+      "ExportUnassignedPageView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "PackageExportView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportDocumentView"
+            }
+          },
+          "unassignedPages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportUnassignedPageView"
+            }
+          }
+        }
+      },
+      "TextProvenanceView": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "ocrEngine": {
+            "type": "string"
+          }
+        }
+      },
+      "PackageClassificationView": {
+        "type": "object",
+        "properties": {
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PageClassificationEvidenceView"
+            }
+          }
+        }
+      },
+      "PageClassificationEvidenceView": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "rulePackVersion": {
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/JsonNode"
+          }
+        }
+      },
+      "EffectiveSchema": {
+        "type": "object",
+        "properties": {
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "fieldCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "EffectiveSchemaList": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EffectiveSchema"
+            }
+          }
+        }
+      },
+      "AuthoredHistory": {
+        "type": "object",
+        "properties": {
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthoredVersion"
+            }
+          }
+        }
+      },
+      "AuthoredVersion": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "definition": {
+            "$ref": "#/components/schemas/JsonNode"
+          }
+        }
+      },
+      "HistoryEntry": {
+        "type": "object",
+        "properties": {
+          "subjectType": {
+            "type": "string"
+          },
+          "subjectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fieldName": {
+            "type": "string"
+          },
+          "groupKey": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "previousValue": {
+            "type": "object"
+          },
+          "newValue": {
+            "type": "object"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "decidedBy": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "decidedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HistoryResult": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HistoryEntry"
+            }
+          }
+        }
+      },
+      "GoldDocumentView": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoldPage"
+            }
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoldField"
+            }
+          }
+        }
+      },
+      "GoldField": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "groupKey": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "displayedText": {
+            "type": "string"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GoldPage": {
+        "type": "object",
+        "properties": {
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "widthPt": {
+            "type": "number"
+          },
+          "heightPt": {
+            "type": "number"
+          },
+          "contentRotation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expectedType": {
+            "type": "string"
+          },
+          "words": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoldWord"
+            }
+          }
+        }
+      },
+      "GoldWord": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          }
+        }
+      },
+      "ConfidenceComponentsView": {
+        "type": "object",
+        "properties": {
+          "spanConfidence": {
+            "type": "number"
+          },
+          "anchorStrength": {
+            "type": "number"
+          },
+          "normalizerCertainty": {
+            "type": "number"
+          }
+        }
+      },
+      "DocumentFieldsView": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentTypeCode": {
+            "type": "string"
+          },
+          "schemaVersion": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldView"
+            }
+          }
+        }
+      },
+      "EvidenceView": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "packagePageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "textSpanId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "layoutElementId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "FieldView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fieldName": {
+            "type": "string"
+          },
+          "groupKey": {
+            "type": "string"
+          },
+          "groupKind": {
+            "type": "string"
+          },
+          "textProvenance": {
+            "$ref": "#/components/schemas/TextProvenanceView"
+          },
+          "dataType": {
+            "type": "string"
+          },
+          "displayedText": {
+            "type": "object"
+          },
+          "rawValue": {
+            "type": "object"
+          },
+          "normalized": {
+            "$ref": "#/components/schemas/NormalizedView"
+          },
+          "extractionMethod": {
+            "type": "string"
+          },
+          "extractorVersion": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "confidenceComponents": {
+            "$ref": "#/components/schemas/ConfidenceComponentsView"
+          },
+          "validationStatus": {
+            "type": "string"
+          },
+          "reviewStatus": {
+            "type": "string"
+          },
+          "effectiveStatus": {
+            "type": "string"
+          },
+          "sensitive": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvidenceView"
+            }
+          }
+        }
+      },
+      "NormalizedView": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "object"
+          },
+          "number": {
+            "type": "object"
+          },
+          "date": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

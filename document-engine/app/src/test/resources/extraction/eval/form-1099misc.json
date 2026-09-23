@@ -1,0 +1,9 @@
+{
+  "id": "form-1099misc",
+  "fixture": "form_1099misc",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "sensitive-field", "1099-family-furniture", "rev-2026-boxes"],
+  "note": "Authored from the official Rev. December 2026 blank, which carries the new 13a/13b/14 tips-and-overtime boxes. Fourth 1099-family member: the family's shared TIN and calendar-year furniture is now gated pairwise across four packs.",
+  "documents": [{"type": "FORM_1099_MISC"}]
+}

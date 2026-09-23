@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pragmaticds.invalid/schemas/submission-domain-v1.schema.json",
+  "title": "Submission Review Domain v1",
+  "description": "Shape of the envelope-v2 'domain' object for the submission analyzer (purchase contract, counters, addendums) that declares schemaVersion submission-domain-v1. Effective terms are the resolved deal after counters and addendums are applied in date order; conflicts compare each comparable term to the loan application; keyDates is one row per kind (a superseding document replaces the date, never adds a second row). Row uniqueness for conflicts[].field and keyDates[].kind is enforced by EnvelopeValidator after schema validation. Not part of analyzer-envelope-v2.schema.json, whose digest every stored release pins. This file is never edited in place once shipped: a changed contract is a new submission-domain-v2 file and marker.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documents", "effectiveTerms", "conflicts", "keyDates"],
+  "properties": {
+    "schemaVersion": { "const": "submission-domain-v1" },
+    "documents": { "type": "array", "items": { "$ref": "#/$defs/document" } },
+    "effectiveTerms": { "$ref": "#/$defs/effectiveTerms" },
+    "conflicts": { "type": "array", "items": { "$ref": "#/$defs/conflict" } },
+    "keyDates": { "type": "array", "items": { "$ref": "#/$defs/keyDate" } }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Za-z0-9_-]+$" },
+    "nullableId": { "oneOf": [ { "$ref": "#/$defs/id" }, { "type": "null" } ] },
+    "documentId": { "type": "string", "minLength": 1 },
+    "isoDate": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "nullableIsoDate": { "oneOf": [ { "$ref": "#/$defs/isoDate" }, { "type": "null" } ] },
+    "nullableString": { "type": ["string", "null"] },
+    "nullableNumber": { "type": ["number", "null"] },
+    "nullableBoolean": { "type": ["boolean", "null"] },
+    "stringList": { "type": "array", "items": { "type": "string" } },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["documentId", "kind", "date", "title", "signedBy"],
+      "properties": {
+        "documentId": { "$ref": "#/$defs/documentId" },
+        "kind": { "enum": ["CONTRACT", "COUNTER", "ADDENDUM", "OTHER"] },
+        "date": { "$ref": "#/$defs/nullableIsoDate" },
+        "title": { "$ref": "#/$defs/nullableString" },
+        "signedBy": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "effectiveTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["buyers", "sellers", "propertyAddress", "salesPrice", "earnestMoney", "sellerCredits",
+                   "closingDate", "financingContingency", "appraisalContingency", "inspectionContingency",
+                   "personalPropertyIncluded", "homeWarranty", "assignable", "listingAgent", "sellingAgent", "setBy"],
+      "properties": {
+        "buyers": { "$ref": "#/$defs/stringList" },
+        "sellers": { "$ref": "#/$defs/stringList" },
+        "propertyAddress": { "$ref": "#/$defs/nullableString" },
+        "salesPrice": { "$ref": "#/$defs/nullableNumber" },
+        "earnestMoney": {
+          "type": "object", "additionalProperties": false,
+          "required": ["amount", "holder", "dueDate"],
+          "properties": {
+            "amount": { "$ref": "#/$defs/nullableNumber" },
+            "holder": { "$ref": "#/$defs/nullableString" },
+            "dueDate": { "$ref": "#/$defs/nullableIsoDate" }
+          }
+        },
+        "sellerCredits": {
+          "type": "object", "additionalProperties": false,
+          "required": ["amount", "appliesTo"],
+          "properties": {
+            "amount": { "$ref": "#/$defs/nullableNumber" },
+            "appliesTo": { "$ref": "#/$defs/nullableString" }
+          }
+        },
+        "closingDate": { "$ref": "#/$defs/nullableIsoDate" },
+        "financingContingency": {
+          "type": "object", "additionalProperties": false,
+          "required": ["present", "loanType", "deadline"],
+          "properties": {
+            "present": { "$ref": "#/$defs/nullableBoolean" },
+            "loanType": { "$ref": "#/$defs/nullableString" },
+            "deadline": { "$ref": "#/$defs/nullableIsoDate" }
+          }
+        },
+        "appraisalContingency": {
+          "type": "object", "additionalProperties": false,
+          "required": ["present", "deadline"],
+          "properties": {
+            "present": { "$ref": "#/$defs/nullableBoolean" },
+            "deadline": { "$ref": "#/$defs/nullableIsoDate" }
+          }
+        },
+        "inspectionContingency": {
+          "type": "object", "additionalProperties": false,
+          "required": ["present", "deadline"],
+          "properties": {
+            "present": { "$ref": "#/$defs/nullableBoolean" },
+            "deadline": { "$ref": "#/$defs/nullableIsoDate" }
+          }
+        },
+        "personalPropertyIncluded": { "$ref": "#/$defs/stringList" },
+        "homeWarranty": { "$ref": "#/$defs/nullableString" },
+        "assignable": { "$ref": "#/$defs/nullableBoolean" },
+        "listingAgent": { "$ref": "#/$defs/nullableString" },
+        "sellingAgent": { "$ref": "#/$defs/nullableString" },
+        "setBy": {
+          "type": "object",
+          "propertyNames": { "enum": ["buyers", "sellers", "propertyAddress", "salesPrice", "earnestMoney", "sellerCredits", "closingDate", "financingContingency", "appraisalContingency", "inspectionContingency", "personalPropertyIncluded", "homeWarranty", "assignable", "listingAgent", "sellingAgent"] },
+          "additionalProperties": { "$ref": "#/$defs/documentId" }
+        }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "status", "applicationValue", "documentValue", "factId", "severity", "note"],
+      "properties": {
+        "field": { "enum": ["borrowers", "propertyAddress", "salesPrice", "closingDate", "loanAmount",
+                            "downPayment", "earnestMoney", "sellerCredits"] },
+        "status": { "enum": ["MATCH", "CONFLICT", "NOT_COMPARABLE"] },
+        "applicationValue": { "$ref": "#/$defs/nullableString" },
+        "documentValue": { "$ref": "#/$defs/nullableString" },
+        "factId": { "$ref": "#/$defs/nullableId" },
+        "severity": { "enum": ["HIGH", "MEDIUM", "LOW", null] },
+        "note": { "type": "string" }
+      },
+      "if": { "properties": { "status": { "const": "CONFLICT" } } },
+      "then": { "properties": { "severity": { "enum": ["HIGH", "MEDIUM", "LOW"] } } },
+      "else": { "properties": { "severity": { "type": "null" } } }
+    },
+    "keyDate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "date", "setBy", "factId", "note"],
+      "properties": {
+        "kind": { "enum": ["OFFER", "ACCEPTANCE", "EARNEST_MONEY_DUE", "INSPECTION_DEADLINE",
+                           "INSPECTION_OBJECTION", "APPRAISAL_DEADLINE", "LOAN_CONTINGENCY",
+                           "TITLE_OBJECTION", "HOA_DOCUMENTS", "SELLER_DISCLOSURE", "CLOSING",
+                           "POSSESSION", "OFFER_EXPIRATION"] },
+        "date": { "$ref": "#/$defs/isoDate" },
+        "setBy": { "$ref": "#/$defs/documentId" },
+        "factId": { "$ref": "#/$defs/nullableId" },
+        "note": { "$ref": "#/$defs/nullableString" }
+      }
+    }
+  }
+}

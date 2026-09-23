@@ -1,0 +1,9 @@
+{
+  "id": "purchase-contract-unsigned",
+  "fixture": "purchase_contract_unsigned",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["signature-absence"],
+  "note": "Identical text, no signature ink. Every text field must extract exactly as the signed case does — a signature detector that leaks into text extraction shows up here as a value change.",
+  "documents": [{"type": "PURCHASE_CONTRACT"}]
+}

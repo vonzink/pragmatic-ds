@@ -1,0 +1,58 @@
+# Local development database: PostgreSQL 16 with the pgvector extension baked in.
+# Run locally:  docker compose up -d
+# Mirrors what we'll run on AWS RDS later (RDS Postgres supports pgvector natively).
+name: pds-rag-brain
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: pds-rag-brain-postgres
+    environment:
+      POSTGRES_DB: pds_rag_brain
+      POSTGRES_USER: pds_rag_brain
+      POSTGRES_PASSWORD: pds_local_dev_only   # local only — never reuse in AWS
+    ports:
+      - "6435:5432"   # 6435 on host to avoid colliding with other-local-rag (6433) and other-local-pg (5434)
+    volumes:
+      - pds_rag_brain_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pds_rag_brain -d pds_rag_brain"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Optional application container. The default local workflow starts only
+  # Postgres here, then runs ./gradlew bootRun from the host. To test the app
+  # image explicitly, run:
+  #   docker compose --profile app up --build app
+  app:
+    profiles: ["app"]
+    build:
+      context: .
+    container_name: pds-rag-brain-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: jdbc:postgresql://postgres:5432/pds_rag_brain
+      DB_USERNAME: pds_rag_brain
+      DB_PASSWORD: ${DB_PASSWORD:-pds_local_dev_only}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:?ADMIN_API_KEY must be set (no dev default allowed under the prod profile)}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:6174}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DEFAULT_AI_PROVIDER: ${DEFAULT_AI_PROVIDER:-anthropic}
+      FALLBACK_AI_PROVIDER: ${FALLBACK_AI_PROVIDER:-openai}
+      GENERATED_PACKS_PATH: /app/data/packs
+    ports:
+      - "9091:8080"
+    volumes:
+      - pds_rag_brain_docdata:/app/data/documents
+      # Dashboard-generated packs must survive redeploys, or brains created from
+      # the dashboard 500 on every request after the container is recreated.
+      - pds_rag_brain_packs:/app/data/packs
+
+volumes:
+  pds_rag_brain_pgdata:
+  pds_rag_brain_docdata:
+  pds_rag_brain_packs:

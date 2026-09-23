@@ -1,0 +1,13 @@
+{
+  "id": "bank-statement-three",
+  "fixture": "bank_statement_three",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["instance-key-boundary", "consecutive-same-type-split", "statement-dialect"],
+  "note": "Six pages, THREE documents. Every page classifies BANK_STATEMENT and prints the same bank, holder and account number, so no type change and no anchor separates them — only the printed statement period does, which is what the instance-key probe reads. Before Phase C this produced one six-page document reporting a single beginning balance for three months. Declaring the page split explicitly makes a splitter regression show up here as a document-count mismatch, not as three fields mysteriously disagreeing.",
+  "documents": [
+    {"type": "BANK_STATEMENT", "pages": [0, 1]},
+    {"type": "BANK_STATEMENT", "pages": [2, 3]},
+    {"type": "BANK_STATEMENT", "pages": [4, 5]}
+  ]
+}

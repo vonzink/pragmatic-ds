@@ -1,0 +1,679 @@
+{
+  "pages": [
+    {
+      "elements": [
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e0",
+          "elementType": "HEADER",
+          "height": 14.0,
+          "ordinal": 0,
+          "parentElementId": null,
+          "spanOrdinals": [
+            0,
+            1,
+            2
+          ],
+          "width": 145.8,
+          "x": 72.0,
+          "y": 60.9
+        },
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e1",
+          "elementType": "PARAGRAPH",
+          "height": 11.0,
+          "ordinal": 1,
+          "parentElementId": null,
+          "spanOrdinals": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "width": 148.8,
+          "x": 72.0,
+          "y": 93.3
+        },
+        {
+          "attributes": {
+            "cols": 5,
+            "rows": 5,
+            "ruled": true
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e2",
+          "elementType": "TABLE",
+          "height": 110.0,
+          "ordinal": 2,
+          "parentElementId": null,
+          "spanOrdinals": [],
+          "width": 494.0,
+          "x": 66.0,
+          "y": 168.0
+        },
+        {
+          "attributes": {
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e3",
+          "elementType": "TABLE_ROW",
+          "height": 11.0,
+          "ordinal": 3,
+          "parentElementId": "e2",
+          "spanOrdinals": [],
+          "width": 440.0,
+          "x": 72.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "col": 0,
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e4",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 4,
+          "parentElementId": "e3",
+          "spanOrdinals": [
+            7
+          ],
+          "width": 47.1,
+          "x": 72.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "col": 1,
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e5",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 5,
+          "parentElementId": "e3",
+          "spanOrdinals": [
+            8
+          ],
+          "width": 23.8,
+          "x": 200.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "col": 2,
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e6",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 6,
+          "parentElementId": "e3",
+          "spanOrdinals": [
+            9
+          ],
+          "width": 31.8,
+          "x": 290.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "col": 3,
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e7",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 7,
+          "parentElementId": "e3",
+          "spanOrdinals": [
+            10
+          ],
+          "width": 39.7,
+          "x": 380.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "col": 4,
+            "row": 0
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e8",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 8,
+          "parentElementId": "e3",
+          "spanOrdinals": [
+            11
+          ],
+          "width": 22.0,
+          "x": 490.0,
+          "y": 173.3
+        },
+        {
+          "attributes": {
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e9",
+          "elementType": "TABLE_ROW",
+          "height": 11.0,
+          "ordinal": 9,
+          "parentElementId": "e2",
+          "spanOrdinals": [],
+          "width": 460.8,
+          "x": 72.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "col": 0,
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e10",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 10,
+          "parentElementId": "e9",
+          "spanOrdinals": [
+            12
+          ],
+          "width": 38.5,
+          "x": 72.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "col": 1,
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e11",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 11,
+          "parentElementId": "e9",
+          "spanOrdinals": [
+            13
+          ],
+          "width": 39.8,
+          "x": 200.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "col": 2,
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e12",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 12,
+          "parentElementId": "e9",
+          "spanOrdinals": [
+            14
+          ],
+          "width": 27.5,
+          "x": 290.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "col": 3,
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e13",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 13,
+          "parentElementId": "e9",
+          "spanOrdinals": [
+            15
+          ],
+          "width": 42.8,
+          "x": 380.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "col": 4,
+            "row": 1
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e14",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 14,
+          "parentElementId": "e9",
+          "spanOrdinals": [
+            16
+          ],
+          "width": 42.8,
+          "x": 490.0,
+          "y": 195.3
+        },
+        {
+          "attributes": {
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e15",
+          "elementType": "TABLE_ROW",
+          "height": 11.0,
+          "ordinal": 15,
+          "parentElementId": "e2",
+          "spanOrdinals": [],
+          "width": 451.6,
+          "x": 72.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "col": 0,
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e16",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 16,
+          "parentElementId": "e15",
+          "spanOrdinals": [
+            17
+          ],
+          "width": 44.6,
+          "x": 72.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "col": 1,
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e17",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 17,
+          "parentElementId": "e15",
+          "spanOrdinals": [
+            18
+          ],
+          "width": 39.8,
+          "x": 200.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "col": 2,
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e18",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 18,
+          "parentElementId": "e15",
+          "spanOrdinals": [
+            19
+          ],
+          "width": 21.4,
+          "x": 290.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "col": 3,
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e19",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 19,
+          "parentElementId": "e15",
+          "spanOrdinals": [
+            20
+          ],
+          "width": 33.6,
+          "x": 380.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "col": 4,
+            "row": 2
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e20",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 20,
+          "parentElementId": "e15",
+          "spanOrdinals": [
+            21
+          ],
+          "width": 33.6,
+          "x": 490.0,
+          "y": 217.3
+        },
+        {
+          "attributes": {
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e21",
+          "elementType": "TABLE_ROW",
+          "height": 11.0,
+          "ordinal": 21,
+          "parentElementId": "e2",
+          "spanOrdinals": [],
+          "width": 451.6,
+          "x": 72.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "col": 0,
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e22",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 22,
+          "parentElementId": "e21",
+          "spanOrdinals": [
+            22
+          ],
+          "width": 31.2,
+          "x": 72.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "col": 1,
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e23",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 23,
+          "parentElementId": "e21",
+          "spanOrdinals": [
+            23
+          ],
+          "width": 33.6,
+          "x": 200.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "col": 2,
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e24",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 24,
+          "parentElementId": "e21",
+          "spanOrdinals": [
+            24
+          ],
+          "width": 21.4,
+          "x": 290.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "col": 3,
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e25",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 25,
+          "parentElementId": "e21",
+          "spanOrdinals": [
+            25
+          ],
+          "width": 33.6,
+          "x": 380.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "col": 4,
+            "row": 3
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e26",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 26,
+          "parentElementId": "e21",
+          "spanOrdinals": [
+            26
+          ],
+          "width": 33.6,
+          "x": 490.0,
+          "y": 239.3
+        },
+        {
+          "attributes": {
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e27",
+          "elementType": "TABLE_ROW",
+          "height": 11.0,
+          "ordinal": 27,
+          "parentElementId": "e2",
+          "spanOrdinals": [],
+          "width": 460.8,
+          "x": 72.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {
+            "col": 0,
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e28",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 28,
+          "parentElementId": "e27",
+          "spanOrdinals": [
+            27
+          ],
+          "width": 31.8,
+          "x": 72.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {
+            "col": 1,
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e29",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 29,
+          "parentElementId": "e27",
+          "spanOrdinals": [
+            28
+          ],
+          "width": 3.7,
+          "x": 200.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {
+            "col": 2,
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e30",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 30,
+          "parentElementId": "e27",
+          "spanOrdinals": [
+            29
+          ],
+          "width": 3.7,
+          "x": 290.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {
+            "col": 3,
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e31",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 31,
+          "parentElementId": "e27",
+          "spanOrdinals": [
+            30
+          ],
+          "width": 42.8,
+          "x": 380.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {
+            "col": 4,
+            "row": 4
+          },
+          "confidence": 0.95,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e32",
+          "elementType": "TABLE_CELL",
+          "height": 11.0,
+          "ordinal": 32,
+          "parentElementId": "e27",
+          "spanOrdinals": [
+            31
+          ],
+          "width": 42.8,
+          "x": 490.0,
+          "y": 261.3
+        },
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e33",
+          "elementType": "HEADER",
+          "height": 12.0,
+          "ordinal": 33,
+          "parentElementId": null,
+          "spanOrdinals": [
+            32,
+            33,
+            34
+          ],
+          "width": 106.1,
+          "x": 72.0,
+          "y": 312.5
+        }
+      ],
+      "notImplemented": [],
+      "pageIndex": 0
+    }
+  ],
+  "worker": {
+    "libraries": {
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.12.1"
+    },
+    "version": "0.2.0"
+  }
+}

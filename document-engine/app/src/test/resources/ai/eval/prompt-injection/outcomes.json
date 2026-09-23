@@ -1,0 +1,8 @@
+{
+  "defaultAnchorStatus": "MATCHED",
+  "anchorOverrides": {},
+  "reconciliationStatus": "NON_RECONCILING",
+  "straightThrough": false,
+  "goldenResponseFile": "golden-response.json",
+  "forbiddenAutoAcceptedValues": ["1000000"]
+}

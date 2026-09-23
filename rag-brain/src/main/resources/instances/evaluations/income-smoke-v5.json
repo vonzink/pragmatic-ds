@@ -1,0 +1,73 @@
+{
+    "id": "income-smoke",
+    "version": 5,
+    "description": "Smoke coverage for a pinned income instance that declares the income-domain-v2 contract and publishes findings with subject keys. Version 5 is version 4 plus one required pointer, /findings/findings/0/subjectKey, on the review-required case, which also declares a synthetic subjectScope. A subject key is hashed from a scope; a dispatched run takes its scope from the loan's registration, but an evaluation runs a fixture that came from no registration, so the scenario supplies one. That is why version 3, which asserts the key with no scope, can never pass and stays unallowlisted. The scope is synthetic and names no loan. Presence, not a value: the key's composition may legitimately change. A release pinned to this set must pin the field.manual_review_required tool, or the review-required case has no finding to key. Versions 1-4 are left unchanged so every historical report digest stays reproducible. Every package named here is a synthetic fixture; no expected borrower value appears anywhere in this file.",
+    "scenarios": [
+        {
+            "name": "single-paystub-produces-a-cited-report",
+            "packageFixture": "fixture-paystub-single",
+            "revision": 1,
+            "requiredPointers": [
+                "/reportMarkdown",
+                "/findings/facts",
+                "/citations/0",
+                "/findings/domain/borrowers/0/sources/0/computed/basis"
+            ],
+            "forbiddenPointers": []
+        },
+        {
+            "name": "paystub-and-w2-produce-calculations",
+            "packageFixture": "fixture-paystub-w2",
+            "revision": 1,
+            "requiredPointers": [
+                "/reportMarkdown",
+                "/findings/facts/0",
+                "/findings/calculations/0",
+                "/citations/0",
+                "/findings/domain/borrowers/0/sources/0/computed/basis"
+            ],
+            "forbiddenPointers": []
+        },
+        {
+            "name": "unsupported-package-is-refused-before-any-analysis",
+            "packageFixture": "fixture-unsupported-only",
+            "revision": 1,
+            "requiredPointers": [
+                "/status",
+                "/reason"
+            ],
+            "forbiddenPointers": [
+                "/reportMarkdown",
+                "/citations/0",
+                "/findings/facts/0",
+                "/findings/calculations/0"
+            ]
+        },
+        {
+            "name": "unreadable-paystub-yields-no-fabricated-findings",
+            "packageFixture": "fixture-paystub-unreadable",
+            "revision": 1,
+            "requiredPointers": [
+                "/reportMarkdown",
+                "/findings/missingItems/0"
+            ],
+            "forbiddenPointers": [
+                "/findings/facts/0",
+                "/findings/calculations/0"
+            ]
+        },
+        {
+            "name": "review-required-paystub-emits-an-addressable-finding",
+            "packageFixture": "fixture-paystub-review-required",
+            "revision": 1,
+            "requiredPointers": [
+                "/reportMarkdown",
+                "/findings/findings/0/ruleId",
+                "/findings/findings/0/inputDigest",
+                "/findings/findings/0/subjectKey"
+            ],
+            "forbiddenPointers": [],
+            "subjectScope": "fixture:review-required"
+        }
+    ]
+}

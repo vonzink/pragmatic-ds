@@ -1,0 +1,2 @@
+# Playwright specs land here (playwright.config.ts testDir).
+# Phase 6: upload -> wait for parse -> select field -> assert overlay box position.

@@ -1,0 +1,9 @@
+{
+  "id": "paystub-stacked-period",
+  "fixture": "paystub_stacked_period",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["anchor-label", "stacked-sublabel", "date-normalizer"],
+  "note": "The pay-period block as payroll processors actually draw it: 'PAY PERIOD' is a heading with nothing to its right, and each date sits on its own line behind its own sub-label. Before V36 both rungs missed — ANCHOR_LABEL 'Pay Period' is scoped LINE_RIGHT and finds no date on the heading's line, and LABEL_BELOW's literals were 'Period Start Date'/'Period End Date' while the document writes 'Period Beginning'/'Period Ending'. The sub-labels share a line with their values, which is why the fix is ANCHOR_LABEL/LINE_RIGHT rather than LABEL_BELOW. Drawn from a real 2026-09-01 prod stub that returned 3 of 9 fields; geometry borrowed, every value invented.",
+  "documents": [{"type": "PAYSTUB"}]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pragmaticds.invalid/schemas/income-domain-v2.schema.json",
+  "title": "Income Analyzer Domain v2",
+  "description": "Shape of the envelope-v2 'domain' object for income analyzers that declare schemaVersion income-domain-v2. Numbers live in calculations[].result; a source's own 'monthly' is a model-typed figure that the engine labels MODEL_STATED when no qualifying calculation computed. 'computed' (including computed.duplicateOf), 'computedTotalMonthly', 'totalAdjustedForDuplicates' and 'adjustedReconciliation' are ENGINE-written after calculation execution and are overwritten or removed if the model supplies them. Not part of analyzer-envelope-v2.schema.json, whose digest every stored release pins. This file is never edited in place once shipped: a changed contract is a new income-domain-v3 file and marker. Documented exception (2026-09-17): the optional engine-only fields computed.duplicateOf, totalAdjustedForDuplicates and adjustedReconciliation were added in place; they are additive, never model-emitted, and leave every previously valid domain valid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "borrowers", "totalCalcId", "reconciliationCalcId", "opportunities", "gaps"],
+  "properties": {
+    "schemaVersion": { "const": "income-domain-v2" },
+    "borrowers": { "type": "array", "items": { "$ref": "#/$defs/borrower" } },
+    "totalCalcId": { "$ref": "#/$defs/nullableId" },
+    "reconciliationCalcId": { "$ref": "#/$defs/nullableId" },
+    "opportunities": { "type": "array", "items": { "$ref": "#/$defs/opportunity" } },
+    "gaps": { "type": "array", "items": { "type": "string" } },
+    "computedTotalMonthly": { "type": ["number", "null"] },
+    "totalAdjustedForDuplicates": { "type": "boolean" },
+    "adjustedReconciliation": { "type": "object" }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Za-z0-9_-]+$" },
+    "nullableId": { "oneOf": [ { "$ref": "#/$defs/id" }, { "type": "null" } ] },
+    "borrower": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "sources"],
+      "properties": {
+        "name": { "type": "string" },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "employer", "factIds", "calcIds", "qualifyingCalcId", "monthly", "urlaStatedMonthly", "varianceCalcId", "concerns", "confidence"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "employer": { "type": ["string", "null"] },
+        "factIds": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "calcIds": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "qualifyingCalcId": { "$ref": "#/$defs/nullableId" },
+        "monthly": { "type": ["number", "null"] },
+        "urlaStatedMonthly": { "type": ["number", "null"] },
+        "varianceCalcId": { "$ref": "#/$defs/nullableId" },
+        "concerns": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "computed": { "$ref": "#/$defs/computed" }
+      }
+    },
+    "computed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["monthly", "method", "frequency", "frequencyInferred", "basis"],
+      "properties": {
+        "monthly": { "type": ["number", "null"] },
+        "method": { "type": ["string", "null"] },
+        "frequency": { "type": ["string", "null"] },
+        "frequencyInferred": { "type": "boolean" },
+        "basis": { "enum": ["CALCULATOR", "MODEL_STATED", "NONE"] },
+        "duplicateOf": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "opportunity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "docsRequired"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "estimatedMonthlyCalcId": { "$ref": "#/$defs/nullableId" },
+        "docsRequired": { "type": "array", "items": { "type": "string" } },
+        "basis": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

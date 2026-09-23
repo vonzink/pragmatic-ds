@@ -1,0 +1,8 @@
+{
+  "defaultAnchorStatus": "MATCHED",
+  "anchorOverrides": {"transactions[0].description":"UNANCHORED"},
+  "reconciliationStatus": "RECONCILED",
+  "straightThrough": false,
+  "goldenResponseFile": "expected.json",
+  "forbiddenAutoAcceptedValues": []
+}

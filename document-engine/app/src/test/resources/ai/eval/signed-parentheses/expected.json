@@ -1,0 +1,20 @@
+{
+  "summary": {
+    "bankName":{"value":"Sigma Synthetic Savings","text":"SIGMA SYNTHETIC SAVINGS","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Signed Money","text":"CASE SIGNED MONEY","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"902 Test Avenue, Testville, ZZ 00000","text":"902 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0003","text":"SYN-0003","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-03-01","text":"March 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-03-31","text":"March 31, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"1225.00","text":"$1,225.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"300.00","text":"$300.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"75.00","text":"$75.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-03-05","text":"03/05/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Signed Deposit","text":"SYNTHETIC SIGNED DEPOSIT","page":2,"confidence":"HIGH"},"amount":{"value":"300.00","text":"+$300.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2},
+    {"date":{"value":"2099-03-10","text":"03/10/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Paren Withdrawal","text":"SYNTHETIC PAREN WITHDRAWAL","page":2,"confidence":"HIGH"},"amount":{"value":"(50.00)","text":"($50.00)","page":2,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":2},
+    {"date":{"value":"2099-03-20","text":"03/20/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Minus Withdrawal","text":"SYNTHETIC MINUS WITHDRAWAL","page":2,"confidence":"HIGH"},"amount":{"value":"-25.00","text":"-$25.00","page":2,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":2}
+  ],
+  "checks": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "paystub-missing-field",
+  "fixture": "paystub_missing_field",
+  "layout": "GRID",
+  "synthetic": true,
+  "coverage": ["absent-field", "false-positive-guard"],
+  "note": "payDate is drawn nowhere. Truth pins it displayedText=null / method=NONE, so the expectation inverts: capturing anything here is a rung reaching past its anchor and inventing a value.",
+  "documents": [{"type": "PAYSTUB"}]
+}

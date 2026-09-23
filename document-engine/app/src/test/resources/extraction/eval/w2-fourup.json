@@ -1,0 +1,9 @@
+{
+  "id": "w2-fourup",
+  "fixture": "w2_form_fourup",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["fourup-layout", "reduced-geometry", "repeated-anchors"],
+  "note": "The payroll-provider employee-copy layout: four W-2 copies in a 2x2 grid, captions and values at reduced size, right column's rows offset. Classifies and extracts as plain W2 with the SAME pack and schema — a type-level change for a geometry variant would be the wrong fix, so this case pins that none is needed.",
+  "documents": [{"type": "W2"}]
+}

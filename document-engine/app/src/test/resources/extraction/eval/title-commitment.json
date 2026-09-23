@@ -1,0 +1,9 @@
+{
+  "id": "title-commitment",
+  "fixture": "title_commitment",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["line-right", "label-below", "multi-page-document", "continuation-page-anchors", "spelled-date"],
+  "note": "The 2021 ALTA form: Schedule A data page plus the Schedule B parts. Page 2 classifies on its part headings plus the footer identity line - the continuation pattern, fourth use. The exceptions list is the eventual repeating-group follow-up.",
+  "documents": [{"type": "TITLE_COMMITMENT", "pages": [0, 1]}]
+}

@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "bankName": { "value": "X Bank", "text": "X Bank", "page": 1, "confidence": "HIGH", "sneaky": "unexpected" },
+    "accountHolderName": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountHolderAddress": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "accountNumber": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "statementPeriodStart": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "statementPeriodEnd": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "beginningBalance": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "endingBalance": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "totalDeposits": { "value": null, "text": null, "page": null, "confidence": "LOW" },
+    "totalWithdrawals": { "value": null, "text": null, "page": null, "confidence": "LOW" }
+  },
+  "transactions": [],
+  "checks": []
+}

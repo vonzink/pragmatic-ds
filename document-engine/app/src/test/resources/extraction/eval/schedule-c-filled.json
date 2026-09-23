@@ -1,0 +1,9 @@
+{
+  "id": "schedule-c-filled",
+  "fixture": "schedule_c_filled",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["multi-page-document", "continuation-page-anchors", "label-below", "box-letter-anchor", "abutting-spans", "line-right", "sensitive-field"],
+  "note": "Schedule C page 1 drawn to the geometry of a FILLED official form (two real filled returns measured 2026-09-14), not the blank we authored schedule-c from. The box letter and the caption are separate runs 28 pt apart and the typed value sits under the LETTER, 26 pt left of the caption text, so schedule_c@1.0.0's caption-anchored cell refused the value's first word; the business name is Title Case, which its ALL-CAPS pattern refused too. The masthead year is not on the title row: it is two abutting 20 pt runs, '20' and '25', under 'OMB No. 1545-0074', which SpanJoin reads as '2025'. V48 anchors the caption with its letter, admits Title Case, and reads the year LABEL_BELOW off the OMB caption. Page 2 is the unchanged continuation page.",
+  "documents": [{"type": "SCHEDULE_C", "pages": [0, 1]}]
+}

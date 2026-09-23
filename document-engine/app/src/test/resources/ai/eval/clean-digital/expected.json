@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "bankName": {"value":"Zeta Synthetic Bank","text":"ZETA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName": {"value":"Case Clean Digital","text":"CASE CLEAN DIGITAL","page":1,"confidence":"HIGH"},
+    "accountHolderAddress": {"value":"900 Test Avenue, Testville, ZZ 00000","text":"900 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber": {"value":"SYN-0001","text":"SYN-0001","page":1,"confidence":"HIGH"},
+    "statementPeriodStart": {"value":"2099-01-01","text":"January 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd": {"value":"2099-01-31","text":"January 31, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance": {"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance": {"value":"1150.00","text":"$1,150.00","page":1,"confidence":"HIGH"},
+    "totalDeposits": {"value":"200.00","text":"$200.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals": {"value":"50.00","text":"$50.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-01-05","text":"01/05/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Payroll Alpha","text":"SYNTHETIC PAYROLL ALPHA","page":1,"confidence":"HIGH"},"amount":{"value":"125.00","text":"$125.00","page":1,"confidence":"HIGH"},"direction":"DEPOSIT","page":1},
+    {"date":{"value":"2099-01-06","text":"01/06/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Payroll Beta","text":"SYNTHETIC PAYROLL BETA","page":1,"confidence":"HIGH"},"amount":{"value":"75.00","text":"$75.00","page":1,"confidence":"HIGH"},"direction":"DEPOSIT","page":1},
+    {"date":{"value":"2099-01-10","text":"01/10/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Utility Alpha","text":"SYNTHETIC UTILITY ALPHA","page":1,"confidence":"HIGH"},"amount":{"value":"20.00","text":"$20.00","page":1,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":1},
+    {"date":{"value":"2099-01-20","text":"01/20/2099","page":1,"confidence":"HIGH"},"description":{"value":"Synthetic Utility Beta","text":"SYNTHETIC UTILITY BETA","page":1,"confidence":"HIGH"},"amount":{"value":"30.00","text":"$30.00","page":1,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":1}
+  ],
+  "checks": []
+}

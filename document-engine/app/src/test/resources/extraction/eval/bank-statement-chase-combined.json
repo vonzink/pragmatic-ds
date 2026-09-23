@@ -1,0 +1,9 @@
+{
+  "id": "bank-statement-chase-combined",
+  "fixture": "bank_statement_chase_combined",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["statement-dialect", "combined-statement", "known-bank-name", "join-next-line", "derived-withdrawals"],
+  "note": "Chase combined checking + savings: the schema holds ONE account and the truth records the checking account; the savings summary must not leak into any field; withdrawals are three categories, so DERIVED.",
+  "documents": [{"type": "BANK_STATEMENT", "pages": [0]}]
+}

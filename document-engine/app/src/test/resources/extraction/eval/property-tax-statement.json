@@ -1,0 +1,21 @@
+{
+  "id": "property-tax-statement",
+  "fixture": "property_tax_statement",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "line-right",
+    "three-year-comparison-rightmost",
+    "installment-schedule"
+  ],
+  "note": "V50. Drawn to the layout of a real native-text county real-estate tax statement (not committed; every value invented). One page: the year off the year-first title line, the parcel, owner and physical location BELOW their box-grid captions, the tax breakdown and the two installments LINE_RIGHT in the right column, the taxable value as the RIGHTMOST figure of a three-year comparison, and a remittance stub at the foot of the same page that repeats the title and the parcel caption.",
+  "documents": [
+    {
+      "type": "PROPERTY_TAX_STATEMENT",
+      "pages": [
+        0
+      ]
+    }
+  ]
+}

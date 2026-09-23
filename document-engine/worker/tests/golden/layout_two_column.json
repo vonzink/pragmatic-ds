@@ -1,0 +1,119 @@
+{
+  "pages": [
+    {
+      "elements": [
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e0",
+          "elementType": "HEADER",
+          "height": 12.0,
+          "ordinal": 0,
+          "parentElementId": null,
+          "spanOrdinals": [
+            0,
+            1,
+            2
+          ],
+          "width": 127.3,
+          "x": 60.0,
+          "y": 62.5
+        },
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e1",
+          "elementType": "PARAGRAPH",
+          "height": 59.0,
+          "ordinal": 1,
+          "parentElementId": null,
+          "spanOrdinals": [
+            6,
+            7,
+            8,
+            9,
+            14,
+            15,
+            16,
+            17,
+            22,
+            23,
+            24,
+            25,
+            31,
+            32,
+            33,
+            34
+          ],
+          "width": 148.2,
+          "x": 60.0,
+          "y": 88.3
+        },
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e2",
+          "elementType": "HEADER",
+          "height": 12.0,
+          "ordinal": 2,
+          "parentElementId": null,
+          "spanOrdinals": [
+            3,
+            4,
+            5
+          ],
+          "width": 128.0,
+          "x": 330.0,
+          "y": 62.5
+        },
+        {
+          "attributes": {},
+          "confidence": 0.9,
+          "detector": "clustering",
+          "detectorVersion": "0.2.0",
+          "elementId": "e3",
+          "elementType": "PARAGRAPH",
+          "height": 43.0,
+          "ordinal": 3,
+          "parentElementId": null,
+          "spanOrdinals": [
+            10,
+            11,
+            12,
+            13,
+            18,
+            19,
+            20,
+            21,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "width": 150.6,
+          "x": 330.0,
+          "y": 88.3
+        }
+      ],
+      "notImplemented": [
+        "CHECKBOX",
+        "SIGNATURE"
+      ],
+      "pageIndex": 0
+    }
+  ],
+  "worker": {
+    "libraries": {
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.12.1"
+    },
+    "version": "0.2.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "paystub-twopage",
+  "fixture": "paystub_twopage",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["multi-page-document", "page-grouping"],
+  "note": "Two consecutive PAYSTUB pages must group into ONE logical document, not two.",
+  "documents": [{"type": "PAYSTUB"}]
+}

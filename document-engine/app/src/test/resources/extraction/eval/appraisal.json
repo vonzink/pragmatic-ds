@@ -1,0 +1,9 @@
+{
+  "id": "appraisal",
+  "fixture": "appraisal_urar",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["line-right", "prose-value-sentence"],
+  "note": "URAR shape with three wording traps pinned, all of them consequences of ANCHOR_LABEL taking the FIRST match on the page. (1) 'opinion of the market value' appears in the PURPOSE sentence long before the reconciliation, so appraisedValue anchors the reconciliation's own 'subject of this report is' phrase. (2) The same purpose sentence says 'provide the lender/client with', which a case-insensitive literal 'Lender/Client' matches before the caption ever printed - so that label is a case-sensitive regex requiring a value after it. (3) The reconciliation's own lead-in says 'exterior areas of the subject property', and 'as of' matches inside 'areas of' - so effectiveDate's label carries letter boundaries.",
+  "documents": [{"type": "APPRAISAL"}]
+}

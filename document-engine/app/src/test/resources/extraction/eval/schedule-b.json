@@ -1,0 +1,9 @@
+{
+  "id": "schedule-b",
+  "fixture": "schedule_b",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "line-right", "sensitive-field", "1040-schedule-header"],
+  "note": "From the committed 2025 blank. The payer lists are the eventual repeating-group follow-up; what underwriting reads - and what truth pins - are the line 2/4/6 totals, LINE_RIGHT off their own captions. Shares the Name(s)-shown-on-return header with every 1040 schedule, weighted 1 in the pack.",
+  "documents": [{"type": "SCHEDULE_B"}]
+}

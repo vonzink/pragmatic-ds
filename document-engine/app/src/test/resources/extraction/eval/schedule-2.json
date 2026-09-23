@@ -1,0 +1,20 @@
+{
+  "id": "schedule-2",
+  "fixture": "schedule_2",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "label-below",
+    "line-right",
+    "1040-schedule-header"
+  ],
+  "note": "Issue #60. Authored from the published 2025 blank's wording. One page: identity header, year, self-employment tax (line 4) and the line 21 total of other taxes. Until V46 this page classified TAX_RETURN through its own title and folded into the 1040 in front of it.",
+  "documents": [
+    {
+      "type": "SCHEDULE_2",
+      "pages": [
+        0
+      ]
+    }
+  ]
+}

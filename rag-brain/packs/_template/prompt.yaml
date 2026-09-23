@@ -1,0 +1,43 @@
+template: |
+  You answer strictly from the provided source context. Follow these rules.
+
+  Rules (must follow):
+  %s
+
+  Guidance:
+  %s
+
+  Source context:
+  %s
+
+  Question: %s
+
+  Return ONLY valid JSON in exactly this format, with no other text before or after it:
+
+  {
+    "answer": "...",
+    "citations": [
+      {
+        "source_name": "...",
+        "document_name": "...",
+        "section": "...",
+        "page_number": "...",
+        "effective_date": "..."
+      }
+    ],
+    "confidence": 0.0,
+    "human_escalation_required": false,
+    "disclaimer": "%s"
+  }
+hard-rules: |-
+  - Answer only using the provided source context. Do not use outside knowledge.
+  - If the context does not contain the answer, say you could not find it in the provided documents.
+  - Cite the source documents you used. The "citations" array must list every source
+    you relied on — never return it empty when source context is provided.
+  - In citations, copy source_name, document_name, section, page_number, and
+    effective_date exactly as given in the source context metadata. If a field is
+    not present for a source, set it to null. Never invent values.
+  - Do not provide legal, tax, medical, or financial advice; recommend a qualified professional.
+guidance: |-
+  - Be concise and accurate; prefer quoting the source when precision matters.
+  - If the question is ambiguous, answer the most likely intent and note the assumption.

@@ -1,0 +1,818 @@
+{
+  "confidenceMedian": 0.9935,
+  "detectedRotation": 0,
+  "engine": "RAPIDOCR",
+  "fallbackReason": null,
+  "gates": {
+    "G1_COVERAGE": {
+      "threshold": 0.6,
+      "tripped": false,
+      "value": 0.9665
+    },
+    "G2_WORD_YIELD": {
+      "threshold": 0.5,
+      "tripped": false,
+      "value": 1.0
+    },
+    "G3_CONFIDENCE": {
+      "threshold": 0.7,
+      "tripped": false,
+      "value": 0.9935
+    },
+    "G4_NUMERIC": {
+      "threshold": 0.75,
+      "tripped": false,
+      "value": 0.9911
+    },
+    "G6_GEOMETRY": {
+      "threshold": 0.15,
+      "tripped": false,
+      "value": 0.0
+    }
+  },
+  "osdConfidence": 0.8373,
+  "pageIndex": 0,
+  "raw": {
+    "rapidocr": {
+      "spans": [
+        {
+          "confidence": 0.9871,
+          "height": 12.0,
+          "text": "ACME",
+          "width": 36.2,
+          "x": 72.5,
+          "y": 61.1
+        },
+        {
+          "confidence": 0.9871,
+          "height": 12.0,
+          "text": "WIDGETS",
+          "width": 63.3,
+          "x": 117.7,
+          "y": 61.1
+        },
+        {
+          "confidence": 0.9871,
+          "height": 12.0,
+          "text": "LLC",
+          "width": 27.1,
+          "x": 190.0,
+          "y": 61.1
+        },
+        {
+          "confidence": 0.9986,
+          "height": 13.2,
+          "text": "Employee:",
+          "width": 49.9,
+          "x": 72.1,
+          "y": 92.2
+        },
+        {
+          "confidence": 0.9986,
+          "height": 13.2,
+          "text": "Jordan",
+          "width": 33.3,
+          "x": 127.6,
+          "y": 92.2
+        },
+        {
+          "confidence": 0.9986,
+          "height": 13.2,
+          "text": "Q.",
+          "width": 11.1,
+          "x": 166.4,
+          "y": 92.2
+        },
+        {
+          "confidence": 0.9986,
+          "height": 13.2,
+          "text": "Fixture",
+          "width": 38.8,
+          "x": 183.1,
+          "y": 92.2
+        },
+        {
+          "confidence": 0.9938,
+          "height": 13.2,
+          "text": "Pay",
+          "width": 16.6,
+          "x": 71.3,
+          "y": 109.8
+        },
+        {
+          "confidence": 0.9938,
+          "height": 13.2,
+          "text": "Period:",
+          "width": 38.7,
+          "x": 93.4,
+          "y": 109.8
+        },
+        {
+          "confidence": 0.9938,
+          "height": 13.2,
+          "text": "01/01/2026",
+          "width": 55.2,
+          "x": 137.6,
+          "y": 109.8
+        },
+        {
+          "confidence": 0.9938,
+          "height": 13.2,
+          "text": "-",
+          "width": 5.5,
+          "x": 198.3,
+          "y": 109.8
+        },
+        {
+          "confidence": 0.9938,
+          "height": 13.2,
+          "text": "01/15/2026",
+          "width": 55.2,
+          "x": 209.3,
+          "y": 109.8
+        },
+        {
+          "confidence": 0.994,
+          "height": 13.2,
+          "text": "Pay",
+          "width": 17.1,
+          "x": 70.9,
+          "y": 127.7
+        },
+        {
+          "confidence": 0.994,
+          "height": 13.2,
+          "text": "Date:",
+          "width": 28.6,
+          "x": 93.8,
+          "y": 127.7
+        },
+        {
+          "confidence": 0.994,
+          "height": 13.2,
+          "text": "01/17/2026",
+          "width": 57.2,
+          "x": 128.1,
+          "y": 127.7
+        },
+        {
+          "confidence": 0.9935,
+          "height": 13.6,
+          "text": "Earnings",
+          "width": 48.5,
+          "x": 72.1,
+          "y": 171.6
+        },
+        {
+          "confidence": 0.9935,
+          "height": 13.6,
+          "text": "Rate",
+          "width": 24.3,
+          "x": 126.7,
+          "y": 171.6
+        },
+        {
+          "confidence": 0.9935,
+          "height": 13.6,
+          "text": "Hours",
+          "width": 30.3,
+          "x": 157.0,
+          "y": 171.6
+        },
+        {
+          "confidence": 0.9935,
+          "height": 13.6,
+          "text": "Current",
+          "width": 42.5,
+          "x": 193.4,
+          "y": 171.6
+        },
+        {
+          "confidence": 0.9935,
+          "height": 13.6,
+          "text": "YTD",
+          "width": 18.2,
+          "x": 242.0,
+          "y": 171.6
+        },
+        {
+          "confidence": 0.993,
+          "height": 13.2,
+          "text": "Regular",
+          "width": 38.8,
+          "x": 71.7,
+          "y": 194.0
+        },
+        {
+          "confidence": 0.993,
+          "height": 13.2,
+          "text": "48.0771",
+          "width": 38.8,
+          "x": 116.1,
+          "y": 194.0
+        },
+        {
+          "confidence": 0.993,
+          "height": 13.2,
+          "text": "80.00",
+          "width": 27.8,
+          "x": 160.5,
+          "y": 194.0
+        },
+        {
+          "confidence": 0.993,
+          "height": 13.2,
+          "text": "3,846.17",
+          "width": 44.4,
+          "x": 193.8,
+          "y": 194.0
+        },
+        {
+          "confidence": 0.993,
+          "height": 13.2,
+          "text": "3,846.17",
+          "width": 44.4,
+          "x": 243.7,
+          "y": 194.0
+        },
+        {
+          "confidence": 0.9975,
+          "height": 12.0,
+          "text": "Overtime",
+          "width": 45.2,
+          "x": 72.1,
+          "y": 212.4
+        },
+        {
+          "confidence": 0.9975,
+          "height": 12.0,
+          "text": "72.1157",
+          "width": 39.5,
+          "x": 122.9,
+          "y": 212.4
+        },
+        {
+          "confidence": 0.9975,
+          "height": 12.0,
+          "text": "4.50",
+          "width": 22.6,
+          "x": 168.1,
+          "y": 212.4
+        },
+        {
+          "confidence": 0.9975,
+          "height": 12.0,
+          "text": "324.52",
+          "width": 33.9,
+          "x": 196.3,
+          "y": 212.4
+        },
+        {
+          "confidence": 0.9975,
+          "height": 12.0,
+          "text": "324.52",
+          "width": 33.9,
+          "x": 235.9,
+          "y": 212.4
+        },
+        {
+          "confidence": 0.9993,
+          "height": 13.2,
+          "text": "Gross",
+          "width": 28.8,
+          "x": 72.1,
+          "y": 241.9
+        },
+        {
+          "confidence": 0.9993,
+          "height": 13.2,
+          "text": "Pay",
+          "width": 17.3,
+          "x": 106.6,
+          "y": 241.9
+        },
+        {
+          "confidence": 0.9993,
+          "height": 13.2,
+          "text": "4,170.69",
+          "width": 46.0,
+          "x": 129.7,
+          "y": 241.9
+        },
+        {
+          "confidence": 0.9993,
+          "height": 13.2,
+          "text": "4,170.69",
+          "width": 46.0,
+          "x": 181.4,
+          "y": 241.9
+        },
+        {
+          "confidence": 0.9927,
+          "height": 12.4,
+          "text": "Federal",
+          "width": 38.4,
+          "x": 71.3,
+          "y": 271.8
+        },
+        {
+          "confidence": 0.9927,
+          "height": 12.4,
+          "text": "Withholding",
+          "width": 60.3,
+          "x": 115.2,
+          "y": 271.8
+        },
+        {
+          "confidence": 0.9927,
+          "height": 12.4,
+          "text": "612.44",
+          "width": 32.9,
+          "x": 180.9,
+          "y": 271.8
+        },
+        {
+          "confidence": 0.9927,
+          "height": 12.4,
+          "text": "612.44",
+          "width": 32.9,
+          "x": 219.3,
+          "y": 271.8
+        },
+        {
+          "confidence": 0.9911,
+          "height": 13.2,
+          "text": "Net",
+          "width": 18.8,
+          "x": 72.1,
+          "y": 311.8
+        },
+        {
+          "confidence": 0.9911,
+          "height": 13.2,
+          "text": "Pay",
+          "width": 18.8,
+          "x": 97.1,
+          "y": 311.8
+        },
+        {
+          "confidence": 0.9911,
+          "height": 13.2,
+          "text": "$3,105.87",
+          "width": 56.3,
+          "x": 122.2,
+          "y": 311.8
+        },
+        {
+          "confidence": 0.9861,
+          "height": 12.4,
+          "text": "Page",
+          "width": 21.2,
+          "x": 518.4,
+          "y": 743.7
+        },
+        {
+          "confidence": 0.9861,
+          "height": 12.4,
+          "text": "1",
+          "width": 5.3,
+          "x": 544.9,
+          "y": 743.7
+        }
+      ]
+    },
+    "tesseract": null
+  },
+  "spans": [
+    {
+      "confidence": 0.9871,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 0,
+      "text": "ACME",
+      "width": 36.2,
+      "x": 72.5,
+      "y": 61.1
+    },
+    {
+      "confidence": 0.9871,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 1,
+      "text": "WIDGETS",
+      "width": 63.3,
+      "x": 117.7,
+      "y": 61.1
+    },
+    {
+      "confidence": 0.9871,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 2,
+      "text": "LLC",
+      "width": 27.1,
+      "x": 190.0,
+      "y": 61.1
+    },
+    {
+      "confidence": 0.9986,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 3,
+      "text": "Employee:",
+      "width": 49.9,
+      "x": 72.1,
+      "y": 92.2
+    },
+    {
+      "confidence": 0.9986,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 4,
+      "text": "Jordan",
+      "width": 33.3,
+      "x": 127.6,
+      "y": 92.2
+    },
+    {
+      "confidence": 0.9986,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 5,
+      "text": "Q.",
+      "width": 11.1,
+      "x": 166.4,
+      "y": 92.2
+    },
+    {
+      "confidence": 0.9986,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 6,
+      "text": "Fixture",
+      "width": 38.8,
+      "x": 183.1,
+      "y": 92.2
+    },
+    {
+      "confidence": 0.9938,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 7,
+      "text": "Pay",
+      "width": 16.6,
+      "x": 71.3,
+      "y": 109.8
+    },
+    {
+      "confidence": 0.9938,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 8,
+      "text": "Period:",
+      "width": 38.7,
+      "x": 93.4,
+      "y": 109.8
+    },
+    {
+      "confidence": 0.9938,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 9,
+      "text": "01/01/2026",
+      "width": 55.2,
+      "x": 137.6,
+      "y": 109.8
+    },
+    {
+      "confidence": 0.9938,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 10,
+      "text": "-",
+      "width": 5.5,
+      "x": 198.3,
+      "y": 109.8
+    },
+    {
+      "confidence": 0.9938,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 11,
+      "text": "01/15/2026",
+      "width": 55.2,
+      "x": 209.3,
+      "y": 109.8
+    },
+    {
+      "confidence": 0.994,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 12,
+      "text": "Pay",
+      "width": 17.1,
+      "x": 70.9,
+      "y": 127.7
+    },
+    {
+      "confidence": 0.994,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 13,
+      "text": "Date:",
+      "width": 28.6,
+      "x": 93.8,
+      "y": 127.7
+    },
+    {
+      "confidence": 0.994,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 14,
+      "text": "01/17/2026",
+      "width": 57.2,
+      "x": 128.1,
+      "y": 127.7
+    },
+    {
+      "confidence": 0.9935,
+      "engine": "RAPIDOCR",
+      "height": 13.6,
+      "ordinal": 15,
+      "text": "Earnings",
+      "width": 48.5,
+      "x": 72.1,
+      "y": 171.6
+    },
+    {
+      "confidence": 0.9935,
+      "engine": "RAPIDOCR",
+      "height": 13.6,
+      "ordinal": 16,
+      "text": "Rate",
+      "width": 24.3,
+      "x": 126.7,
+      "y": 171.6
+    },
+    {
+      "confidence": 0.9935,
+      "engine": "RAPIDOCR",
+      "height": 13.6,
+      "ordinal": 17,
+      "text": "Hours",
+      "width": 30.3,
+      "x": 157.0,
+      "y": 171.6
+    },
+    {
+      "confidence": 0.9935,
+      "engine": "RAPIDOCR",
+      "height": 13.6,
+      "ordinal": 18,
+      "text": "Current",
+      "width": 42.5,
+      "x": 193.4,
+      "y": 171.6
+    },
+    {
+      "confidence": 0.9935,
+      "engine": "RAPIDOCR",
+      "height": 13.6,
+      "ordinal": 19,
+      "text": "YTD",
+      "width": 18.2,
+      "x": 242.0,
+      "y": 171.6
+    },
+    {
+      "confidence": 0.993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 20,
+      "text": "Regular",
+      "width": 38.8,
+      "x": 71.7,
+      "y": 194.0
+    },
+    {
+      "confidence": 0.993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 21,
+      "text": "48.0771",
+      "width": 38.8,
+      "x": 116.1,
+      "y": 194.0
+    },
+    {
+      "confidence": 0.993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 22,
+      "text": "80.00",
+      "width": 27.8,
+      "x": 160.5,
+      "y": 194.0
+    },
+    {
+      "confidence": 0.993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 23,
+      "text": "3,846.17",
+      "width": 44.4,
+      "x": 193.8,
+      "y": 194.0
+    },
+    {
+      "confidence": 0.993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 24,
+      "text": "3,846.17",
+      "width": 44.4,
+      "x": 243.7,
+      "y": 194.0
+    },
+    {
+      "confidence": 0.9975,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 25,
+      "text": "Overtime",
+      "width": 45.2,
+      "x": 72.1,
+      "y": 212.4
+    },
+    {
+      "confidence": 0.9975,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 26,
+      "text": "72.1157",
+      "width": 39.5,
+      "x": 122.9,
+      "y": 212.4
+    },
+    {
+      "confidence": 0.9975,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 27,
+      "text": "4.50",
+      "width": 22.6,
+      "x": 168.1,
+      "y": 212.4
+    },
+    {
+      "confidence": 0.9975,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 28,
+      "text": "324.52",
+      "width": 33.9,
+      "x": 196.3,
+      "y": 212.4
+    },
+    {
+      "confidence": 0.9975,
+      "engine": "RAPIDOCR",
+      "height": 12.0,
+      "ordinal": 29,
+      "text": "324.52",
+      "width": 33.9,
+      "x": 235.9,
+      "y": 212.4
+    },
+    {
+      "confidence": 0.9993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 30,
+      "text": "Gross",
+      "width": 28.8,
+      "x": 72.1,
+      "y": 241.9
+    },
+    {
+      "confidence": 0.9993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 31,
+      "text": "Pay",
+      "width": 17.3,
+      "x": 106.6,
+      "y": 241.9
+    },
+    {
+      "confidence": 0.9993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 32,
+      "text": "4,170.69",
+      "width": 46.0,
+      "x": 129.7,
+      "y": 241.9
+    },
+    {
+      "confidence": 0.9993,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 33,
+      "text": "4,170.69",
+      "width": 46.0,
+      "x": 181.4,
+      "y": 241.9
+    },
+    {
+      "confidence": 0.9927,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 34,
+      "text": "Federal",
+      "width": 38.4,
+      "x": 71.3,
+      "y": 271.8
+    },
+    {
+      "confidence": 0.9927,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 35,
+      "text": "Withholding",
+      "width": 60.3,
+      "x": 115.2,
+      "y": 271.8
+    },
+    {
+      "confidence": 0.9927,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 36,
+      "text": "612.44",
+      "width": 32.9,
+      "x": 180.9,
+      "y": 271.8
+    },
+    {
+      "confidence": 0.9927,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 37,
+      "text": "612.44",
+      "width": 32.9,
+      "x": 219.3,
+      "y": 271.8
+    },
+    {
+      "confidence": 0.9911,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 38,
+      "text": "Net",
+      "width": 18.8,
+      "x": 72.1,
+      "y": 311.8
+    },
+    {
+      "confidence": 0.9911,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 39,
+      "text": "Pay",
+      "width": 18.8,
+      "x": 97.1,
+      "y": 311.8
+    },
+    {
+      "confidence": 0.9911,
+      "engine": "RAPIDOCR",
+      "height": 13.2,
+      "ordinal": 40,
+      "text": "$3,105.87",
+      "width": 56.3,
+      "x": 122.2,
+      "y": 311.8
+    },
+    {
+      "confidence": 0.9861,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 41,
+      "text": "Page",
+      "width": 21.2,
+      "x": 518.4,
+      "y": 743.7
+    },
+    {
+      "confidence": 0.9861,
+      "engine": "RAPIDOCR",
+      "height": 12.4,
+      "ordinal": 42,
+      "text": "1",
+      "width": 5.3,
+      "x": 544.9,
+      "y": 743.7
+    }
+  ]
+}

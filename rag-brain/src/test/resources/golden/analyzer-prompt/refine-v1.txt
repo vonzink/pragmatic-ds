@@ -1,0 +1,32 @@
+BASE PROMPT V1 — analyze the income folder.
+
+Guideline context (cite by [Source N] name):
+[Source 1] Fannie Mae Selling Guide — B3-3.1-01:
+Base pay is averaged over the YTD period.
+
+[Source 2] Fannie Mae Selling Guide — B3-3.1-03:
+Overtime needs a 12-month history.
+
+REFINEMENT PASS — you do NOT have the borrower documents this time. Treat the prior findings below as the document-derived facts already extracted. Produce an UPDATED analysis that incorporates the analyst's corrections and any manually-keyed figures, recomputing totals and the URLA reconciliation accordingly. Do not discard prior findings except where a note corrects or adds to them.
+
+Stated application income (loan.urlaIncome — CLAIMED on the URLA/1003, not verified):
+{"totalMonthly":8000}
+
+Prior report (markdown):
+# Prior report
+Total 7,900
+
+Prior findings (JSON):
+{"total":7900}
+
+Analyst notes / manually-keyed data (authoritative human input):
+  - [d1] Borrower changed jobs in March. (LO)
+
+Conversation so far (most recent last):
+user: Recheck overtime.
+assistant: Will do.
+
+Additional instructions: Focus on the primary borrower.
+
+Return ONLY valid JSON in EXACTLY this shape (no prose, no markdown fences):
+{"reportMarkdown": "<markdown report>", "findings": {"borrowers":[]}, "citations": [{"sourceId":"","title":"","section":"","snippet":""}]}

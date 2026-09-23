@@ -1,0 +1,9 @@
+{
+  "id": "schedule-d",
+  "fixture": "schedule_d",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "line-right", "line-right-occurrence", "sensitive-field"],
+  "note": "Authored from the official 2025 blank form. One page: Part III's summary carries none of the verified anchors but the footer regex, so it is not drawn and not modelled — lines 7 and 15, which Part III combines, are extracted from the page that prints them. The 8949 totals rows are the only place in the corpus where THREE values are separated from one caption by LINE_RIGHT occurrence alone.",
+  "documents": [{"type": "SCHEDULE_D", "pages": [0]}]
+}

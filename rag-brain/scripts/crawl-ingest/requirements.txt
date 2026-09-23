@@ -1,0 +1,4 @@
+# crawl-ingest batch producer. Pin >= 0.9.1: earlier tags shipped critical Docker-server
+# CVEs (RCE/SSRF/auth-bypass). This script uses the Python library only (no server), but
+# stay current regardless.
+crawl4ai>=0.9.1

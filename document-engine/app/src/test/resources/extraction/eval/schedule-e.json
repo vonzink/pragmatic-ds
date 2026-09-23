@@ -1,0 +1,9 @@
+{
+  "id": "schedule-e",
+  "fixture": "schedule_e",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["repeating-groups", "row-groups", "column-groups", "parenthesized-negative"],
+  "note": "The widest schema in the corpus: 44 pinned fields across Parts I-III, most of them grouped by property or entity. Scored per fieldName#groupKey, so an occurrence collapsing into its neighbour is a failure rather than a silent overwrite.",
+  "documents": [{"type": "SCHEDULE_E"}]
+}

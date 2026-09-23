@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pragmaticds.invalid/schemas/analyzer-envelope-v2.schema.json",
+  "title": "Analyzer Findings Envelope v2",
+  "description": "Strict contract for analyzer output. Facts/assumptions/warnings/recommendations are structurally separated; every fact cites a source; calculations are REQUESTS executed by the ENGINE's deterministic calc services after validation (the model never computes); the engine writes each outcome into the request's 'result'. Analyzer-specific structures live under 'domain'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["envelopeVersion", "analyzer", "reportMarkdown", "facts", "assumptions", "warnings", "recommendations", "calculations", "missingItems", "citations", "confidence"],
+  "properties": {
+    "envelopeVersion": { "const": "2.0" },
+    "analyzer": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "reportMarkdown": { "type": "string", "minLength": 1 },
+    "facts": { "type": "array", "items": { "$ref": "#/$defs/fact" } },
+    "assumptions": { "type": "array", "items": { "$ref": "#/$defs/assumption" } },
+    "warnings": { "type": "array", "items": { "$ref": "#/$defs/warning" } },
+    "recommendations": { "type": "array", "items": { "$ref": "#/$defs/recommendation" } },
+    "calculations": { "type": "array", "items": { "$ref": "#/$defs/calculationRequest" } },
+    "missingItems": { "type": "array", "items": { "$ref": "#/$defs/missingItem" } },
+    "citations": { "type": "array", "items": { "$ref": "#/$defs/citation" } },
+    "confidence": { "$ref": "#/$defs/confidenceScore" },
+    "domain": { "type": "object", "description": "Analyzer-specific structured payload (e.g. classifier suggestions[]). Shape governed per-analyzer, not by this schema." }
+  },
+  "$defs": {
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "id": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Za-z0-9_-]+$" },
+    "idList": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "citationIds", "confidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "key": { "type": "string", "maxLength": 128 },
+        "statement": { "type": "string", "minLength": 1 },
+        "value": { "type": ["string", "number", "boolean", "null"] },
+        "citationIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "minItems": 1 },
+        "confidence": { "$ref": "#/$defs/confidenceScore" }
+      }
+    },
+    "assumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "basis", "confidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "statement": { "type": "string", "minLength": 1 },
+        "basis": { "type": "string", "minLength": 1 },
+        "citationIds": { "$ref": "#/$defs/idList" },
+        "confidence": { "$ref": "#/$defs/confidenceScore" }
+      }
+    },
+    "warning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "severity", "statement", "confidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "severity": { "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "statement": { "type": "string", "minLength": 1 },
+        "factIds": { "$ref": "#/$defs/idList" },
+        "citationIds": { "$ref": "#/$defs/idList" },
+        "suggestedCondition": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidenceScore" }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "statement": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string" },
+        "factIds": { "$ref": "#/$defs/idList" },
+        "citationIds": { "$ref": "#/$defs/idList" }
+      }
+    },
+    "calculationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "method", "inputs"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "method": { "type": "string", "minLength": 1 },
+        "inputs": { "type": "object" },
+        "notes": { "type": "string" },
+        "result": {
+          "description": "ENGINE-populated after validation; the model must never emit this (it is stripped and overwritten if it does). Discriminated on status like 'citation' is on class: COMPUTED always carries a numeric value, ERROR always carries a message and a null value.",
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["status", "value"],
+              "properties": {
+                "status": { "const": "COMPUTED" },
+                "value": { "type": "number" },
+                "intermediates": { "type": "object" },
+                "rounding": { "type": "string" }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["status", "error"],
+              "properties": {
+                "status": { "const": "ERROR" },
+                "value": { "type": "null" },
+                "error": { "type": "string", "minLength": 1 }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "missingItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item", "why"],
+      "properties": {
+        "item": { "type": "string", "minLength": 1 },
+        "why": { "type": "string", "minLength": 1 },
+        "citationIds": { "$ref": "#/$defs/idList" }
+      }
+    },
+    "citation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "class", "guide", "sectionOrTopic"],
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "class": { "const": "GUIDELINE" },
+            "guide": { "type": "string", "minLength": 1 },
+            "sectionOrTopic": { "type": "string", "minLength": 1 },
+            "effectiveDate": { "type": "string" },
+            "url": { "type": "string" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "class", "documentId"],
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "class": { "const": "BORROWER_DOC" },
+            "documentId": { "type": "string", "minLength": 1 },
+            "page": { "type": "integer", "minimum": 1 },
+            "locator": { "type": "string" },
+            "quotedValue": { "type": "string" }
+          }
+        }
+      ]
+    }
+  }
+}

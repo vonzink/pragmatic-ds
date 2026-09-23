@@ -1,0 +1,83 @@
+name: pds-document-engine
+
+# Ports are offset to coexist with the other local stacks on one machine:
+#   host-app  Postgres 5432 · rag-brain Postgres 6435
+#   this stack  Postgres 6433 · api 9090 · worker 9091 · ui 6173
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: docengine
+      POSTGRES_USER: docengine
+      POSTGRES_PASSWORD: ${DOCENGINE_DB_PASSWORD:-docengine}
+    ports:
+      - "6433:5432"
+    volumes:
+      - pds-docengine-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docengine -d docengine"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  worker:
+    build:
+      context: ./worker
+    ports:
+      - "9091:9091"
+    # pytesseract stages input rasters through temp files internally (outside our
+    # code). tmpfs keeps /tmp in RAM: nothing borrower-adjacent ever touches disk,
+    # and a crash leaves nothing behind (Phase 2 review finding).
+    tmpfs:
+      - /tmp
+    environment:
+      # The worker holds no database URL and no storage credentials by design.
+      # It receives bytes, returns JSON, and persists nothing.
+      DOCENGINE_WORKER_SECRET: ${DOCENGINE_WORKER_SECRET:-local-dev-secret}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:9091/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      worker:
+        condition: service_healthy
+    environment:
+      # DevTenantFilter is registered ONLY under allowlisted profiles (local/test).
+      SPRING_PROFILES_ACTIVE: local
+      DOCENGINE_DB_URL: jdbc:postgresql://postgres:5432/docengine
+      # Local only. In a deployment the app connects as a NON-OWNER role and
+      # Flyway connects as the owner — otherwise Postgres RLS is bypassed at
+      # runtime (risk R2, docs/IMPLEMENTATION_PLAN.md).
+      DOCENGINE_DB_USER: docengine
+      DOCENGINE_DB_PASSWORD: ${DOCENGINE_DB_PASSWORD:-docengine}
+      DOCENGINE_WORKER_URL: http://worker:9091
+      DOCENGINE_WORKER_SECRET: ${DOCENGINE_WORKER_SECRET:-local-dev-secret}
+      # Keys the audit IP hash so ip_hash is not reversible. A deployment MUST set its own.
+      DOCENGINE_AUDIT_IP_HASH_SECRET: ${DOCENGINE_AUDIT_IP_HASH_SECRET:-local-dev-ip-hash-secret}
+      # Signs app-issued download URLs (local storage has no native presign). Empty = fail closed.
+      # A deployment MUST set its own.
+      DOCENGINE_SIGNED_URL_SECRET: ${DOCENGINE_SIGNED_URL_SECRET:-local-dev-signed-url-secret}
+      # Phase 2: the real worker adapter drives RENDERING/TEXT_EXTRACTION/OCR.
+      # ITs keep the stub (matchIfMissing=true) — compose runs the real thing.
+      DOCENGINE_PROCESSING_ADAPTER: worker
+      DOCENGINE_STORAGE_DRIVER: local
+      DOCENGINE_STORAGE_ROOT: /data/blobs
+      # LLM egress stays off unless explicitly enabled. Spec 5.
+      DOCENGINE_AI_ENABLED: "false"
+    volumes:
+      - pds-docengine-blobs:/data/blobs
+
+volumes:
+  pds-docengine-pgdata:
+  pds-docengine-blobs:

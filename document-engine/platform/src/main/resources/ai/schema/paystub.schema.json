@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "borrowerName",
+    "employerName",
+    "payPeriodStart",
+    "payPeriodEnd",
+    "payDate",
+    "payFrequency",
+    "currentGrossPay",
+    "ytdGrossPay",
+    "netPay",
+    "federalWithholding",
+    "currentTotalDeductions",
+    "ytdTotalDeductions",
+    "ytdNetPay",
+    "earnings",
+    "deductions"
+  ],
+  "properties": {
+    "borrowerName": { "$ref": "#/$defs/textCell" },
+    "employerName": { "$ref": "#/$defs/textCell" },
+    "payPeriodStart": { "$ref": "#/$defs/dateCell" },
+    "payPeriodEnd": { "$ref": "#/$defs/dateCell" },
+    "payDate": { "$ref": "#/$defs/dateCell" },
+    "payFrequency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "the printed pay-frequency wording, for example Bi-Weekly; null if not printed"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "currentGrossPay": { "$ref": "#/$defs/moneyCell" },
+    "ytdGrossPay": { "$ref": "#/$defs/moneyCell" },
+    "netPay": { "$ref": "#/$defs/moneyCell" },
+    "federalWithholding": { "$ref": "#/$defs/moneyCell" },
+    "currentTotalDeductions": { "$ref": "#/$defs/moneyCell" },
+    "ytdTotalDeductions": { "$ref": "#/$defs/moneyCell" },
+    "ytdNetPay": { "$ref": "#/$defs/moneyCell" },
+    "earnings": {
+      "type": "array",
+      "description": "one entry per printed row of the earnings table, in printed order",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "hours", "rate", "currentAmount", "ytdAmount"],
+        "properties": {
+          "description": { "$ref": "#/$defs/textCell" },
+          "hours": { "$ref": "#/$defs/decimalCell" },
+          "rate": { "$ref": "#/$defs/decimalCell" },
+          "currentAmount": { "$ref": "#/$defs/moneyCell" },
+          "ytdAmount": { "$ref": "#/$defs/moneyCell" }
+        }
+      }
+    },
+    "deductions": {
+      "type": "array",
+      "description": "one entry per printed row of the deductions table, in printed order",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "currentAmount", "ytdAmount"],
+        "properties": {
+          "description": { "$ref": "#/$defs/textCell" },
+          "currentAmount": { "$ref": "#/$defs/moneyCell" },
+          "ytdAmount": { "$ref": "#/$defs/moneyCell" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+    "decimalCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "decimal string exactly as many places as the stub prints, for example 37.25 or 25.1345; never round or pad"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "textCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": { "type": ["string", "null"] },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "dateCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "ISO-8601 yyyy-MM-dd, or null if not readable"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    },
+    "moneyCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "text", "page", "confidence"],
+      "properties": {
+        "value": {
+          "type": ["string", "null"],
+          "description": "decimal string, no currency symbol or commas, for example 1234.56"
+        },
+        "text": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "handwritten": {
+          "type": ["boolean", "null"],
+          "description": "true when the printed characters are handwritten rather than typeset"
+        }
+      }
+    }
+  }
+}

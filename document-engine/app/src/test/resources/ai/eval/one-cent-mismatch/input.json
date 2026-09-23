@@ -1,0 +1,32 @@
+{
+  "id": "one-cent-mismatch",
+  "synthetic": true,
+  "coverage": ["one-cent-mismatch"],
+  "pages": [
+    {
+      "number": 1,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "IOTA SYNTHETIC BANK",
+        "CASE ONE CENT",
+        "906 TEST AVENUE TESTVILLE ZZ 00000",
+        "ACCOUNT SYN-0007",
+        "Statement period July 1, 2099 through July 31, 2099",
+        "Beginning Balance $1,000.00",
+        "Ending Balance $1,149.99",
+        "Total Deposits $200.00",
+        "Total Withdrawals $50.00"
+      ],
+      "tableText": "SUMMARY"
+    },
+    {
+      "number": 2,
+      "classification": "BANK_STATEMENT",
+      "spans": [
+        "07/10/2099 SYNTHETIC MISMATCH DEPOSIT $200.00",
+        "07/20/2099 SYNTHETIC MISMATCH WITHDRAWAL $50.00"
+      ],
+      "tableText": "DATE | DESCRIPTION | AMOUNT"
+    }
+  ]
+}

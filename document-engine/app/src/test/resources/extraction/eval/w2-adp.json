@@ -1,0 +1,9 @@
+{
+  "id": "w2-adp",
+  "fixture": "w2_adp",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["label-below", "caption-alternates", "right-aligned-values", "masked-ssn"],
+  "note": "The IRS W-2 box grid as ADP renders it. w2@1.1.0 reads the grid with the IRS captions verbatim; ADP prints its own — 'Wages, tips, other comp.', 'Employee's SSA number', 'Employer's FED ID number', e/f merged into 'Employee's name, address, and ZIP code' — sets the tax year in display type on the line below 'Wage and Tax Statement', right-aligns every money value in its cell, and masks the SSN on the employee copy. A real 2024 ADP W-2 on 2026-09-05 extracted one field of ten: employerName, the one caption ADP prints verbatim. V43 adds one LABEL_BELOW alternate per ADP caption. Same grid constants as w2-form so the two drawings cannot drift; every value invented.",
+  "documents": [{"type": "W2"}]
+}

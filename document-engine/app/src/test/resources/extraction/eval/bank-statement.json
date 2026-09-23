@@ -1,0 +1,9 @@
+{
+  "id": "bank-statement",
+  "fixture": "bank_statement",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["multi-page-document", "summary-totals", "statement-dialect"],
+  "note": "Three pages, one document. Beginning balance is on page 1 and the ending/total triple on page 3, so this also proves extraction reads the whole document rather than its first page.",
+  "documents": [{"type": "BANK_STATEMENT"}]
+}

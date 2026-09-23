@@ -1,0 +1,279 @@
+{
+  "packageId" : "uuid-1",
+  "documents" : [ {
+    "id" : "uuid-2",
+    "ordinal" : 0,
+    "documentTypeCode" : "PAYSTUB",
+    "classificationConfidence" : 1,
+    "reviewStatus" : "NOT_REVIEWED",
+    "pageNumbers" : [ 1 ],
+    "fields" : [ {
+      "fieldName" : "borrowerName",
+      "groupKey" : null,
+      "value" : "Jordan Q. Fixture",
+      "normalizedValue" : "Jordan Q. Fixture",
+      "displayedText" : "Jordan Q. Fixture",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 130,
+        "y" : 94.1,
+        "width" : 90.8,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "currentGrossPay",
+      "groupKey" : null,
+      "value" : "4,670.69",
+      "normalizedValue" : 4670.69,
+      "displayedText" : "4,670.69",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 380,
+        "y" : 262.1,
+        "width" : 42.8,
+        "height" : 10.2
+      },
+      "extractionMethod" : "TABLE_CLUSTER",
+      "confidence" : 1,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "currentTotalDeductions",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "earningCurrentAmount",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "earningDescription",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "earningHours",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "earningRate",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "earningYtdAmount",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "employerName",
+      "groupKey" : null,
+      "value" : "ACME WIDGETS LLC",
+      "normalizedValue" : "ACME WIDGETS LLC",
+      "displayedText" : "ACME WIDGETS LLC",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 72,
+        "y" : 61.9,
+        "width" : 145.8,
+        "height" : 13
+      },
+      "extractionMethod" : "REGEX",
+      "confidence" : 0.6,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "federalWithholding",
+      "groupKey" : null,
+      "value" : "612.44",
+      "normalizedValue" : 612.44,
+      "displayedText" : "612.44",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 178.8,
+        "y" : 314.1,
+        "width" : 33.6,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "netPay",
+      "groupKey" : null,
+      "value" : "$3,565.87",
+      "normalizedValue" : 3565.87,
+      "displayedText" : "$3,565.87",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 124.7,
+        "y" : 343.4,
+        "width" : 53.4,
+        "height" : 11.1
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "payDate",
+      "groupKey" : null,
+      "value" : "01/17/2026",
+      "normalizedValue" : "2026-01-17",
+      "displayedText" : "01/17/2026",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 129.2,
+        "y" : 130.1,
+        "width" : 55,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "payFrequency",
+      "groupKey" : null,
+      "value" : "Bi-Weekly",
+      "normalizedValue" : "BIWEEKLY",
+      "displayedText" : "Bi-Weekly",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 158,
+        "y" : 148.1,
+        "width" : 49.5,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "payPeriodEnd",
+      "groupKey" : null,
+      "value" : "01/15/2026",
+      "normalizedValue" : "2026-01-15",
+      "displayedText" : "01/15/2026",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 208.5,
+        "y" : 112.1,
+        "width" : 55,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "payPeriodStart",
+      "groupKey" : null,
+      "value" : "01/01/2026",
+      "normalizedValue" : "2026-01-01",
+      "displayedText" : "01/01/2026",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 137.8,
+        "y" : 112.1,
+        "width" : 55,
+        "height" : 10.2
+      },
+      "extractionMethod" : "ANCHOR_LABEL",
+      "confidence" : 0.9,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "ytdGrossPay",
+      "groupKey" : null,
+      "value" : "4,670.69",
+      "normalizedValue" : 4670.69,
+      "displayedText" : "4,670.69",
+      "pageNumber" : 1,
+      "boundingBox" : {
+        "x" : 490,
+        "y" : 262.1,
+        "width" : 42.8,
+        "height" : 10.2
+      },
+      "extractionMethod" : "TABLE_CLUSTER",
+      "confidence" : 1,
+      "validationStatus" : "NOT_VALIDATED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "ytdNetPay",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    }, {
+      "fieldName" : "ytdTotalDeductions",
+      "groupKey" : null,
+      "value" : null,
+      "normalizedValue" : null,
+      "displayedText" : null,
+      "pageNumber" : null,
+      "boundingBox" : null,
+      "extractionMethod" : "NONE",
+      "confidence" : 0,
+      "validationStatus" : "MANUAL_REVIEW_REQUIRED",
+      "reviewStatus" : "NOT_REVIEWED"
+    } ]
+  } ],
+  "unassignedPages" : [ ]
+}

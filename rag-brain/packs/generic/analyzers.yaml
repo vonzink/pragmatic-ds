@@ -1,0 +1,5 @@
+# Optional. Declares folder-brain analyzers for this pack. Empty = none.
+# Each analyzer: slug ([a-z0-9-]), display-name, base-prompt, output-schema
+# (findings JSON shape rendered into the prompt), retrieval-top-k (>=0), and
+# retrieval-query-template (omit or null = classifier / no retrieval).
+analyzers: []

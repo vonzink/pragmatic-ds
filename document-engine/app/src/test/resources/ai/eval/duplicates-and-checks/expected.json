@@ -1,0 +1,24 @@
+{
+  "summary": {
+    "bankName":{"value":"Delta Synthetic Bank","text":"DELTA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Duplicate Values","text":"CASE DUPLICATE VALUES","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"903 Test Avenue, Testville, ZZ 00000","text":"903 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0004","text":"SYN-0004","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-04-01","text":"April 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-04-30","text":"April 30, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"84.00","text":"$84.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"84.00","text":"$84.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-04-05","text":"04/05/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Transfer","text":"SYNTHETIC TRANSFER","page":2,"confidence":"HIGH"},"amount":{"value":"42.00","text":"$42.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2},
+    {"date":{"value":"2099-04-06","text":"04/06/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Transfer","text":"SYNTHETIC TRANSFER","page":2,"confidence":"HIGH"},"amount":{"value":"42.00","text":"$42.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2},
+    {"date":{"value":"2099-04-07","text":"04/07/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Transfer","text":"SYNTHETIC TRANSFER","page":2,"confidence":"HIGH"},"amount":{"value":"42.00","text":"$42.00","page":2,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":2},
+    {"date":{"value":"2099-04-08","text":"04/08/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Transfer","text":"SYNTHETIC TRANSFER","page":2,"confidence":"HIGH"},"amount":{"value":"42.00","text":"$42.00","page":2,"confidence":"HIGH"},"direction":"WITHDRAWAL","page":2}
+  ],
+  "checks": [
+    {"checkNumber":{"value":"101","text":"101","page":2,"confidence":"HIGH"},"datePaid":{"value":"2099-04-25","text":"04/25/2099","page":2,"confidence":"HIGH"},"amount":{"value":"10.00","text":"$10.00","page":2,"confidence":"HIGH"},"page":2},
+    {"checkNumber":{"value":"101","text":"101","page":2,"confidence":"HIGH"},"datePaid":{"value":"2099-04-26","text":"04/26/2099","page":2,"confidence":"HIGH"},"amount":{"value":"20.00","text":"$20.00","page":2,"confidence":"HIGH"},"page":2}
+  ]
+}

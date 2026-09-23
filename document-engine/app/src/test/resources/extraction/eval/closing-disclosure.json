@@ -1,0 +1,9 @@
+{
+  "id": "closing-disclosure",
+  "fixture": "closing_disclosure",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["line-right", "trid-layout", "date-normalizer"],
+  "note": "TRID page 1, measured on a real preliminary CD and rebuilt synthetic. The wording trap the fixture pins: the page's own subtitle prints 'closing costs', so no rung anchors that phrase - the Loan Terms and Costs at Closing rows anchor on their own captions. Prints 'Closing Date' (PURCHASE_CONTRACT anchor) and 'Interest Rate' (MORTGAGE_STATEMENT), both gated.",
+  "documents": [{"type": "CLOSING_DISCLOSURE"}]
+}

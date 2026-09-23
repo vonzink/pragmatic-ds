@@ -1,0 +1,9 @@
+{
+  "id": "urla-1003",
+  "fixture": "urla_1003",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": ["line-right", "label-below", "sensitive-field", "legacy-revision"],
+  "note": "The legacy Form 1003 layout, measured on a real application. Both URLA revisions circulate in the same week's files - the pack anchors legacy section bars AND the redesigned form's numbered sections under one shared title.",
+  "documents": [{"type": "URLA"}]
+}

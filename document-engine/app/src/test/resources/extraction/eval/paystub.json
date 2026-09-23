@@ -1,0 +1,9 @@
+{
+  "id": "paystub",
+  "fixture": "paystub_complete",
+  "layout": "GRID",
+  "synthetic": true,
+  "coverage": ["table-cluster", "anchor-label", "money-normalizer", "date-normalizer"],
+  "note": "The reference income document: every rung the paystub schema uses, on the grid fixture the worker output was verified against (M4 = 25/25).",
+  "documents": [{"type": "PAYSTUB"}]
+}

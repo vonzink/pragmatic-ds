@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 2
+
+docengine:
+  reuse:
+    # OFF for the shared IT profile: build-info now exists on the test classpath
+    # and a developer machine may have a live worker on :9091, so a default-on
+    # probe would make cross-test reuse depend on the MACHINE (a fixture parsed
+    # by an earlier test could be served to a later one locally but not in CI).
+    # UploadReuseIT switches it on explicitly with its own worker and release.
+    enabled: false

@@ -1,0 +1,29 @@
+{
+  "envelopeVersion": "2.0",
+  "analyzer": "income",
+  "reportMarkdown": "## Income Analysis (sample)\nBase salary verified from paystub. Monthly base income: {{calc:calc1}}",
+  "facts": [
+    { "id": "f1", "key": "base_salary_annual", "statement": "Annual base salary is $96,000 per the 2026-06-30 paystub.", "value": 96000, "citationIds": ["c1"], "confidence": 0.97 }
+  ],
+  "assumptions": [
+    { "id": "a1", "statement": "Borrower remains employed at closing.", "basis": "No termination evidence in file.", "confidence": 0.6 }
+  ],
+  "warnings": [
+    { "id": "w1", "severity": "MEDIUM", "statement": "YTD pace trails prior year by 8%.", "factIds": ["f1"], "citationIds": ["c2"], "suggestedCondition": "Obtain written VOE covering YTD earnings.", "confidence": 0.8 }
+  ],
+  "recommendations": [
+    { "id": "r1", "statement": "Use base salary only; exclude unverified bonus.", "rationale": "Bonus lacks 24-month history.", "factIds": ["f1"], "citationIds": ["c2"] }
+  ],
+  "calculations": [
+    { "id": "calc1", "name": "monthlyBaseIncome", "method": "income.monthly_from_annual.v1", "inputs": { "annual": 96000 }, "notes": "96000 / 12" }
+  ],
+  "missingItems": [
+    { "item": "Most recent W-2", "why": "Required to confirm prior-year earnings.", "citationIds": ["c2"] }
+  ],
+  "citations": [
+    { "id": "c1", "class": "BORROWER_DOC", "documentId": "9a1b2c3d-0000-0000-0000-000000000001", "page": 1, "locator": "Earnings table", "quotedValue": "$8,000.00" },
+    { "id": "c2", "class": "GUIDELINE", "guide": "Fannie Mae Selling Guide", "sectionOrTopic": "B3-3.1, Employment Income", "effectiveDate": "2026-02-04", "url": "https://selling-guide.fanniemae.com" }
+  ],
+  "confidence": 0.9,
+  "domain": {}
+}

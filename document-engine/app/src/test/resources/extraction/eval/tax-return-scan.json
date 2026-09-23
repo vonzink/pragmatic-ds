@@ -1,0 +1,23 @@
+{
+  "id": "tax-return-scan",
+  "fixture": "tax_return_scan",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "multi-page-document",
+    "line-right",
+    "money-no-thousands-separator",
+    "line-number-beside-amount",
+    "sensitive-field"
+  ],
+  "note": "V49. The 1040 money lines as a scanner's OWN text layer hands them over, measured on a real scan-to-PDF: the dot leaders read as one `~~~~` run, the line number its own span, and the amount as digits with NO thousands separator and the cents period kept (`124310.`), 10 pt, box top ~2.4 pt above the caption's. The 2020-era page 1 runs through taxable income; line 9's column is empty as the scan's was, so totalIncome is expected missing. The trailing period is the cents separator and stays out of the capture.",
+  "documents": [
+    {
+      "type": "TAX_RETURN",
+      "pages": [
+        0,
+        1
+      ]
+    }
+  ]
+}

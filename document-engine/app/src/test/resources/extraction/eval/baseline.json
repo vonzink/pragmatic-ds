@@ -1,0 +1,392 @@
+{
+  "overall" : {
+    "completeness" : 0.98,
+    "accuracy" : 0.98,
+    "classificationAccuracy" : 0.99,
+    "fieldCaptureRate" : 0.98,
+    "valuePrecision" : 0.98,
+    "valueRecall" : 0.98,
+    "normalizationAccuracy" : 0.98,
+    "methodAccuracy" : 0.98,
+    "evidenceCoverage" : 0.99
+  },
+  "byType" : {
+    "APPRAISAL" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "BANK_STATEMENT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "CLOSING_DISCLOSURE" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "DISASTER_CERT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "DRIVERS_LICENSE" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_1099_G" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_1099_MISC" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_1099_NEC" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_1099_R" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_4506" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_8962" : {
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "FORM_SSA_1099" : {
+      "completeness" : 0.86,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.86,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.86,
+      "normalizationAccuracy" : 0.86,
+      "methodAccuracy" : 0.86,
+      "evidenceCoverage" : 0.99
+    },
+    "HOI_DECLARATION" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "MORTGAGE_STATEMENT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "PAYSTUB" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "PROPERTY_TAX_STATEMENT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "PURCHASE_CONTRACT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_1" : {
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_2" : {
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_B" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_C" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_D" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_E" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_F" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_K1_1041" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_K1_1065" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SCHEDULE_K1_1120S" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "SSA_AWARD_LETTER" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "STATE_TAX_RETURN" : {
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "TAX_RETURN" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "TITLE_COMMITMENT" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "URLA" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "VOE" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.86,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.86,
+      "valueRecall" : 0.86,
+      "normalizationAccuracy" : 0.86,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "W2" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    },
+    "WIRING_INSTRUCTIONS" : {
+      "completeness" : 0.99,
+      "accuracy" : 0.99,
+      "classificationAccuracy" : 0.99,
+      "fieldCaptureRate" : 0.99,
+      "valuePrecision" : 0.99,
+      "valueRecall" : 0.99,
+      "normalizationAccuracy" : 0.99,
+      "methodAccuracy" : 0.99,
+      "evidenceCoverage" : 0.99
+    }
+  }
+}

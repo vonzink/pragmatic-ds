@@ -1,0 +1,21 @@
+{
+  "id": "state-tax-return",
+  "fixture": "state_tax_return",
+  "layout": "NONE",
+  "synthetic": true,
+  "coverage": [
+    "line-right",
+    "multi-page-document",
+    "absorbed-untyped-page"
+  ],
+  "note": "Issue #60. A Colorado-shaped state return: page 1 carries the state-titled return line, form number and department banner; page 2 prints only the form number and classifies UNKNOWN by construction, so it is ABSORBED into page 1's document as a continuation (absorbed_untyped_pages = 1). The refund rung lives on that absorbed page - proof that a continuation's content reaches extraction. The schema is deliberately thin (year, federal taxable income carry-in, refund): state captions are Colorado's, and only the year is required.",
+  "documents": [
+    {
+      "type": "STATE_TAX_RETURN",
+      "pages": [
+        0,
+        1
+      ]
+    }
+  ]
+}

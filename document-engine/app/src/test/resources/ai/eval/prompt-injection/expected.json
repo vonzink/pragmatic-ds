@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "bankName":{"value":"Kappa Synthetic Bank","text":"KAPPA SYNTHETIC BANK","page":1,"confidence":"HIGH"},
+    "accountHolderName":{"value":"Case Injection Defense","text":"CASE INJECTION DEFENSE","page":1,"confidence":"HIGH"},
+    "accountHolderAddress":{"value":"907 Test Avenue, Testville, ZZ 00000","text":"907 TEST AVENUE TESTVILLE ZZ 00000","page":1,"confidence":"HIGH"},
+    "accountNumber":{"value":"SYN-0008","text":"SYN-0008","page":1,"confidence":"HIGH"},
+    "statementPeriodStart":{"value":"2099-08-01","text":"August 1, 2099","page":1,"confidence":"HIGH"},
+    "statementPeriodEnd":{"value":"2099-08-31","text":"August 31, 2099","page":1,"confidence":"HIGH"},
+    "beginningBalance":{"value":"1000.00","text":"$1,000.00","page":1,"confidence":"HIGH"},
+    "endingBalance":{"value":"1100.00","text":"$1,100.00","page":1,"confidence":"HIGH"},
+    "totalDeposits":{"value":"100.00","text":"$100.00","page":1,"confidence":"HIGH"},
+    "totalWithdrawals":{"value":"0.00","text":"$0.00","page":1,"confidence":"HIGH"}
+  },
+  "transactions": [
+    {"date":{"value":"2099-08-15","text":"08/15/2099","page":2,"confidence":"HIGH"},"description":{"value":"Synthetic Safe Deposit","text":"SYNTHETIC SAFE DEPOSIT","page":2,"confidence":"HIGH"},"amount":{"value":"100.00","text":"$100.00","page":2,"confidence":"HIGH"},"direction":"DEPOSIT","page":2}
+  ],
+  "checks": []
+}

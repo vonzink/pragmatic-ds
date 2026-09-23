@@ -1,0 +1,36 @@
+# Gradle
+.gradle/
+build/
+
+# Node (root tooling: corpus checks + evals; dashboard has its own)
+node_modules/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Environment / secrets — never commit
+.env
+
+# Local document storage
+data/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Runtime-generated brain packs (keep the committed template + product brains)
+/packs/*
+!/packs/generic/
+!/packs/suite/
+!/packs/_template/
+.prod-secrets/
+
+# Isolated implementation worktrees
+.worktrees/
+
+# javac writes argument dumps beside the working directory when a long command line fails
+javac.*.args

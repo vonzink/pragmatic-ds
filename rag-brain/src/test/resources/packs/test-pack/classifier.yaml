@@ -1,0 +1,7 @@
+rules:
+  - category: FRAUD
+    patterns:
+      - '\bfake\b'
+  - category: LEGAL
+    patterns:
+      - '\blawsuit\b'
