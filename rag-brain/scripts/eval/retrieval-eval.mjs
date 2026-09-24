@@ -49,7 +49,7 @@ try {
 function parseArgs(argv) {
   const out = {
     cases: 'corpus/suite/tests/retrieval-cases.yaml',
-    base: process.env.RAG_BRAIN_BASE_URL || 'http://localhost:9091',
+    base: process.env.RAG_BRAIN_BASE_URL || 'http://localhost:9093',
     brain: 'suite',
     key: process.env.ADMIN_API_KEY || '',
     visibility: '',
@@ -94,7 +94,7 @@ function usage() {
   console.log(`retrieval-eval — real-pipeline retrieval eval
 
   --cases <path>        cases YAML (default corpus/suite/tests/retrieval-cases.yaml)
-  --base <url>          engine base URL (default $RAG_BRAIN_BASE_URL or http://localhost:9091)
+  --base <url>          engine base URL (default $RAG_BRAIN_BASE_URL or http://localhost:9093)
   --brain <slug>        brain slug (default suite)
   --key <key>           admin API key (default $ADMIN_API_KEY)
   --visibility <V>      PUBLIC|INTERNAL|SECURE — omit for the admin view

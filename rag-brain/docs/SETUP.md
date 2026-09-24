@@ -116,7 +116,7 @@ Start the API:
 ```bash
 cd /Users/zacharyzink/zvzsolutions/pragmatic-ds/rag-brain
 set -a && source .env && set +a
-./gradlew bootRun --args='--server.port=9091'
+./gradlew bootRun --args='--server.port=9093'
 ```
 
 In a second terminal, start the dashboard:
@@ -147,9 +147,9 @@ cd /Users/zacharyzink/zvzsolutions/pragmatic-ds/rag-brain
 Run these with the API up:
 
 ```bash
-curl -sf http://localhost:9091/actuator/health
-curl -sf http://localhost:9091/.well-known/rag-brain.json
-curl -sf http://localhost:9091/mcp/tools
+curl -sf http://localhost:9093/actuator/health
+curl -sf http://localhost:9093/.well-known/rag-brain.json
+curl -sf http://localhost:9093/mcp/tools
 ```
 
 Admin endpoint smoke test:
@@ -158,21 +158,21 @@ Admin endpoint smoke test:
 cd /Users/zacharyzink/zvzsolutions/pragmatic-ds/rag-brain
 set -a && source .env && set +a
 curl -sf -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
-  http://localhost:9091/api/ai/admin/stats
+  http://localhost:9093/api/ai/admin/stats
 ```
 
 Ingestion quality smoke test:
 
 ```bash
 curl -sf -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
-  http://localhost:9091/api/ai/admin/ingestion-quality
+  http://localhost:9093/api/ai/admin/ingestion-quality
 ```
 
 Readiness check for the default generic brain:
 
 ```bash
 curl -sf -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
-  http://localhost:9091/api/ai/admin/brains/00000000-0000-0000-0000-000000000001/readiness
+  http://localhost:9093/api/ai/admin/brains/00000000-0000-0000-0000-000000000001/readiness
 ```
 
 Expected before ingestion: readiness is `false` because there are no documents,
@@ -223,7 +223,7 @@ Use this if you want to bypass the dashboard:
 ```bash
 cd /Users/zacharyzink/zvzsolutions/pragmatic-ds/rag-brain
 set -a && source .env && set +a
-curl -X POST http://localhost:9091/api/ai/documents/upload \
+curl -X POST http://localhost:9093/api/ai/documents/upload \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -F "file=@/absolute/path/to/example.pdf" \
   -F "title=Example Source" \
@@ -237,7 +237,7 @@ curl -X POST http://localhost:9091/api/ai/documents/upload \
 Then test retrieval:
 
 ```bash
-curl -G http://localhost:9091/api/ai/documents/test-retrieval \
+curl -G http://localhost:9093/api/ai/documents/test-retrieval \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   --data-urlencode "brain=generic" \
   --data-urlencode "visibility=PUBLIC" \
@@ -251,7 +251,7 @@ After the dashboard has public access enabled, a public token generated, and
 
 ```bash
 PUBLIC_BRAIN_TOKEN='<token-shown-once-by-dashboard>'
-curl -X POST http://localhost:9091/api/ai/public/generic/ask \
+curl -X POST http://localhost:9093/api/ai/public/generic/ask \
   -H "Content-Type: application/json" \
   -H "Origin: http://localhost:6174" \
   -H "X-Public-Brain-Token: $PUBLIC_BRAIN_TOKEN" \
@@ -272,14 +272,14 @@ Create and rotate a connector token in **Connectors**, then:
 
 ```bash
 RAG_BRAIN_CONNECTOR_TOKEN='<rb_conn_token_shown_once>'
-curl -sf http://localhost:9091/api/connect/v1/brains \
+curl -sf http://localhost:9093/api/connect/v1/brains \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN"
 ```
 
 Ask through the connector API:
 
 ```bash
-curl -X POST http://localhost:9091/api/connect/v1/brains/generic/ask \
+curl -X POST http://localhost:9093/api/connect/v1/brains/generic/ask \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN" \
   -d '{
@@ -307,7 +307,7 @@ permissions) on create, and the **Edit** action updates them later. The
 equivalent admin API:
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/admin/connectors \
+curl -X POST http://localhost:9093/api/ai/admin/connectors \
   -H "Content-Type: application/json" \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -d '{
@@ -332,14 +332,14 @@ host dashboard can safely support.
 List configured tool definitions:
 
 ```bash
-curl -sf http://localhost:9091/api/ai/admin/tool-definitions?brain=dashboard-brain \
+curl -sf http://localhost:9093/api/ai/admin/tool-definitions?brain=dashboard-brain \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY"
 ```
 
 Create a read tool definition:
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/admin/tool-definitions?brain=dashboard-brain \
+curl -X POST http://localhost:9093/api/ai/admin/tool-definitions?brain=dashboard-brain \
   -H "Content-Type: application/json" \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -d '{
@@ -360,7 +360,7 @@ curl -X POST http://localhost:9091/api/ai/admin/tool-definitions?brain=dashboard
 List dashboard tools:
 
 ```bash
-curl -sf http://localhost:9091/api/connect/v1/brains/dashboard-brain/dashboard/tools \
+curl -sf http://localhost:9093/api/connect/v1/brains/dashboard-brain/dashboard/tools \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN"
 ```
 
@@ -373,7 +373,7 @@ export RAG_TOOL_SECRET_DASHBOARD_API='<host-api-token>'
 ```
 
 ```bash
-curl -X PUT http://localhost:9091/api/ai/admin/tool-adapters/searchLoans?brain=dashboard-brain \
+curl -X PUT http://localhost:9093/api/ai/admin/tool-adapters/searchLoans?brain=dashboard-brain \
   -H "Content-Type: application/json" \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -d '{
@@ -400,7 +400,7 @@ the `roles`/`permissions` in the body are informational only, not the authz
 source:
 
 ```bash
-curl -X POST http://localhost:9091/api/connect/v1/brains/dashboard-brain/dashboard/tools/searchLoans/call \
+curl -X POST http://localhost:9093/api/connect/v1/brains/dashboard-brain/dashboard/tools/searchLoans/call \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN" \
   -d '{
@@ -419,7 +419,7 @@ be in the connector's `allowedTenants` (the `roles`/`permissions` here are
 answer-framing context, not authorization):
 
 ```bash
-curl -X POST http://localhost:9091/api/connect/v1/brains/dashboard-brain/dashboard/ask \
+curl -X POST http://localhost:9093/api/connect/v1/brains/dashboard-brain/dashboard/ask \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN" \
   -d '{

@@ -19,7 +19,7 @@ cp .env.example .env
 
 docker compose up -d
 set -a && source .env && set +a
-./gradlew bootRun --args="--server.port=9091"
+./gradlew bootRun --args="--server.port=9093"
 ```
 
 Dashboard:
@@ -67,7 +67,7 @@ Run migrations by starting the app:
 Use the dashboard Corpus screen or the admin API:
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/documents/upload \
+curl -X POST http://localhost:9093/api/ai/documents/upload \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -F "file=@example.pdf" \
   -F "title=Example Source" \
@@ -83,13 +83,13 @@ Check ingestion quality after upload or sync:
 
 ```bash
 curl -sf -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
-  http://localhost:9091/api/ai/admin/ingestion-quality?brain=generic
+  http://localhost:9093/api/ai/admin/ingestion-quality?brain=generic
 ```
 
 ## Query Flow
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/generic/ask \
+curl -X POST http://localhost:9093/api/ai/generic/ask \
   -H "Content-Type: application/json" \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -d '{
@@ -143,7 +143,7 @@ Public website calls use a per-brain public token, not `ADMIN_API_KEY`.
 5. Test with:
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/public/generic/ask \
+curl -X POST http://localhost:9093/api/ai/public/generic/ask \
   -H "Content-Type: application/json" \
   -H "Origin: http://localhost:6174" \
   -H "X-Public-Brain-Token: $PUBLIC_BRAIN_TOKEN" \
@@ -202,11 +202,11 @@ Create and rotate connector clients from the dashboard **Connectors** screen. Ch
 Useful endpoints:
 
 ```bash
-curl http://localhost:9091/.well-known/rag-brain.json
+curl http://localhost:9093/.well-known/rag-brain.json
 ```
 
 ```bash
-curl -X POST http://localhost:9091/api/connect/v1/brains/generic/ask \
+curl -X POST http://localhost:9093/api/connect/v1/brains/generic/ask \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN" \
   -d '{
@@ -218,7 +218,7 @@ curl -X POST http://localhost:9091/api/connect/v1/brains/generic/ask \
 ```
 
 ```bash
-curl http://localhost:9091/mcp/tools \
+curl http://localhost:9093/mcp/tools \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN"
 ```
 
@@ -250,12 +250,12 @@ Tool definitions are per-brain manifests, not hardcoded dashboard behavior.
 Manage them with the admin API:
 
 ```bash
-curl http://localhost:9091/api/ai/admin/tool-definitions?brain=dashboard-brain \
+curl http://localhost:9093/api/ai/admin/tool-definitions?brain=dashboard-brain \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY"
 ```
 
 ```bash
-curl -X POST http://localhost:9091/api/ai/admin/tool-definitions?brain=dashboard-brain \
+curl -X POST http://localhost:9093/api/ai/admin/tool-definitions?brain=dashboard-brain \
   -H "Content-Type: application/json" \
   -H "X-Admin-Api-Key: $ADMIN_API_KEY" \
   -d '{
@@ -284,12 +284,12 @@ against `permissions` sent in the request body. Use **Edit** to change them late
 Internal endpoints:
 
 ```bash
-curl http://localhost:9091/api/connect/v1/brains/dashboard-brain/dashboard/tools \
+curl http://localhost:9093/api/connect/v1/brains/dashboard-brain/dashboard/tools \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN"
 ```
 
 ```bash
-curl -X POST http://localhost:9091/api/connect/v1/brains/dashboard-brain/dashboard/tools/searchLoans/call \
+curl -X POST http://localhost:9093/api/connect/v1/brains/dashboard-brain/dashboard/tools/searchLoans/call \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAG_BRAIN_CONNECTOR_TOKEN" \
   -d '{

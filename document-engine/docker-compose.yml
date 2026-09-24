@@ -1,7 +1,7 @@
 name: pds-document-engine
 
 # Ports are offset to coexist with the other local stacks on one machine:
-#   host-app  Postgres 5432 · rag-brain Postgres 6435
+#   host-app  Postgres 5432 · rag-brain Postgres 6435 · api 9093
 #   this stack  Postgres 6433 · api 9090 · worker 9091 · ui 6173
 
 services:

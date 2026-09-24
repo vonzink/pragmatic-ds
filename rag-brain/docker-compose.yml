@@ -45,7 +45,7 @@ services:
       FALLBACK_AI_PROVIDER: ${FALLBACK_AI_PROVIDER:-openai}
       GENERATED_PACKS_PATH: /app/data/packs
     ports:
-      - "9091:8080"
+      - "9093:8080"
     volumes:
       - pds_rag_brain_docdata:/app/data/documents
       # Dashboard-generated packs must survive redeploys, or brains created from
