@@ -1,0 +1,23 @@
+# AWS Amplify Hosting build spec (monorepo).
+# In the Amplify console, set environment variable AMPLIFY_MONOREPO_APP_ROOT=website.
+version: 1
+applications:
+  - appRoot: website
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm install 22
+            - nvm use 22
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        # Static export output (next.config.ts: output "export").
+        baseDirectory: out
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*

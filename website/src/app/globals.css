@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+ * PDS design tokens (Design Build Guide §2).
+ * Every color/font used on the site comes from here. No one-off hex values in components.
+ * `@theme` exposes each token as a Tailwind utility, e.g. --color-ink -> bg-ink / text-ink / border-ink.
+ */
+@theme {
+  /* Reset Tailwind's default palette so only brand colors exist. */
+  --color-*: initial;
+
+  --color-ink: #16181a; /* Graphite: headings, primary text, graphite band, rules */
+  --color-ink-2: #2a2d31; /* Hover on graphite button */
+  --color-surface: #f4f2ed; /* Bone: page ground, header, hero, footer */
+  --color-surface-raised: #ffffff; /* White: content bands, cards, tables */
+  --color-line: #d8d4cb; /* Card borders, row dividers */
+  --color-line-soft: #eae7e0; /* Dividers inside white cards */
+  --color-line-dark: #3a3e43; /* Borders on graphite */
+  --color-body: #3f4447; /* Body copy */
+  --color-muted: #5a5f5f; /* Slate: eyebrows, labels, notes */
+  --color-accent: #1f5ea8; /* Defense Blue: one accent per view */
+  --color-accent-hover: #1a4f8d;
+  --color-accent-soft: #e6eef7; /* Badge backgrounds */
+  --color-accent-light: #a9cce9; /* Blue Light: graphite grounds only */
+  --color-on-ink: #ffffff; /* Text on graphite/accent */
+  --color-on-ink-muted: #d8d4cb; /* Secondary text on graphite */
+  --color-error: #b3261e;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Fonts are loaded in app/layout.tsx via next/font and exposed as CSS variables. */
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-sm: 4px;
+
+  /* Layout */
+  --container-content: 1200px;
+  --container-lead: 600px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Anchor links land below the sticky header. */
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-surface font-sans text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-ink;
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Mono uppercase label above headings (Guide §2 "Eyebrow"). */
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium tracking-[0.14em] uppercase md:text-xs;
+  }
+}
