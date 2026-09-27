@@ -9,7 +9,7 @@ Front end only: no backend, database, or forms yet.
 |---|---|
 | `npm install` | Install dependencies (first time only) |
 | `npm run dev` | Local dev server at http://localhost:3000 |
-| `npm run build` | Static export to `out/` (what Amplify deploys) |
+| `npm run build` | Static export to `out/` (Amplify runs this same build) |
 | `npm run lint` / `npm run typecheck` | Code checks |
 | `npm run brand` | Regenerate logo SVGs (only when the logo changes) |
 

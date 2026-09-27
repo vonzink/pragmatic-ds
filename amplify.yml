@@ -1,5 +1,6 @@
 # AWS Amplify Hosting build spec (monorepo).
-# In the Amplify console, set environment variable AMPLIFY_MONOREPO_APP_ROOT=website.
+# Amplify console: tick "My app is a monorepo" and enter `website` as the root.
+# That sets AMPLIFY_MONOREPO_APP_ROOT=website automatically.
 version: 1
 applications:
   - appRoot: website
@@ -14,10 +15,12 @@ applications:
           commands:
             - npm run build
       artifacts:
-        # Static export output (next.config.ts: output "export").
-        baseDirectory: out
+        # Amplify's Next.js 14+ support expects `.next` here, even for a static
+        # export (next.config.ts: output "export"). It serves the exported pages from it.
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
         paths:
           - node_modules/**/*
+          - .next/cache/**/*
