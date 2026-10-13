@@ -33,7 +33,10 @@ website/
 ```
 
 **Changing words?** Edit `src/content/home.ts` or `src/config/site.ts`, not the components.
-Anything in `[brackets]` is a placeholder that still needs real info.
+Owner names, roles, and veteran-owned wording live in `src/config/site.ts`.
+Only publish confirmed facts. The current owner details were confirmed in the project brief
+on October 13, 2026. Full biographies, headshots, experience figures, and any
+certification claims need source material before publication.
 
 **Colors and fonts** come only from the tokens in `src/app/globals.css`
 (Tailwind's default palette is turned off, so off-brand colors can't slip in).
@@ -50,3 +53,24 @@ Anything in `[brackets]` is a placeholder that still needs real info.
 
 These were redrawn in code from the brand sheet. If the designer supplies original
 vector files, drop them in with the same names.
+
+## Production deployment
+
+Verified October 13, 2026:
+
+- AWS account: **Pragmatic Defense Solutions — 395931907901**
+- AWS region: **us-east-1 (N. Virginia)**
+- Amplify app: **pragmatic-ds**, ID **dq4qdvg0lnuhj**
+- GitHub repository: `vonzink/pragmatic-ds`
+- Production branch: **main**, with automatic builds enabled
+- Public domains: `pragmaticds.com` and `www.pragmaticds.com`
+- App root: `website`; existing Amplify build artifact directory: `.next`
+
+The identity used to sign in does not determine which account owns the app.
+Select the Pragmatic Defense Solutions account in the AWS access portal, then
+open Amplify in N. Virginia.
+
+Before publishing, run lint, typecheck, and a production build, then preview
+`out/` on desktop and mobile. Push only the intended changes to `main`; confirm
+the resulting Amplify job succeeds and independently check both public domains.
+Retain the preceding commit and deployment job as rollback references.

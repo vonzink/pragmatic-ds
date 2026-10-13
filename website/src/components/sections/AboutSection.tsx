@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { about } from "@/content/home";
+import { site } from "@/config/site";
 
 /** Bone band: short company story left, the three principles right (Guide §4 "WhyPds"). */
 export function AboutSection() {
@@ -14,6 +15,17 @@ export function AboutSection() {
           <div className="mt-5 flex max-w-lead flex-col gap-4 leading-[1.6]">
             {about.paragraphs.map((p) => (
               <p key={p}>{p}</p>
+            ))}
+          </div>
+          <div className="mt-7 border-t border-ink">
+            {site.owners.map((owner) => (
+              <div key={owner.name} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-line py-4">
+                <h3 className="text-lg font-semibold">{owner.name}</h3>
+                <p className="text-sm text-muted">
+                  {owner.role}
+                  {owner.background && <span>{` · ${owner.background}`}</span>}
+                </p>
+              </div>
             ))}
           </div>
         </div>

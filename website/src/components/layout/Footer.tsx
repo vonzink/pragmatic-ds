@@ -19,6 +19,7 @@ export function Footer() {
             </p>
             <p className="mt-2 max-w-xs leading-[1.55]">{site.description}</p>
             <p className="mt-3 font-mono text-[10.5px] tracking-[0.1em] text-accent uppercase">{site.tagline}</p>
+            <p className="mt-3 text-[13px] font-medium text-ink">{site.ownership}</p>
           </div>
 
           <div>

@@ -2,23 +2,23 @@
  * Home page copy. Kept apart from the components so wording can change
  * without touching layout code.
  *
- * Anything in [brackets] is a placeholder that PDS needs to supply.
  * Only publish facts that are true and provable.
  */
+
+import { site } from "@/config/site";
 
 export const hero = {
   eyebrow: "Government consulting & capture support",
   title: "Mission focused. Measurable outcomes.",
-  lead: "Government consulting and capture support for a stronger, more resilient tomorrow. We help teams win the right work and deliver it well.",
+  lead: "Veteran-owned government consulting and capture support. We help teams pursue the right opportunities, navigate contract requirements, and deliver the work.",
   secondaryCta: { label: "See our services", href: "/#services" },
 };
 
 export const atAGlance: { label: string; value: string }[] = [
-  { label: "Founded by", value: "[Founder name]" },
-  { label: "Experience", value: "[XX] years" },
+  { label: "Ownership", value: site.ownership },
+  ...site.owners.map((owner) => ({ label: owner.role, value: owner.name })),
   { label: "Focus", value: "Federal & DoD" },
   { label: "Where", value: "Remote, nationwide" },
-  { label: "Reply time", value: "[1 business day]" },
 ];
 
 export type Service = {
@@ -68,9 +68,10 @@ export const approach = {
 
 export const about = {
   eyebrow: "About PDS",
-  title: "A proven partner for what's next.",
+  title: "The people behind PDS.",
   paragraphs: [
-    "[Short founder story: who started PDS, the background they bring, and why they started it. Two to three sentences.]",
+    "Pragmatic Defense Solutions is a veteran-owned company led by William Austin, its primary owner and a disabled veteran, alongside co-owner Brook Zink.",
+    "Our work spans strategy and capture, program support, compliance and risk, and operational improvement for government contractors.",
     "We keep things pragmatic: clear advice, honest timelines, and work that holds up after we leave.",
   ],
   principles: [

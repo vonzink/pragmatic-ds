@@ -1,6 +1,6 @@
 /**
  * Company-wide facts used across the site (header, footer, metadata).
- * Values in [brackets] are placeholders that PDS still needs to supply.
+ * Publish confirmed company facts only; leave optional contact details empty until supplied.
  */
 export const site = {
   name: "Pragmatic Defense Solutions",
@@ -8,8 +8,13 @@ export const site = {
   shortName: "PDS",
   url: "https://pragmaticds.com",
   tagline: "People / Strategy / Impact",
+  ownership: "Veteran-owned",
   description:
-    "Government consulting and capture support for a stronger, more resilient tomorrow.",
+    "Veteran-owned government consulting and capture support, led by primary owner William Austin and co-owner Brook Zink.",
+  owners: [
+    { name: "William Austin", role: "Primary owner", background: "Disabled veteran" },
+    { name: "Brook Zink", role: "Co-owner", background: "" },
+  ],
   contact: {
     email: "info@pragmaticds.com",
     /** Display format, e.g. "(303) 555-0100". Hidden on the site while empty. */
