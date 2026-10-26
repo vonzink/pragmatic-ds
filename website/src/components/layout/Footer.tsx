@@ -1,79 +1,97 @@
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { mainNav, site, telHref } from "@/config/site";
-import { services } from "@/content/home";
+import { disclosure, site, telHref } from "@/config/site";
+import { serviceHref, services } from "@/content/services";
 
-const columnTitle = "mb-3 font-mono text-[10.5px] tracking-[0.1em] text-muted uppercase";
-const footerLink = "text-ink hover:underline";
+const columnTitle = "eyebrow mb-3.5 text-muted";
+const columnLinks = "flex flex-col gap-2 text-sm leading-[1.5]";
+const footerLink = "text-body hover:underline";
+const legalLink = "text-muted hover:underline";
 
-/** Bone footer with a graphite top rule (Guide §3). */
+/**
+ * Bone footer with a graphite top rule. The rule is dropped (globals.css) when a graphite
+ * CTA band is the last thing in <main>.
+ */
 export function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-ink text-[13px]">
-      <Container>
-        <div className="grid gap-8 border-b border-line pt-10 pb-8 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+    <footer className="border-t border-ink bg-surface text-body">
+      <div className="mx-auto max-w-content px-[clamp(20px,3vw,40px)] pt-[clamp(36px,5vw,56px)]">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-x-10 gap-y-8 border-b border-line pb-10">
           <div>
-            <p className="text-sm font-semibold text-ink">
+            <p className="text-[15px] font-semibold text-ink">
               {site.name} <span className="font-normal text-muted">LLC</span>
             </p>
-            <p className="mt-2 max-w-xs leading-[1.55]">{site.description}</p>
-            <p className="mt-3 font-mono text-[10.5px] tracking-[0.1em] text-accent uppercase">{site.tagline}</p>
-            <p className="mt-3 text-[13px] font-medium text-ink">{site.ownership}</p>
+            <p className="mt-2.5 mb-3.5 max-w-[260px] text-sm leading-[1.6]">
+              Government contract accounting and compliance advisory for small and midsize federal contractors.
+            </p>
+            <span className="eyebrow text-accent">Veteran-owned</span>
           </div>
 
           <div>
             <p className={columnTitle}>Services</p>
-            <ul className="flex flex-col gap-2">
+            <div className={columnLinks}>
               {services.map((s) => (
-                <li key={s.title}>
-                  <Link href="/#services" className={footerLink}>
-                    {s.title}
-                  </Link>
-                </li>
+                <Link key={s.slug} href={serviceHref(s)} className={footerLink}>
+                  {s.title}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div>
             <p className={columnTitle}>Company</p>
-            <ul className="flex flex-col gap-2">
-              {mainNav
-                .filter((item) => item.label !== "Services")
-                .map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className={footerLink}>
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
+            <div className={columnLinks}>
+              <Link href="/about/" className={footerLink}>About</Link>
+              <Link href="/pricing/" className={footerLink}>Pricing</Link>
+              <Link href="/resources/" className={footerLink}>Resources</Link>
+              <Link href="/#faq" className={footerLink}>FAQ</Link>
+              <Link href="/contact/" className={footerLink}>Contact</Link>
+              <a href="/sitemap.xml" className={footerLink}>Site map</a>
+            </div>
           </div>
 
           <div>
             <p className={columnTitle}>Contact</p>
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href={`mailto:${site.contact.email}`} className={footerLink}>
-                  {site.contact.email}
-                </a>
-              </li>
+            <div className={columnLinks}>
+              <a href={`mailto:${site.contact.email}`} className={footerLink}>
+                {site.contact.email}
+              </a>
               {site.contact.phone && (
-                <li>
-                  <a href={telHref(site.contact.phone)} className={footerLink}>
-                    {site.contact.phone}
-                  </a>
-                </li>
+                <a href={telHref(site.contact.phone)} className={footerLink}>
+                  {site.contact.phone}
+                </a>
               )}
-              <li>{site.contact.location}</li>
-            </ul>
+              {site.contact.mailingAddress && <span>{site.contact.mailingAddress}</span>}
+              <span>
+                {site.contact.location}
+                {site.contact.linkedin && (
+                  <>
+                    {" · "}
+                    <a href={site.contact.linkedin} className="text-body underline">
+                      LinkedIn
+                    </a>
+                  </>
+                )}
+              </span>
+            </div>
           </div>
         </div>
 
-        <p className="py-5 text-muted">
-          © {year} {site.legalName}. All rights reserved.
-        </p>
-      </Container>
+        <div className="pt-6 pb-8">
+          {/* Privacy, Terms and Accessibility pages are pending client copy. */}
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-muted">
+            <span>Privacy Policy</span>
+            <span>Terms of Use</span>
+            <a href="#disclosures" className={legalLink}>Disclosures</a>
+            <span>Accessibility</span>
+          </div>
+          <p id="disclosures" className="disclosure mt-4 max-w-[880px]">
+            {disclosure}
+          </p>
+          <p className="disclosure mt-3">
+            © 2026 {site.legalName}. Veteran-owned. Founded by a disabled veteran.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

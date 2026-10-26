@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Government Consulting & Capture Support`,
+    default: `${site.name} | Government Contract Accounting & Compliance Advisory`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-dvh flex-col">
         <SkipLink />
         <Header />
-        <main id="main" className="flex-1">
+        <main id="main" className="flex-1 scroll-mt-24">
           {children}
         </main>
         <Footer />
