@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { resourceLinks, site, telHref } from "@/config/site";
@@ -23,6 +23,9 @@ export function Header() {
   const [menu, setMenu] = useState(false);
   const [ms, setMs] = useState(true);
   const [mr, setMr] = useState(false);
+  // Refs, not state: hover and click fire back to back, before React re-renders the handlers.
+  const hoverOpenedAt = useRef(0);
+  const current = useRef<Menu>(null);
 
   // Close everything on navigation (adjusting state during render, keyed on the path).
   const [lastPath, setLastPath] = useState(pathname);
@@ -31,11 +34,15 @@ export function Header() {
     setOpen(null);
     setMenu(false);
   }
+  useEffect(() => {
+    current.current = null;
+  }, [pathname]);
 
   useEffect(() => {
     if (!open && !menu) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        current.current = null;
         setOpen(null);
         setMenu(false);
       }
@@ -48,7 +55,20 @@ export function Header() {
     document.body.style.overflow = menu ? "hidden" : "";
   }, [menu]);
 
-  const toggle = (m: Exclude<Menu, null>) => setOpen((cur) => (cur === m ? null : m));
+  // Hovering opens a menu a moment before the click lands. A click right after that hover-open
+  // keeps the menu open instead of toggling it shut; later clicks toggle normally.
+  const show = (m: Menu) => {
+    current.current = m;
+    setOpen(m);
+  };
+  const hover = (m: Menu) => {
+    if (m && m !== current.current) hoverOpenedAt.current = Date.now();
+    show(m);
+  };
+  const toggle = (m: Exclude<Menu, null>) => {
+    if (current.current === m && Date.now() - hoverOpenedAt.current < 500) return;
+    show(current.current === m ? null : m);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-surface">
@@ -79,29 +99,26 @@ export function Header() {
         </div>
       </div>
 
-      <div className="relative border-b border-ink">
+      {/* Close on leaving the whole bar + panel, so the diagonal move from the nav to a menu item keeps it open. */}
+      <div className="relative border-b border-ink" onMouseLeave={() => show(null)}>
         <div className="mx-auto flex h-[58px] max-w-content items-center justify-between gap-6 px-[clamp(20px,3vw,40px)] min-[900px]:h-16">
           <Logo />
 
-          <nav
-            aria-label="Main"
-            className="hidden items-center gap-7 text-sm font-medium min-[900px]:flex"
-            onMouseLeave={() => setOpen(null)}
-          >
+          <nav aria-label="Main" className="hidden items-center gap-7 self-stretch text-sm font-medium min-[900px]:flex">
             <button
               type="button"
               aria-expanded={open === "s"}
               aria-controls="menu-services"
               onClick={() => toggle("s")}
-              onMouseEnter={() => setOpen("s")}
+              onMouseEnter={() => hover("s")}
               className="flex cursor-pointer items-center gap-1 text-ink"
             >
               Services <span className="text-[10px]" aria-hidden>▾</span>
             </button>
-            <Link href="/pricing/" className={navLink} onMouseEnter={() => setOpen(null)}>
+            <Link href="/pricing/" className={navLink} onMouseEnter={() => hover(null)}>
               Pricing
             </Link>
-            <Link href="/about/" className={navLink} onMouseEnter={() => setOpen(null)}>
+            <Link href="/about/" className={navLink} onMouseEnter={() => hover(null)}>
               About
             </Link>
             <button
@@ -109,15 +126,15 @@ export function Header() {
               aria-expanded={open === "r"}
               aria-controls="menu-resources"
               onClick={() => toggle("r")}
-              onMouseEnter={() => setOpen("r")}
+              onMouseEnter={() => hover("r")}
               className="flex cursor-pointer items-center gap-1 text-ink"
             >
               Resources <span className="text-[10px]" aria-hidden>▾</span>
             </button>
-            <Link href="/contact/" className={navLink} onMouseEnter={() => setOpen(null)}>
+            <Link href="/contact/" className={navLink} onMouseEnter={() => hover(null)}>
               Contact
             </Link>
-            <span onMouseEnter={() => setOpen(null)}>
+            <span onMouseEnter={() => hover(null)}>
               <Button href="/contact/" variant="graphite" className="!h-10 !px-[18px]">
                 Book a consult
               </Button>
