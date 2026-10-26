@@ -43,7 +43,7 @@
   html {
     scroll-behavior: smooth;
     /* Anchor links land below the sticky header. */
-    scroll-padding-top: 80px;
+    scroll-padding-top: 110px;
   }
 
   body {
@@ -76,8 +76,66 @@
 }
 
 @layer components {
-  /* Mono uppercase label above headings (Guide §2 "Eyebrow"). */
+  /* Mono uppercase label (eyebrows, flags, card headers). */
   .eyebrow {
-    @apply font-mono text-[11px] font-medium tracking-[0.14em] uppercase md:text-xs;
+    @apply font-mono text-xs font-medium tracking-[0.14em] uppercase;
+  }
+
+  /* Section shell: fluid vertical padding + side gutter. */
+  .band {
+    padding: clamp(36px, 5vw, 56px) clamp(20px, 3vw, 40px);
+  }
+  /* Inner-page hero: bone ground, graphite bottom rule. */
+  .hero-inner {
+    @apply border-b border-ink bg-surface;
+    padding: clamp(32px, 4vw, 48px) clamp(20px, 3vw, 40px) clamp(36px, 5vw, 56px);
+  }
+
+  .h1 {
+    @apply font-semibold text-ink;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: pretty;
+  }
+  .h1-home {
+    font-size: clamp(32px, 4.2vw, 50px);
+  }
+  .h2 {
+    @apply font-semibold text-ink;
+    font-size: clamp(24px, 2.6vw, 30px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    @apply max-w-lead;
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+  .disclosure {
+    @apply text-[13px] leading-[1.55] text-muted;
+  }
+  .numeral {
+    @apply font-mono text-[13px] font-medium text-accent;
+  }
+  .badge {
+    @apply rounded-sm bg-accent-soft px-[7px] py-[3px] font-mono text-[10.5px] font-medium tracking-[0.1em] whitespace-nowrap text-accent uppercase;
+  }
+  .card {
+    @apply rounded-sm border border-line bg-surface-raised;
+  }
+}
+
+/* The footer drops its graphite top rule when a graphite CTA band sits directly above it. */
+main:has(> .cta-band:last-child) + footer {
+  border-top-width: 0;
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
   }
 }
