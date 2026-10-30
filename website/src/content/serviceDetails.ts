@@ -27,7 +27,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     eyebrow: "SF 1408 · Pre-award accounting system survey",
     h1: "Pre-award survey requested? Here is what DCAA will check.",
     lead: "When a contracting officer requests an SF 1408 review, the auditor evaluates whether your accounting system is designed to handle a cost-type contract. We check the same criteria first.",
-    chips: ["24 yrs federal contract audit", "20 yrs DCAA", "Starting at [$2,750]", "Reply within one business day"],
+    chips: ["24 yrs federal contract audit", "20 yrs DCAA", "Starting at $3,125", "Reply within one business day"],
     fits: [
       "You are bidding your first cost-type contract and the solicitation says the accounting system will be reviewed before award.",
       "A contracting officer or DCAA has already requested the survey and given you a date.",
@@ -74,7 +74,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     tier: {
       title: "SF 1408 readiness review",
-      price: "[$2,750]",
+      price: "$3,125",
       forLine: "For first-time cost-type bidders with an existing accounting system.",
       items: [
         "Criteria gap matrix against SF 1408 Section II",

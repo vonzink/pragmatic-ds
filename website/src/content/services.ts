@@ -1,6 +1,6 @@
 /**
  * The six services. Shared by the header menu, home rows, footer and service pages.
- * Bracketed values are client placeholders: keep the brackets until real values are supplied.
+ * Prices are the minimums set by the founder.
  */
 export type Service = {
   num: string;
@@ -24,7 +24,7 @@ export const services: Service[] = [
     blurb:
       "A contracting officer has asked for a pre-award accounting system survey. We check your system against the same criteria the auditor will use and tell you exactly what to fix.",
     items: ["Criteria gap matrix", "Corrective action plan", "Mock survey walkthrough"],
-    price: "Starting at [$2,750]",
+    price: "Starting at $3,125",
   },
   {
     num: "02",
@@ -44,7 +44,7 @@ export const services: Service[] = [
     blurb:
       "Due six months after your fiscal year end. We prepare the schedules, reconcile them, and get the package ready for the ICE model.",
     items: ["Schedule preparation", "Reconciliation", "Adequacy review"],
-    price: "Starting at [$4,500]",
+    price: "Starting at $5,000",
   },
   {
     num: "04",
@@ -53,7 +53,7 @@ export const services: Service[] = [
     short: "Pools, bases and a written methodology.",
     blurb: "Pools, bases and a written methodology you can defend in a rate review.",
     items: ["Pool and base design", "Rate calculation", "Written methodology"],
-    price: "Starting at [$3,250]",
+    price: "Starting at $3,750",
   },
   {
     num: "05",
@@ -63,7 +63,7 @@ export const services: Service[] = [
     blurb:
       "DFARS 252.242-7006 reviews and remediation plans for contractors who already hold cost-type work.",
     items: ["Criteria review", "Findings", "Remediation plan"],
-    price: "Starting at [$4,000]",
+    price: "Starting at $4,250",
   },
   {
     num: "06",
@@ -72,7 +72,7 @@ export const services: Service[] = [
     short: "Policy assessment, control testing, training.",
     blurb: "The control DCAA tests first. Policy assessment, control testing and employee training.",
     items: ["Policy assessment", "Control testing", "Training session"],
-    price: "Starting at [$1,500]",
+    price: "Starting at $1,500",
   },
 ];
 

@@ -12,33 +12,33 @@ export const metadata: Metadata = {
 const tiers = [
   {
     title: "SF 1408 readiness review",
-    price: "[$2,750]",
+    price: "$3,125",
     forLine: "For first-time cost-type bidders with an existing accounting system.",
     items: ["Criteria gap matrix", "Mock survey walkthrough", "Written gap report", "Corrective action plan and re-check"],
   },
   {
     title: "Indirect rate structure",
     badge: "Most common",
-    price: "[$3,250]",
+    price: "$3,750",
     forLine: "For contractors who need pools, bases and a methodology they can defend.",
     items: ["Pool and base design", "Rate calculation on current-year data", "Written methodology", "Provisional billing rate support"],
   },
   {
     title: "Post-award system review",
-    price: "[$4,000]",
+    price: "$4,250",
     forLine: "For contractors who already hold cost-type work.",
     items: ["DFARS 252.242-7006 criteria review", "Findings ranked by severity", "Remediation plan", "Re-check after remediation"],
   },
 ];
 
 const fees = [
-  ["SF 1408 pre-award readiness", "Starting at [$2,750]", "Gap matrix, mock survey, gap report, corrective action plan, one re-check."],
+  ["SF 1408 pre-award readiness", "Starting at $3,125", "Gap matrix, mock survey, gap report, corrective action plan, one re-check."],
   ["DCAA / DCMA audit support", "Scoped individually", "Notice triage, document map and response support through close-out of the audit."],
-  ["Incurred cost submissions", "Starting at [$4,500]", "Schedules prepared and reconciled, adequacy review, package ready for the ICE model."],
-  ["Indirect cost rates", "Starting at [$3,250]", "Pool and base design, rate calculation, written methodology."],
-  ["Post-award accounting systems", "Starting at [$4,000]", "DFARS 252.242-7006 review, findings, remediation plan."],
-  ["Labor and timekeeping", "Starting at [$1,500]", "Policy assessment, control testing, one employee training session."],
-  ["Monthly compliance advisory", "From [$750]/month", "Standing advisory time, quarterly rate check, first call on any notice."],
+  ["Incurred cost submissions", "Starting at $5,000", "Schedules prepared and reconciled, adequacy review, package ready for the ICE model."],
+  ["Indirect cost rates", "Starting at $3,750", "Pool and base design, rate calculation, written methodology."],
+  ["Post-award accounting systems", "Starting at $4,250", "DFARS 252.242-7006 review, findings, remediation plan."],
+  ["Labor and timekeeping", "Starting at $1,500", "Policy assessment, control testing, one employee training session."],
+  ["Monthly compliance advisory", "From $800/month", "Standing advisory time, quarterly rate check, first call on any notice."],
 ];
 
 const commitments = [
