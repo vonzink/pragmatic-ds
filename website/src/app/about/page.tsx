@@ -20,16 +20,15 @@ const glance = [
 ];
 
 const timeline = [
-  ["1990–1991", "U.S. Army", "Combat service during Desert Storm."],
-  ["[YYYY]", "B.S. Public Accounting, Mesa State College", "Later licensed as a CPA in Colorado."],
+  ["2001", "B.S. Public Accounting, Mesa State College", "Later licensed as a CPA in Colorado."],
   [
-    "[YYYY–YYYY]",
+    "2001–2021",
     "DCAA, Denver",
     "Auditor → Incurred Cost Technical Specialist → Supervisory Auditor → GAGAS QA Auditor. Audit tours in Iraq and Afghanistan for DCAA and the State Department.",
   ],
-  ["[YYYY–YYYY]", "VA Office of Inspector General", "GAGAS quality assurance and policy auditor."],
-  ["[YYYY–YYYY]", "Department of Energy OIG", "Incurred Cost Audit Division."],
-  ["[YYYY]", "Founded Pragmatic Defense Solutions", "Advisory services for small and midsize federal contractors."],
+  ["2021–2023", "VA Office of Inspector General", "GAGAS quality assurance and policy auditor."],
+  ["2023–2025", "Department of Energy OIG", "Incurred Cost Audit Division."],
+  ["2026", "Founded Pragmatic Defense Solutions", "Advisory services for small and midsize federal contractors."],
 ];
 
 const dos = [
@@ -114,7 +113,6 @@ export default function AboutPage() {
             </div>
             <p className="disclosure mt-3.5">
               Roles and years are stated for background. Past government employment does not imply agency endorsement.
-              Bracketed dates to be confirmed.
             </p>
           </div>
 
