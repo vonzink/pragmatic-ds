@@ -13,7 +13,7 @@ export const site = {
   contact: {
     email: "info@pragmaticds.com",
     /** Display format, e.g. "(303) 555-0100". Hidden on the site while empty. */
-    phone: "",
+    phone: "(983) 233-4738",
     /** Full company LinkedIn URL. Hidden on the site while empty. */
     linkedin: "",
     /** Hidden on the site while empty. */
